@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "724557629045",
+    "project_id": "tayangin",
+    "storage_bucket": "tayangin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:724557629045:android:58d015ea822a603be65a3c",
+        "android_client_info": {
+          "package_name": "com.example.tayangin_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "724557629045-b19g5jpab2qf8o4fg0ljtef3pdfd8f44.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLuvqxLfixw0jcj-_3BGy6lP8xnp7Xw64"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "724557629045-b19g5jpab2qf8o4fg0ljtef3pdfd8f44.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
