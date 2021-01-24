@@ -1,0 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart' as auth;
+import 'package:tayangin_flutter/models/models.dart';
+import 'package:firebase_core/firebase_core.dart';
+
+part 'firebase_user_extension.dart';
