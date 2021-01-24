@@ -39,6 +39,10 @@ class AuthServices {
       return SignInSignUpResult(message: e.toString().split('] ')[1]);
     }
   }
+
+  static Future<void> signOut() async {
+    await _auth.signOut();
+  }
 }
 
 class SignInSignUpResult {
