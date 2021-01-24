@@ -21,7 +21,22 @@ class AuthServices {
 
       return SignInSignUpResult(user: user);
     } catch (e) {
-      return SignInSignUpResult(message: e.toString());
+      return SignInSignUpResult(message: e.toString().split('] ')[1]);
+    }
+  }
+
+  static Future<SignInSignUpResult> signIn(
+      String email, String password) async {
+    try {
+      // jika signIn berhasil, maka akan ambil data user dari firestore
+      auth.UserCredential result = await _auth.signInWithEmailAndPassword(
+          email: email, password: password);
+
+      User user = await result.user.fromFireStore();
+
+      return SignInSignUpResult(user: user);
+    } catch (e) {
+      return SignInSignUpResult(message: e.toString().split('] ')[1]);
     }
   }
 }
