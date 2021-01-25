@@ -1,6 +1,6 @@
 part of 'models.dart';
 
-class User extends Equatable {
+class UserApp extends Equatable {
   final String id;
   final String email;
   final String name;
@@ -9,7 +9,7 @@ class User extends Equatable {
   final String selectedLanguage;
   final int balance;
 
-  User(this.id, this.email,
+  UserApp(this.id, this.email,
       {this.name,
       this.profilePicture,
       this.selectedGenres,

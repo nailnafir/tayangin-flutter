@@ -2,9 +2,9 @@ part of 'services.dart';
 
 class UserServices {
   static CollectionReference _userCollection =
-      FirebaseFirestore.instance.collection('users');
+      Firestore.instance.collection('users');
 
-  static Future<void> updateUser(User user) async {
+  static Future<void> updateUser(UserApp user) async {
     // // jika ingin dipecahkan list menjadi satu kesatuan string
     // String genres = "";
 
@@ -13,7 +13,7 @@ class UserServices {
     // }
 
     // simpan ke firestore
-    _userCollection.doc(user.id).set({
+    _userCollection.document(user.id).setData({
       'email': user.email,
       'name': user.name,
       'balance': user.balance,
@@ -23,16 +23,16 @@ class UserServices {
     });
   }
 
-  static Future<User> getUser(String id) async {
-    DocumentSnapshot snapshot = await _userCollection.doc(id).get();
+  static Future<UserApp> getUser(String id) async {
+    DocumentSnapshot snapshot = await _userCollection.document(id).get();
 
-    return User(id, snapshot.data()['email'],
-        balance: snapshot.data()['balance'],
-        profilePicture: snapshot.data()['profilePicture'],
-        selectedGenres: (snapshot.data()['selectedGenres'] as List)
+    return UserApp(id, snapshot.data['email'],
+        balance: snapshot.data['balance'],
+        profilePicture: snapshot.data['profilePicture'],
+        selectedGenres: (snapshot.data['selectedGenres'] as List)
             .map((e) => e.toString())
             .toList(),
-        selectedLanguage: snapshot.data()['selectedLanguage'],
-        name: snapshot.data()['name']);
+        selectedLanguage: snapshot.data['selectedLanguage'],
+        name: snapshot.data['name']);
   }
 }

@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:tayangin_flutter/services/services.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  // WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp();
   runApp(MyApp());
 }
 
