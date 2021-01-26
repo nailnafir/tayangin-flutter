@@ -43,6 +43,9 @@ class AuthServices {
   static Future<void> signOut() async {
     await _auth.signOut();
   }
+
+  // menghubungkan aplikasi dengan authentication firebase
+  static Stream<FirebaseUser> get userStream => _auth.onAuthStateChanged;
 }
 
 class SignInSignUpResult {
