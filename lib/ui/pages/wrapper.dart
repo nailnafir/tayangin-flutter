@@ -19,6 +19,7 @@ class Wrapper extends StatelessWidget {
     } else {
       // mencegah pindah ke page yang sama
       if (!(prevPageEvent is GoToMainPage)) {
+        context.bloc<UserBloc>().add(LoadUser(firebaseUser.uid));
         prevPageEvent = GoToMainPage();
 
         // sudah login
