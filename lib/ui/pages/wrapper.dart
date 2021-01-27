@@ -32,6 +32,6 @@ class Wrapper extends StatelessWidget {
             ? SplashPage()
             : (pageState is OnLoginPage)
                 ? SignInPage()
-                : MainPage);
+                : MainPage());
   }
 }
