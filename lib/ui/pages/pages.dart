@@ -8,6 +8,6 @@ import 'package:tayangin_flutter/shared/shared.dart';
 
 part 'splash_page.dart';
 part 'main_page.dart';
-part '../../bloc/sign_in_page.dart';
+part 'sign_in_page.dart';
 
 part 'wrapper.dart';
