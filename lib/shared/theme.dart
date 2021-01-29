@@ -15,6 +15,8 @@ TextStyle blackTextFont = GoogleFonts.poppins()
     .copyWith(color: Colors.black, fontWeight: FontWeight.w500);
 TextStyle whiteTextFont = GoogleFonts.poppins()
     .copyWith(color: Colors.white, fontWeight: FontWeight.w500);
+TextStyle yellowTextFont = GoogleFonts.poppins()
+    .copyWith(color: mainColorYellow, fontWeight: FontWeight.w500);
 
 TextStyle yellowNumberFont =
     GoogleFonts.poppins().copyWith(color: mainColorYellow);
