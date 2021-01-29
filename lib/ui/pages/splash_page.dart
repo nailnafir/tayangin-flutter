@@ -16,7 +16,7 @@ class SplashPage extends StatelessWidget {
                 width: 140,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("assets/logo_tayangin.png"),
+                    image: AssetImage("assets/logo_tayangin_yellow.png"),
                   ),
                 ),
               ),
@@ -53,7 +53,7 @@ class SplashPage extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     "Sudah punya akun? ",
-                    style: whiteTextFont.copyWith(fontSize: 14),
+                    style: whiteTextFont.copyWith(fontWeight: FontWeight.w400),
                   ),
                   GestureDetector(
                     onTap: () {
@@ -61,7 +61,8 @@ class SplashPage extends StatelessWidget {
                     },
                     child: Text(
                       "Masuk disini",
-                      style: yellowTextFont,
+                      style:
+                          yellowTextFont.copyWith(fontWeight: FontWeight.w400),
                     ),
                   )
                 ],
