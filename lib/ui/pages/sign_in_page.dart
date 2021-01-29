@@ -15,6 +15,10 @@ class _SignInPageState extends State<SignInPage> {
 
   @override
   Widget build(BuildContext context) {
+    context
+        .bloc<ThemeBloc>()
+        .add(ChangeTheme(ThemeData().copyWith(primaryColor: mainColorYellow)));
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Container(
