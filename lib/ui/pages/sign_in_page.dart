@@ -42,6 +42,11 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                   ),
                   TextField(
+                    onChanged: (text) {
+                      setState(() {
+                        isEmailValid = EmailValidator.validate(text);
+                      });
+                    },
                     controller: emailController,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
@@ -50,6 +55,11 @@ class _SignInPageState extends State<SignInPage> {
                   ),
                   SizedBox(height: 20),
                   TextField(
+                    onChanged: (text) {
+                      setState(() {
+                        isPasswordValid = text.length >= 6;
+                      });
+                    },
                     controller: passwordController,
                     obscureText: true,
                     decoration: InputDecoration(
@@ -73,13 +83,44 @@ class _SignInPageState extends State<SignInPage> {
                       width: 250,
                       height: 50,
                       margin: EdgeInsets.only(top: 50, bottom: 20),
-                      child: RaisedButton(
-                          child: Text("Masuk",
-                              style: whiteTextFont.copyWith(fontSize: 16)),
-                          color: mainColorBlue,
-                          onPressed: () {},
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8))),
+                      child: isSigningIn
+                          ? SpinKitThreeBounce(color: mainColorBlue)
+                          : FloatingActionButton(
+                              child: Text("Masuk",
+                                  style: isEmailValid && isPasswordValid
+                                      ? whiteTextFont.copyWith(fontSize: 16)
+                                      : grayTextFont.copyWith(fontSize: 16)),
+                              backgroundColor: isEmailValid && isPasswordValid
+                                  ? mainColorBlue
+                                  : accentColorLightGray,
+                              elevation: 2,
+                              onPressed: isEmailValid && isPasswordValid
+                                  ? () async {
+                                      setState(() {
+                                        isSigningIn = true;
+                                      });
+                                      SignInSignUpResult result =
+                                          await AuthServices.signIn(
+                                              emailController.text,
+                                              passwordController.text);
+
+                                      if (result.user == null) {
+                                        setState(() {
+                                          isSigningIn = false;
+                                        });
+
+                                        Flushbar(
+                                          duration: Duration(seconds: 5),
+                                          flushbarPosition:
+                                              FlushbarPosition.TOP,
+                                          backgroundColor: accentColorRed,
+                                          message: result.message,
+                                        ).show(context);
+                                      }
+                                    }
+                                  : null,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8))),
                     ),
                   ),
                   Row(
