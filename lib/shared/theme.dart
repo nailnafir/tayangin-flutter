@@ -9,6 +9,7 @@ Color accentColorBlue2 = Color(0xFF52519D);
 Color accentColorDarkGray = Color(0xFFADADAD);
 Color accentColorLightGray = Color(0xFFE3E3E3);
 Color accentColorRed = Color(0xFFF12153);
+Color accentColorYellow = Color(0xFFFFF3DE);
 Color accentColorGreen = Color(0xFF00AB1B);
 
 TextStyle blackTextFont = GoogleFonts.poppins()
