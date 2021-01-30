@@ -6,6 +6,17 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  int bottomNavbarIndex;
+  PageController pageController;
+
+  @override
+  void initState() {
+    super.initState();
+
+    bottomNavbarIndex = 0;
+    pageController = PageController(initialPage: bottomNavbarIndex);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +25,22 @@ class _MainPageState extends State<MainPage> {
         children: <Widget>[
           Container(color: accentColorBlue1),
           SafeArea(child: Container(color: Colors.white)),
-          ListView(),
+          PageView(
+            controller: pageController,
+            onPageChanged: (index) {
+              setState(() {
+                bottomNavbarIndex = index;
+              });
+            },
+            children: <Widget>[
+              Center(
+                child: Text("Koleksi Film"),
+              ),
+              Center(
+                child: Text("Tiket Saya"),
+              )
+            ],
+          ),
           createCustomBottomNavbar(),
           Align(
             alignment: Alignment.bottomCenter,
@@ -26,11 +52,12 @@ class _MainPageState extends State<MainPage> {
                 elevation: 0,
                 backgroundColor: mainColorYellow,
                 child: SizedBox(
-                  height: 26,
-                  width: 26,
+                  height: 24,
+                  width: 24,
                   child: Icon(
                     MdiIcons.walletPlus,
-                    color: Colors.black.withOpacity(0.54),
+                    color: Colors.black.withOpacity(0.55),
+                    size: 24,
                   ),
                 ),
                 onPressed: () {},
@@ -54,6 +81,51 @@ class _MainPageState extends State<MainPage> {
                 topLeft: Radius.circular(30),
                 topRight: Radius.circular(30),
               ),
+            ),
+            child: BottomNavigationBar(
+              elevation: 0,
+              backgroundColor: Colors.transparent,
+              selectedItemColor: mainColorBlue,
+              unselectedItemColor: accentColorLightGray,
+              currentIndex: bottomNavbarIndex,
+              onTap: (index) {
+                setState(() {
+                  bottomNavbarIndex = index;
+                  pageController.jumpToPage(index);
+                });
+              },
+              items: [
+                BottomNavigationBarItem(
+                  title: Text(
+                    "Koleksi Film",
+                    style: GoogleFonts.poppins(
+                        fontSize: 12, fontWeight: FontWeight.w600),
+                  ),
+                  icon: Container(
+                    margin: EdgeInsets.only(bottom: 4),
+                    height: 24,
+                    width: 24,
+                    child: SvgPicture.asset((bottomNavbarIndex == 0)
+                        ? "assets/icon_movies_colored.svg"
+                        : "assets/icon_movies_gray.svg"),
+                  ),
+                ),
+                BottomNavigationBarItem(
+                  title: Text(
+                    "Tiket Saya",
+                    style: GoogleFonts.poppins(
+                        fontSize: 12, fontWeight: FontWeight.w600),
+                  ),
+                  icon: Container(
+                    margin: EdgeInsets.only(bottom: 4),
+                    height: 24,
+                    width: 24,
+                    child: SvgPicture.asset((bottomNavbarIndex == 1)
+                        ? "assets/icon_my_ticket_colored.svg"
+                        : "assets/icon_my_ticket_gray.svg"),
+                  ),
+                ),
+              ],
             ),
           ),
         ),
