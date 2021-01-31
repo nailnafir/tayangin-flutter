@@ -33,9 +33,7 @@ class _MainPageState extends State<MainPage> {
               });
             },
             children: <Widget>[
-              Center(
-                child: Text("Koleksi Film"),
-              ),
+              MoviePage(),
               Center(
                 child: Text("Tiket Saya"),
               )
