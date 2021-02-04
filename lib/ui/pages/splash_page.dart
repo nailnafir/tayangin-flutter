@@ -42,7 +42,11 @@ class SplashPage extends StatelessWidget {
                   child: Text("Mulai",
                       style: blackTextFont.copyWith(fontSize: 16)),
                   color: mainColorYellow,
-                  onPressed: () {},
+                  onPressed: () {
+                    context
+                        .bloc<PageBloc>()
+                        .add(GoToRegistrationPage(RegistrationData()));
+                  },
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
