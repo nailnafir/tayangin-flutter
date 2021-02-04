@@ -58,7 +58,10 @@ class _MainPageState extends State<MainPage> {
                     size: 24,
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  context.bloc<UserBloc>().add(SignOut());
+                  AuthServices.signOut();
+                },
               ),
             ),
           ),
