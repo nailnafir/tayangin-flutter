@@ -77,19 +77,27 @@ class _SignUpPageState extends State<SignUpPage> {
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             image: DecorationImage(
-                              image: (widget.registrationData.profileImage ==
-                                      null)
-                                  ? AssetImage("assets/user_pic_default.png")
-                                  : FileImage(
-                                      widget.registrationData.profileImage),
-                            ),
+                                image: (widget.registrationData.profileImage ==
+                                        null)
+                                    ? AssetImage("assets/user_pic_default.png")
+                                    : FileImage(
+                                        widget.registrationData.profileImage),
+                                fit: BoxFit.cover),
                           ),
                         ),
                         Align(
                           alignment: Alignment.bottomCenter,
                           child: GestureDetector(
-                            onTap: () {
-                              // TODO: Ambil foto dari galeri
+                            onTap: () async {
+                              if (widget.registrationData.profileImage ==
+                                  null) {
+                                widget.registrationData.profileImage =
+                                    await getImage();
+                              } else {
+                                widget.registrationData.profileImage = null;
+                              }
+
+                              setState(() {});
                             },
                             child: Container(
                               height: 28,
