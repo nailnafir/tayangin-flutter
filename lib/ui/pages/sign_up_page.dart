@@ -159,7 +159,52 @@ class _SignUpPageState extends State<SignUpPage> {
                         child: Text("Lanjutkan",
                             style: whiteTextFont.copyWith(
                                 fontSize: 16, fontWeight: FontWeight.w500)),
-                        onPressed: () {},
+                        onPressed: () {
+                          if (!(nameController.text.trim() != "" &&
+                              emailController.text.trim() != "" &&
+                              passwordController.text.trim() != "" &&
+                              retypePasswordController.text.trim() != "")) {
+                            Flushbar(
+                                    duration: Duration(milliseconds: 3000),
+                                    flushbarPosition: FlushbarPosition.TOP,
+                                    backgroundColor: accentColorRed,
+                                    message: "Harap isi semua data")
+                                .show(context);
+                          } else if (passwordController.text !=
+                              retypePasswordController.text) {
+                            Flushbar(
+                                    duration: Duration(milliseconds: 3000),
+                                    flushbarPosition: FlushbarPosition.TOP,
+                                    backgroundColor: accentColorRed,
+                                    message:
+                                        "Password yang dimasukkan tidak sama")
+                                .show(context);
+                          } else if (passwordController.text.length < 6) {
+                            Flushbar(
+                                    duration: Duration(milliseconds: 3000),
+                                    flushbarPosition: FlushbarPosition.TOP,
+                                    backgroundColor: accentColorRed,
+                                    message: "Minimal password 6 karakter")
+                                .show(context);
+                          } else if (!EmailValidator.validate(
+                              emailController.text)) {
+                            Flushbar(
+                                    duration: Duration(milliseconds: 3000),
+                                    flushbarPosition: FlushbarPosition.TOP,
+                                    backgroundColor: accentColorRed,
+                                    message:
+                                        "Email yang dimasukkan bukan format email")
+                                .show(context);
+                          } else {
+                            widget.registrationData.name = nameController.text;
+                            widget.registrationData.email =
+                                emailController.text;
+                            widget.registrationData.password =
+                                passwordController.text;
+
+                            //TODO: pindah ke preference page
+                          }
+                        },
                         backgroundColor: mainColorBlue,
                         elevation: 2,
                         shape: RoundedRectangleBorder(
