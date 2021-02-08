@@ -4,9 +4,7 @@ class PreferencePage extends StatefulWidget {
   final List<String> genres = [
     "Action",
     "Comedy",
-    "Crime",
     "Drama",
-    "Fiction",
     "Horror",
     "Music",
     "War",
@@ -76,6 +74,7 @@ class _PreferencePageState extends State<PreferencePage> {
                             "Kesukaan Kamu",
                             style: blackTextFont.copyWith(
                                 fontSize: 20, fontWeight: FontWeight.w500),
+                            textAlign: TextAlign.center,
                           ),
                         )
                       ],
@@ -84,14 +83,25 @@ class _PreferencePageState extends State<PreferencePage> {
                   Text(
                     "Pilih Kategori\nYang Kamu Suka",
                     style: blackTextFont.copyWith(
-                        fontSize: 20, fontWeight: FontWeight.w500),
-                    textAlign: TextAlign.center,
+                        fontSize: 20, fontWeight: FontWeight.w500, height: 1.2),
                   ),
                   SizedBox(height: 18),
                   Wrap(
                     spacing: 24, // jarak horizontal
                     runSpacing: 24, // jarak vertikal
                     children: generateGenreWidgets(context),
+                  ),
+                  SizedBox(height: 30),
+                  Text(
+                    "Kamu Suka Film\nBahasa Apa?",
+                    style: blackTextFont.copyWith(
+                        fontSize: 20, fontWeight: FontWeight.w500, height: 1.2),
+                  ),
+                  SizedBox(height: 18),
+                  Wrap(
+                    spacing: 24,
+                    runSpacing: 24,
+                    children: generateLanguageWidgets(context),
                   )
                 ],
               )
@@ -123,6 +133,32 @@ class _PreferencePageState extends State<PreferencePage> {
               // yang ditap, jadi elemen genre yang dipilih biar nyala ataupun biar mati
               onTap: () {
                 onSelectGenre(e);
+              },
+            ))
+        .toList();
+  }
+
+  List<Widget> generateLanguageWidgets(BuildContext context) {
+    // bagi ukuran widget dengan layar
+    double width =
+        (MediaQuery.of(context).size.width - 2 * defaultMargin - 24) / 2;
+
+    return widget.languages
+        .map((e) => SelectableBox(
+              // elemen dari widget language nya, list of string
+              e,
+
+              // lebar nya sesuai yang diatas tadi
+              width: width,
+
+              // true kalau sama dengan elemen, karena cuma bisa pilih satu
+              isSelected: selectedLanguage == e,
+
+              // kalo ditap, langsung nyala ke yang ditap, cuma bisa pilih satu
+              onTap: () {
+                setState(() {
+                  selectedLanguage = e;
+                });
               },
             ))
         .toList();
