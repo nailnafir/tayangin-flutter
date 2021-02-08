@@ -1,6 +1,24 @@
 part of 'pages.dart';
 
 class PreferencePage extends StatefulWidget {
+  final List<String> genres = [
+    "Action",
+    "Comedy",
+    "Crime",
+    "Drama",
+    "Fiction",
+    "Horror",
+    "Music",
+    "War",
+  ];
+
+  final List<String> languages = [
+    "Bahasa",
+    "English",
+    "Japanese",
+    "Korean",
+  ];
+
   final RegistrationData registrationData;
   PreferencePage(this.registrationData);
 
@@ -9,10 +27,23 @@ class PreferencePage extends StatefulWidget {
 }
 
 class _PreferencePageState extends State<PreferencePage> {
+  // untuk mencatat, list mana yang sudah dipilih
+  List<String> selectedGenres = [];
+
+  // untuk select default pilihan bahasa film ke Inggris
+  String selectedLanguage = "English";
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: () async {},
+      onWillPop: () async {
+        widget.registrationData.password = "";
+
+        context
+            .bloc<PageBloc>()
+            .add(GoToRegistrationPage(widget.registrationData));
+        return;
+      },
       child: Scaffold(
         body: Container(
           color: Colors.white,
@@ -20,6 +51,7 @@ class _PreferencePageState extends State<PreferencePage> {
           child: ListView(
             children: <Widget>[
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Container(
                     margin: EdgeInsets.only(top: 16, bottom: 30),
@@ -29,12 +61,37 @@ class _PreferencePageState extends State<PreferencePage> {
                         Align(
                           alignment: Alignment.centerLeft,
                           child: GestureDetector(
-                              onTap: () {},
-                              child:
-                                  Icon(Icons.arrow_back, color: Colors.black)),
+                            onTap: () {
+                              widget.registrationData.password = "";
+
+                              context.bloc<PageBloc>().add(GoToRegistrationPage(
+                                  widget.registrationData));
+                              return;
+                            },
+                            child: Icon(Icons.arrow_back, color: Colors.black),
+                          ),
+                        ),
+                        Center(
+                          child: Text(
+                            "Kesukaan Kamu",
+                            style: blackTextFont.copyWith(
+                                fontSize: 20, fontWeight: FontWeight.w500),
+                          ),
                         )
                       ],
                     ),
+                  ),
+                  Text(
+                    "Pilih Kategori\nYang Kamu Suka",
+                    style: blackTextFont.copyWith(
+                        fontSize: 20, fontWeight: FontWeight.w500),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: 18),
+                  Wrap(
+                    spacing: 24, // jarak horizontal
+                    runSpacing: 24, // jarak vertikal
+                    children: generateGenreWidgets(context),
                   )
                 ],
               )
@@ -43,5 +100,49 @@ class _PreferencePageState extends State<PreferencePage> {
         ),
       ),
     );
+  }
+
+  List<Widget> generateGenreWidgets(BuildContext context) {
+    // bagi ukuran widget dengan layar
+    double width =
+        (MediaQuery.of(context).size.width - 2 * defaultMargin - 24) / 2;
+
+    // masing-masing element dibuatkan selectable box nya
+    return widget.genres
+        .map((e) => SelectableBox(
+              // elemen dari widget genre nya, list of string
+              e,
+
+              // lebar nya sesuai yang diatas tadi
+              width: width,
+
+              // kalau di dalam selected genre ini ada elemen yang nilainya sama dengan e
+              // kalau ternyata di selected genre ada action, actionnya itu true, nyala.
+              isSelected: selectedGenres.contains(e),
+
+              // yang ditap, jadi elemen genre yang dipilih biar nyala ataupun biar mati
+              onTap: () {
+                onSelectGenre(e);
+              },
+            ))
+        .toList();
+  }
+
+  void onSelectGenre(String genre) {
+    // jika di dalam selected genre ternyata sudah ada genrenya yang ditap, bererti dihapus
+    if (selectedGenres.contains(genre)) {
+      setState(() {
+        selectedGenres.remove(genre);
+      });
+
+      // ternyata belum dipilih
+    } else {
+      // maksimal 4
+      if (selectedGenres.length < 4) {
+        setState(() {
+          selectedGenres.add(genre);
+        });
+      }
+    }
   }
 }
