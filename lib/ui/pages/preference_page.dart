@@ -102,7 +102,46 @@ class _PreferencePageState extends State<PreferencePage> {
                     spacing: 24,
                     runSpacing: 24,
                     children: generateLanguageWidgets(context),
-                  )
+                  ),
+                  SizedBox(height: 30),
+                  Center(
+                    child: Container(
+                      width: 250,
+                      height: 50,
+                      child: FloatingActionButton(
+                        child: Text(
+                          "Lanjutkan",
+                          style: whiteTextFont.copyWith(
+                              fontSize: 16, fontWeight: FontWeight.w500),
+                        ),
+                        onPressed: () {
+                          if (selectedGenres.length != 4) {
+                            Flushbar(
+                                    duration: Duration(milliseconds: 3000),
+                                    flushbarPosition: FlushbarPosition.TOP,
+                                    backgroundColor: accentColorRed,
+                                    message: "Harap pilih 4 genre")
+                                .show(context);
+                          } else {
+                            widget.registrationData.selectedGenres =
+                                selectedGenres;
+                            widget.registrationData.selectedLanguage =
+                                selectedLanguage;
+
+                            context.bloc<PageBloc>().add(
+                                GoToAccountConfirmationPage(
+                                    widget.registrationData));
+                          }
+                        },
+                        backgroundColor: mainColorBlue,
+                        elevation: 2,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 50),
                 ],
               )
             ],
