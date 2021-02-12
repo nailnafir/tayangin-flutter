@@ -21,7 +21,9 @@ class MoviePage extends StatelessWidget {
                 if (imageFileToUpload != null) {
                   uploadImage(imageFileToUpload).then((downloadURL) {
                     imageFileToUpload = null;
-                    context.bloc<UserBloc>().add(event);
+                    context
+                        .bloc<UserBloc>()
+                        .add(UpdateData(profileImage: downloadURL));
                   });
                 }
 
@@ -58,7 +60,7 @@ class MoviePage extends StatelessWidget {
                       ),
                       child: Stack(
                         children: <Widget>[
-                          SpinKitFadingCircle(color: mainColorBlue, size: 50),
+                          SpinKitFadingCircle(color: mainColorYellow, size: 50),
                           Container(
                             width: 50,
                             height: 50,
@@ -80,7 +82,7 @@ class MoviePage extends StatelessWidget {
                 );
               } else {
                 return SpinKitThreeBounce(
-                  color: mainColorBlue,
+                  color: mainColorYellow,
                   size: 50,
                 );
               }
