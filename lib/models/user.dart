@@ -16,13 +16,20 @@ class UserApp extends Equatable {
       this.selectedLanguage,
       this.balance});
 
+  UserApp copyWith({String name, String profilePicture, int balance}) =>
+      UserApp(this.id, this.email,
+          name: name ?? this.name,
+          profilePicture: profilePicture ?? this.profilePicture,
+          balance: balance ?? this.balance,
+          selectedGenres: selectedGenres,
+          selectedLanguage: selectedLanguage);
+
   @override
   String toString() {
     return "[$id] - $name, $email";
   }
 
   @override
-  // TODO: implement props
   List<Object> get props => [
         id,
         email,
