@@ -16,7 +16,7 @@ class MovieServices {
 
     // jika berhasil
     var data = json.decode(response.body);
-    List result = data['result'];
+    List result = data['results'];
 
     return result.map((e) => Movie.fromJson(e)).toList();
   }
