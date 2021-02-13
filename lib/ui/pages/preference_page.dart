@@ -83,7 +83,7 @@ class _PreferencePageState extends State<PreferencePage> {
                   Text(
                     "Pilih Kategori\nYang Kamu Suka",
                     style: blackTextFont.copyWith(
-                        fontSize: 20, fontWeight: FontWeight.w500, height: 1.2),
+                        fontSize: 18, fontWeight: FontWeight.w500, height: 1.2),
                   ),
                   SizedBox(height: 18),
                   Wrap(
@@ -95,7 +95,7 @@ class _PreferencePageState extends State<PreferencePage> {
                   Text(
                     "Kamu Suka Film\nBahasa Apa?",
                     style: blackTextFont.copyWith(
-                        fontSize: 20, fontWeight: FontWeight.w500, height: 1.2),
+                        fontSize: 18, fontWeight: FontWeight.w500, height: 1.2),
                   ),
                   SizedBox(height: 18),
                   Wrap(

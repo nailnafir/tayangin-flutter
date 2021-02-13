@@ -87,7 +87,11 @@ class MoviePage extends StatelessWidget {
               }
             },
           ),
-        )
+        ),
+        SizedBox(height: 30),
+        Text("Sedang Tayang",
+            style: blackTextFont.copyWith(
+                fontSize: 18, fontWeight: FontWeight.w500)),
       ],
     );
   }
