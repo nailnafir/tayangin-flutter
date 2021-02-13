@@ -18,6 +18,7 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
   ) async* {
     if (event is FetchMovies) {
       List<Movie> movies = await MovieServices.getMovies(1);
+      yield MovieLoaded(movies: movies);
     }
   }
 }
