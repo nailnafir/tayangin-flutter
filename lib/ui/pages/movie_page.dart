@@ -26,7 +26,6 @@ class MoviePage extends StatelessWidget {
                         .add(UpdateData(profileImage: downloadURL));
                   });
                 }
-
                 return Row(
                   children: <Widget>[
                     Column(
