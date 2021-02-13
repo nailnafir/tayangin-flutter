@@ -88,10 +88,33 @@ class MoviePage extends StatelessWidget {
             },
           ),
         ),
-        SizedBox(height: 30),
-        Text("Sedang Tayang",
-            style: blackTextFont.copyWith(
-                fontSize: 18, fontWeight: FontWeight.w500)),
+        Container(
+          margin: EdgeInsets.fromLTRB(defaultMargin, 30, defaultMargin, 12),
+          child: Text("Sedang Tayang",
+              style: blackTextFont.copyWith(
+                  fontSize: 18, fontWeight: FontWeight.w500)),
+        ),
+        SizedBox(
+          height: 120,
+          child: BlocBuilder<MovieBloc, MovieState>(builder: (_, movieState) {
+            if (movieState is MovieLoaded) {
+              List<Movie> movies = movieState.movies.sublist(0, 10);
+              return ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: movies.length,
+                itemBuilder: (_, index) => Container(
+                  margin: EdgeInsets.all(5),
+                  child: Text(movies[index].title),
+                ),
+              );
+            } else {
+              return SpinKitThreeBounce(
+                color: mainColorBlue,
+                size: 50,
+              );
+            }
+          }),
+        )
       ],
     );
   }
