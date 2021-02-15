@@ -41,6 +41,76 @@ class PromoCard extends StatelessWidget {
               )
             ],
           ),
+        ),
+        ShaderMask(
+          shaderCallback: (rectangle) {
+            return LinearGradient(
+                begin: Alignment.centerRight,
+                end: Alignment.centerLeft,
+                colors: [
+                  Colors.black.withOpacity(0.3),
+                  Colors.transparent,
+                ]).createShader(Rect.fromLTRB(0, 0, 105, 80));
+          },
+          blendMode: BlendMode.dstIn,
+          child: SizedBox(
+            height: 80,
+            width: 105,
+            child: ClipRRect(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(8),
+                  bottomLeft: Radius.circular(8),
+                ),
+                child: SvgPicture.asset("assets/reflection1.svg")),
+          ),
+        ),
+        Align(
+          alignment: Alignment.topRight,
+          child: ShaderMask(
+            shaderCallback: (rectangle) {
+              return LinearGradient(
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                  colors: [
+                    Colors.black.withOpacity(0.3),
+                    Colors.transparent,
+                  ]).createShader(Rect.fromLTRB(0, 0, 155, 45));
+            },
+            blendMode: BlendMode.dstIn,
+            child: SizedBox(
+              height: 45,
+              width: 155,
+              child: ClipRRect(
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(8),
+                  ),
+                  child: SvgPicture.asset("assets/reflection2.svg")),
+            ),
+          ),
+        ),
+        Align(
+          alignment: Alignment.topRight,
+          child: ShaderMask(
+            shaderCallback: (rectangle) {
+              return LinearGradient(
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                  colors: [
+                    Colors.black.withOpacity(0.35),
+                    Colors.transparent,
+                  ]).createShader(Rect.fromLTRB(0, 0, 135, 25));
+            },
+            blendMode: BlendMode.dstIn,
+            child: SizedBox(
+              height: 25,
+              width: 135,
+              child: ClipRRect(
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(8),
+                  ),
+                  child: SvgPicture.asset("assets/reflection3.svg")),
+            ),
+          ),
         )
       ],
     );
