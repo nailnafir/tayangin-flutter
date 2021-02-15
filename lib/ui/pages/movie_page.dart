@@ -157,7 +157,7 @@ class MoviePage extends StatelessWidget {
                   fontSize: 18, fontWeight: FontWeight.w500)),
         ),
         SizedBox(
-          height: 140,
+          height: 200,
           child: BlocBuilder<MovieBloc, MovieState>(builder: (_, movieState) {
             if (movieState is MovieLoaded) {
               List<Movie> movies = movieState.movies.sublist(10);
