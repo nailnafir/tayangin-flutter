@@ -179,6 +179,23 @@ class MoviePage extends StatelessWidget {
             }
           }),
         ),
+
+        // NOTE: PROMO
+        Container(
+          margin: EdgeInsets.fromLTRB(defaultMargin, 30, defaultMargin, 12),
+          child: Text("Promo Untukmu",
+              style: blackTextFont.copyWith(
+                  fontSize: 18, fontWeight: FontWeight.w500)),
+        ),
+        Column(
+          children: dummyPromo
+              .map((e) => Padding(
+                  padding:
+                      EdgeInsets.fromLTRB(defaultMargin, 0, defaultMargin, 18),
+                  child: PromoCard(e)))
+              .toList(),
+        ),
+        SizedBox(height: 100),
       ],
     );
   }
