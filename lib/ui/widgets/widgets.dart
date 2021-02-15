@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:tayangin_flutter/models/models.dart';
 import 'package:tayangin_flutter/shared/shared.dart';
