@@ -42,7 +42,8 @@ class MovieCard extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               style: whiteTextFont.copyWith(
                   fontSize: 14, fontWeight: FontWeight.w500),
-            )
+            ),
+            RatingStars(voteAverage: movie.voteAverage)
           ],
         ),
       ),

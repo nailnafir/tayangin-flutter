@@ -103,7 +103,9 @@ class MoviePage extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemCount: movies.length,
                 itemBuilder: (_, index) => Container(
-                  margin: EdgeInsets.all(5),
+                  margin: EdgeInsets.only(
+                      left: (index == 0) ? defaultMargin : 0,
+                      right: (index == movies.length - 1) ? defaultMargin : 18),
                   child: MovieCard(movies[index]),
                 ),
               );
