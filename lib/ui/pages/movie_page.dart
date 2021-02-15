@@ -88,6 +88,8 @@ class MoviePage extends StatelessWidget {
             },
           ),
         ),
+
+        //? SEDANG TAYANG
         Container(
           margin: EdgeInsets.fromLTRB(defaultMargin, 30, defaultMargin, 12),
           child: Text("Sedang Tayang",
