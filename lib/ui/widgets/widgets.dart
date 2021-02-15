@@ -6,3 +6,4 @@ import 'package:tayangin_flutter/shared/shared.dart';
 part 'selectable_box.dart';
 part 'movie_card.dart';
 part 'rating_stars.dart';
+part 'browse_button.dart';
