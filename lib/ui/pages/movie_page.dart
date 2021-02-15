@@ -5,7 +5,7 @@ class MoviePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: <Widget>[
-        //? HEADER
+        //NOTE: HEADER
         Container(
           decoration: BoxDecoration(
             color: mainColorBlue,
@@ -89,7 +89,7 @@ class MoviePage extends StatelessWidget {
           ),
         ),
 
-        //? SEDANG TAYANG
+        // note: SEDANG TAYANG
         Container(
           margin: EdgeInsets.fromLTRB(defaultMargin, 30, defaultMargin, 12),
           child: Text("Sedang Tayang",
@@ -118,7 +118,36 @@ class MoviePage extends StatelessWidget {
               );
             }
           }),
-        )
+        ),
+
+        //NOTE: KATEGORI FILM
+        Container(
+          margin: EdgeInsets.fromLTRB(defaultMargin, 30, defaultMargin, 12),
+          child: Text(
+            "Kategori Film",
+            style: blackTextFont.copyWith(
+                fontSize: 18, fontWeight: FontWeight.w500),
+          ),
+        ),
+        BlocBuilder<UserBloc, UserState>(builder: (_, userState) {
+          if (userState is UserLoaded) {
+            return Container(
+              margin: EdgeInsets.symmetric(horizontal: defaultMargin),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: List.generate(
+                    userState.user.selectedGenres.length,
+                    (index) =>
+                        BrowseButton(userState.user.selectedGenres[index])),
+              ),
+            );
+          } else {
+            return SpinKitThreeBounce(
+              color: mainColorBlue,
+              size: 50,
+            );
+          }
+        }),
       ],
     );
   }
