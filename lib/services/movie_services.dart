@@ -18,6 +18,7 @@ class MovieServices {
     var data = json.decode(response.body);
     List result = data['results'];
 
+    // ambil movie dari API json
     return result.map((e) => Movie.fromJson(e)).toList();
   }
 
@@ -51,10 +52,31 @@ class MovieServices {
         break;
     }
 
+    // ambil genre name dari API json
     return MovieDetail(movie,
         language: language,
         genres: genres
             .map((e) => (e as Map<String, dynamic>)['name'].toString())
             .toList());
+  }
+
+  static Future<List<Credit>> getCredits(int movieID,
+      {http.Client client}) async {
+    String url =
+        "https://api.themoviedb.org/3/movie/$movieID/credits?api_key=$apiKey";
+
+    client ??= http.Client();
+
+    var response = await client.get(url);
+    var data = json.decode(response.body);
+
+    // ambil nama cast dari API json, list of map
+    return ((data as Map<String, dynamic>)['cast'] as List)
+        .map((e) => Credit(
+              name: (e as Map<String, dynamic>)['name'],
+              profilePath: (e as Map<String, dynamic>)['profile_path'],
+            ))
+        .take(8)
+        .toList();
   }
 }
