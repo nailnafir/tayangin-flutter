@@ -1,8 +1,8 @@
 part of 'pages.dart';
 
-class MovieDetail extends StatelessWidget {
+class MovieDetailPage extends StatelessWidget {
   final Movie movie;
-  MovieDetail(this.movie);
+  MovieDetailPage(this.movie);
 
   @override
   Widget build(BuildContext context) {
