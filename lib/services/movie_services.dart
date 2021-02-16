@@ -20,4 +20,41 @@ class MovieServices {
 
     return result.map((e) => Movie.fromJson(e)).toList();
   }
+
+  static Future<MovieDetail> getDetails(Movie movie,
+      {http.Client client}) async {
+    String url =
+        "https://api.themoviedb.org/3/movie/${movie.id}?api_key=$apiKey&language=en-US";
+
+    client ??= http.Client();
+
+    var response = await client.get(url);
+    var data = json.decode(response.body);
+
+    // ambil list genre dari API
+    List genres = (data as Map<String, dynamic>)['genres'];
+    String language;
+
+    // ubah bahasa
+    switch ((data as Map<String, dynamic>)['original_language'].toString()) {
+      case 'ja':
+        language = "Japanese";
+        break;
+      case 'id':
+        language = "Indonesian";
+        break;
+      case 'ko':
+        language = "Korean";
+        break;
+      case 'en':
+        language = "English";
+        break;
+    }
+
+    return MovieDetail(movie,
+        language: language,
+        genres: genres
+            .map((e) => (e as Map<String, dynamic>)['name'].toString())
+            .toList());
+  }
 }
