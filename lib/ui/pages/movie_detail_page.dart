@@ -190,7 +190,24 @@ class MovieDetailPage extends StatelessWidget {
                     ),
                     textAlign: TextAlign.justify,
                   ),
-                )
+                ),
+                // NOTE: BUTTON CONTINUE
+                Container(
+                  height: 50,
+                  width: 250,
+                  margin: EdgeInsets.symmetric(horizontal: defaultMargin),
+                  child: RaisedButton(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8)),
+                      color: mainColorBlue,
+                      child: Text(
+                        "Lanjutkan",
+                        style: whiteTextFont.copyWith(
+                            fontSize: 16, fontWeight: FontWeight.w500),
+                      ),
+                      onPressed: () {}),
+                ),
+                SizedBox(height: 30),
               ],
             ),
           ],
