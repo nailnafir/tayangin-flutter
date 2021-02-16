@@ -145,9 +145,21 @@ class MovieDetailPage extends StatelessWidget {
                                       scrollDirection: Axis.horizontal,
                                       itemCount: credits.length,
                                       itemBuilder: (_, index) => Container(
+                                        margin: EdgeInsets.only(
+                                          left:
+                                              (index == 0) ? defaultMargin : 0,
+                                          right: (index == credits.length - 1)
+                                              ? defaultMargin
+                                              : 12,
+                                        ),
                                         child: CreditCard(credits[index]),
                                       ),
                                     ),
+                                  );
+                                } else {
+                                  return SpinKitThreeBounce(
+                                    color: mainColorBlue,
+                                    size: 50,
                                   );
                                 }
                               })

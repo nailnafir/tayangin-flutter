@@ -12,7 +12,6 @@ class CreditCard extends StatelessWidget {
           height: 80,
           width: 70,
           decoration: BoxDecoration(
-            color: mainColorBlue,
             borderRadius: BorderRadius.circular(8),
             image: (credit.profilePath == null)
                 ? null
