@@ -140,11 +140,13 @@ class MovieDetailPage extends StatelessWidget {
                                 if (snapshot.hasData) {
                                   credits = snapshot.data;
                                   return SizedBox(
-                                    height: 80,
+                                    height: 125,
                                     child: ListView.builder(
                                       scrollDirection: Axis.horizontal,
                                       itemCount: credits.length,
-                                      itemBuilder: (_, index) => Container(),
+                                      itemBuilder: (_, index) => Container(
+                                        child: CreditCard(credits[index]),
+                                      ),
                                     ),
                                   );
                                 }
