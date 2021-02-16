@@ -53,7 +53,7 @@ class MovieDetailPage extends StatelessWidget {
                                     ),
                                   ),
                                   Container(
-                                    height: 250,
+                                    height: 252,
                                     decoration: BoxDecoration(
                                       gradient: LinearGradient(
                                         begin: Alignment(0, 1),
@@ -92,7 +92,7 @@ class MovieDetailPage extends StatelessWidget {
                           // NOTE: TITLE
                           Container(
                             margin: EdgeInsets.fromLTRB(
-                                defaultMargin, 12, defaultMargin, 6),
+                                defaultMargin, 8, defaultMargin, 2),
                             child: Text(movie.title,
                                 textAlign: TextAlign.center,
                                 style: blackTextFont.copyWith(
@@ -187,6 +187,7 @@ class MovieDetailPage extends StatelessWidget {
                     style: blackTextFont.copyWith(
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
+                      height: 1.3,
                     ),
                     textAlign: TextAlign.justify,
                   ),
