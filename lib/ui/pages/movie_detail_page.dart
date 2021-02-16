@@ -140,7 +140,7 @@ class MovieDetailPage extends StatelessWidget {
                                 if (snapshot.hasData) {
                                   credits = snapshot.data;
                                   return SizedBox(
-                                    height: 125,
+                                    height: 116,
                                     child: ListView.builder(
                                       scrollDirection: Axis.horizontal,
                                       itemCount: credits.length,
@@ -166,6 +166,31 @@ class MovieDetailPage extends StatelessWidget {
                         ],
                       );
                     }),
+                // NOTE: STORYLINE
+                Container(
+                  margin:
+                      EdgeInsets.fromLTRB(defaultMargin, 30, defaultMargin, 12),
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      "Sinopsis",
+                      style: blackTextFont.copyWith(
+                          fontSize: 18, fontWeight: FontWeight.w500),
+                    ),
+                  ),
+                ),
+                Container(
+                  margin:
+                      EdgeInsets.fromLTRB(defaultMargin, 0, defaultMargin, 30),
+                  child: Text(
+                    movie.overview,
+                    style: blackTextFont.copyWith(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                    ),
+                    textAlign: TextAlign.justify,
+                  ),
+                )
               ],
             ),
           ],
