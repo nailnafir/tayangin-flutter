@@ -8,17 +8,21 @@ class BrowseButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Container(
-          width: 50,
-          height: 50,
-          decoration: BoxDecoration(
-            color: accentColorYellow,
-            borderRadius: BorderRadius.circular(8),
-          ),
-          child: Center(
-            child: SizedBox(
-              height: 30,
-              child: SvgPicture.asset(getImageFromGenre(genre)),
+        Material(
+          elevation: 3,
+          borderRadius: BorderRadius.circular(8),
+          child: Container(
+            width: 50,
+            height: 50,
+            decoration: BoxDecoration(
+              color: accentColorYellow,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Center(
+              child: SizedBox(
+                height: 30,
+                child: SvgPicture.asset(getImageFromGenre(genre)),
+              ),
             ),
           ),
         ),
