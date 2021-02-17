@@ -9,9 +9,16 @@ class MoviePage extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
             color: mainColorBlue,
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.grey,
+                  blurRadius: 3.0,
+                  spreadRadius: 0.5,
+                  offset: Offset(0.0, 3.0))
+            ],
             borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(50),
-              bottomRight: Radius.circular(50),
+              bottomLeft: Radius.circular(35),
+              bottomRight: Radius.circular(35),
             ),
           ),
           padding: EdgeInsets.fromLTRB(defaultMargin, 26, defaultMargin, 26),
