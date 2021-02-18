@@ -92,7 +92,7 @@ class MovieDetailPage extends StatelessWidget {
                           // NOTE: TITLE
                           Container(
                             margin: EdgeInsets.fromLTRB(
-                                defaultMargin, 8, defaultMargin, 2),
+                                defaultMargin, 4, defaultMargin, 2),
                             child: Text(movie.title,
                                 textAlign: TextAlign.center,
                                 style: blackTextFont.copyWith(
@@ -187,6 +187,7 @@ class MovieDetailPage extends StatelessWidget {
                     style: blackTextFont.copyWith(
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
+                      color: Colors.black45,
                       height: 1.3,
                     ),
                     textAlign: TextAlign.justify,
