@@ -3,6 +3,19 @@ part of 'pages.dart';
 class MoviePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    String greeting() {
+      var hour = DateTime.now().hour;
+      if (hour < 9) {
+        return 'Pagi';
+      } else if (hour < 14) {
+        return 'Siang';
+      } else if (hour < 18) {
+        return 'Sore';
+      } else {
+        return 'Malam';
+      }
+    }
+
     return ListView(
       children: <Widget>[
         //NOTE: HEADER
@@ -38,12 +51,15 @@ class MoviePage extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
+                        Text("Selamat " + greeting() + ",",
+                            style: whiteTextFont.copyWith(
+                                fontSize: 12, fontWeight: FontWeight.w400)),
                         SizedBox(
                           // ukuran layar - 2defaultMargin - 2jarak foto - 2ukuran lingkaran - jarak foto dengan tulisan
                           width: MediaQuery.of(context).size.width -
                               2 * defaultMargin -
                               78,
-                          child: Text(userState.user.name,
+                          child: Text(userState.user.name + "!",
                               style: whiteTextFont.copyWith(fontSize: 18),
                               maxLines: 1,
                               overflow: TextOverflow.clip),
