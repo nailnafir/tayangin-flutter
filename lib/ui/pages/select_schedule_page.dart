@@ -38,32 +38,39 @@ class _SelectSchedulePageState extends State<SelectSchedulePage> {
             ListView(
               children: <Widget>[
                 //NOTE: BACK ICON
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(left: defaultMargin, top: 16),
-                      padding: EdgeInsets.all(1),
-                      child: GestureDetector(
-                        onTap: () {
-                          context
-                              .bloc<PageBloc>()
-                              .add(GoToMovieDetailPage(widget.movieDetail));
-                        },
-                        child: Icon(
-                          Icons.arrow_back,
-                          color: Colors.black,
+                Container(
+                  margin: EdgeInsets.only(top: 16, left: defaultMargin),
+                  child: Stack(
+                    children: <Widget>[
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: GestureDetector(
+                          onTap: () {
+                            context
+                                .bloc<PageBloc>()
+                                .add(GoToMovieDetailPage(widget.movieDetail));
+                            return;
+                          },
+                          child: Icon(Icons.arrow_back, color: Colors.black),
                         ),
                       ),
-                    ),
-                  ],
+                      Center(
+                        child: Text(
+                          "Kedatanganmu",
+                          style: blackTextFont.copyWith(
+                              fontSize: 20, fontWeight: FontWeight.w500),
+                          textAlign: TextAlign.center,
+                        ),
+                      )
+                    ],
+                  ),
                 ),
                 //NOTE: CHOOSE DATE
                 Container(
                   margin:
                       EdgeInsets.fromLTRB(defaultMargin, 30, defaultMargin, 12),
                   child: Text(
-                    "Kedatangan Saya",
+                    "Pilih Tanggal",
                     style: blackTextFont.copyWith(
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
