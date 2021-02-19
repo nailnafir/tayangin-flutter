@@ -42,7 +42,7 @@ class DateCard extends StatelessWidget {
             ),
             SizedBox(height: 6),
             Text(
-              (date.day.toString() + date.monthName.toString()),
+              (date.day.toString() + " " + date.monthName.toString()),
               style: blackTextFont.copyWith(
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
