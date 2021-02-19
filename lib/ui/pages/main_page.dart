@@ -23,7 +23,7 @@ class _MainPageState extends State<MainPage> {
       backgroundColor: Colors.white,
       body: Stack(
         children: <Widget>[
-          Container(color: accentColorBlue1),
+          Container(color: mainColorBlue),
           SafeArea(child: Container(color: Colors.white)),
           PageView(
             controller: pageController,
