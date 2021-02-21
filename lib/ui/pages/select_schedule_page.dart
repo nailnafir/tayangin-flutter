@@ -113,20 +113,41 @@ class _SelectSchedulePageState extends State<SelectSchedulePage> {
                     height: 50,
                     width: 250,
                     margin: EdgeInsets.symmetric(horizontal: defaultMargin),
-                    child: RaisedButton(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8)),
-                        color: (isValid) ? mainColorBlue : accentColorLightGray,
-                        elevation: 2,
-                        child: Text(
-                          "Lanjutkan",
-                          style: isValid
-                              ? whiteTextFont.copyWith(
-                                  fontSize: 16, fontWeight: FontWeight.w500)
-                              : grayTextFont.copyWith(
-                                  fontSize: 16, fontWeight: FontWeight.w500),
-                        ),
-                        onPressed: () {}),
+                    child: BlocBuilder<UserBloc, UserState>(
+                      builder: (_, userState) => RaisedButton(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8)),
+                          color:
+                              (isValid) ? mainColorBlue : accentColorLightGray,
+                          elevation: 2,
+                          child: Text(
+                            "Lanjutkan",
+                            style: isValid
+                                ? whiteTextFont.copyWith(
+                                    fontSize: 16, fontWeight: FontWeight.w500)
+                                : grayTextFont.copyWith(
+                                    fontSize: 16, fontWeight: FontWeight.w500),
+                          ),
+                          onPressed: () {
+                            if (isValid) {
+                              context
+                                  .bloc<PageBloc>()
+                                  .add(GoToSelectSeatPage(Ticket(
+                                    widget.movieDetail,
+                                    selectedTheater,
+                                    DateTime(
+                                        selectedDate.year,
+                                        selectedDate.month,
+                                        selectedDate.day,
+                                        selectedTime),
+                                    randomAlphaNumeric(12).toUpperCase(),
+                                    null,
+                                    (userState as UserLoaded).user.name,
+                                    null,
+                                  )));
+                            }
+                          }),
+                    ),
                   ),
                 )
               ],

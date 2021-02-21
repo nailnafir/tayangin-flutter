@@ -11,6 +11,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:random_string/random_string.dart';
 import 'package:tayangin_flutter/bloc/blocs.dart';
 import 'package:tayangin_flutter/models/models.dart';
 import 'package:tayangin_flutter/services/services.dart';
