@@ -9,7 +9,7 @@ class DateCard extends StatelessWidget {
 
   DateCard(this.date,
       {this.isSelected = false,
-      this.width = 80,
+      this.width = 70,
       this.height = 100,
       this.onTap});
 
