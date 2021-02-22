@@ -183,7 +183,8 @@ class _SelectSchedulePageState extends State<SelectSchedulePage> {
                   ),
                   child: SelectableBox(
                     "${schedule[index]}:00",
-                    textStyle: (schedule[index] > DateTime.now().hour)
+                    textStyle: (schedule[index] > DateTime.now().hour ||
+                            selectedDate.day != DateTime.now().day)
                         ? blackTextFont.copyWith(fontSize: 14)
                         : grayTextFont.copyWith(fontSize: 14),
                     height: 50,
