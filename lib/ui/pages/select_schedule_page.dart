@@ -45,7 +45,8 @@ class _SelectSchedulePageState extends State<SelectSchedulePage> {
                   margin: EdgeInsets.only(top: 16, left: defaultMargin),
                   child: Stack(
                     children: <Widget>[
-                      Align(
+                      Container(
+                        padding: EdgeInsets.all(1),
                         alignment: Alignment.centerLeft,
                         child: GestureDetector(
                           onTap: () {

@@ -19,9 +19,42 @@ class _SelectSeatPageState extends State<SelectSeatPage> {
           return;
         },
         child: Scaffold(
-          body: Center(
-            child: Text(widget.ticket.bookingCode),
-          ),
+          body: Stack(children: <Widget>[
+            Container(color: mainColorBlue),
+            SafeArea(child: Container(color: Colors.white)),
+            ListView(
+              children: <Widget>[
+                Column(
+                  children: <Widget>[
+                    //NOTE: HEADER
+                    Container(
+                      margin: EdgeInsets.only(top: 16, left: defaultMargin),
+                      child: Stack(
+                        children: <Widget>[
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: GestureDetector(
+                              onTap: () {},
+                              child:
+                                  Icon(Icons.arrow_back, color: Colors.black),
+                            ),
+                          ),
+                          Center(
+                            child: Text(
+                              "Pilih Bangku",
+                              style: blackTextFont.copyWith(
+                                  fontSize: 20, fontWeight: FontWeight.w500),
+                              textAlign: TextAlign.center,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            )
+          ]),
         ));
   }
 }
