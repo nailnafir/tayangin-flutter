@@ -69,9 +69,9 @@ class _SelectSeatPageState extends State<SelectSeatPage> {
                   ),
                   // NOTE: SEATS
                   generateSeats(),
-                  SizedBox(height: 30),
                   Container(
-                    margin: EdgeInsets.symmetric(horizontal: defaultMargin),
+                    margin: EdgeInsets.fromLTRB(
+                        defaultMargin, 30, defaultMargin, 30),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
@@ -140,6 +140,28 @@ class _SelectSeatPageState extends State<SelectSeatPage> {
                         ),
                       ],
                     ),
+                  ),
+                  //NOTE: NEXT BUTTON
+                  Container(
+                    width: 250,
+                    height: 50,
+                    margin: EdgeInsets.fromLTRB(
+                        defaultMargin, 10, defaultMargin, 30),
+                    child: RaisedButton(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        elevation: 2,
+                        color: selectedSeats.length > 0
+                            ? mainColorBlue
+                            : accentColorLightGray,
+                        child: Text("Lanjutkan",
+                            style: selectedSeats.length > 0
+                                ? whiteTextFont.copyWith(
+                                    fontSize: 16, fontWeight: FontWeight.w500)
+                                : grayTextFont.copyWith(
+                                    fontSize: 16, fontWeight: FontWeight.w500)),
+                        onPressed: () {}),
                   )
                 ],
               )
