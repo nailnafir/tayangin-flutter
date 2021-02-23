@@ -31,10 +31,15 @@ class _SelectSeatPageState extends State<SelectSeatPage> {
                       margin: EdgeInsets.only(top: 16, left: defaultMargin),
                       child: Stack(
                         children: <Widget>[
-                          Align(
+                          Container(
+                            padding: EdgeInsets.all(1),
                             alignment: Alignment.centerLeft,
                             child: GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                context.bloc<PageBloc>().add(
+                                    GoToSelectSchedulePage(
+                                        widget.ticket.movieDetail));
+                              },
                               child:
                                   Icon(Icons.arrow_back, color: Colors.black),
                             ),
@@ -46,10 +51,20 @@ class _SelectSeatPageState extends State<SelectSeatPage> {
                                   fontSize: 20, fontWeight: FontWeight.w500),
                               textAlign: TextAlign.center,
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),
+                    //NOTE: CINEMA SCREEN
+                    Container(
+                      margin: EdgeInsets.only(top: 30),
+                      width: 312,
+                      height: 86,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage("assets/screen.png")),
+                      ),
+                    )
                   ],
                 )
               ],
