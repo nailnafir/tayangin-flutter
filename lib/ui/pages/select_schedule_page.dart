@@ -70,8 +70,8 @@ class _SelectSchedulePageState extends State<SelectSchedulePage> {
                 ),
                 //NOTE: CHOOSE DATE
                 Container(
-                  margin: EdgeInsets.fromLTRB(
-                      defaultMargin, defaultMargin, defaultMargin, 12),
+                  margin:
+                      EdgeInsets.fromLTRB(defaultMargin, 24, defaultMargin, 12),
                   child: Text(
                     "Pilih Tanggal",
                     style: blackTextFont.copyWith(
