@@ -5,48 +5,50 @@ extension DateTimeExtension on DateTime {
   String get dayName {
     switch (this.weekday) {
       case 1:
-        return "SENIN";
+        return "Senin";
       case 2:
-        return "SELASA";
+        return "Selasa";
       case 3:
-        return "RABU";
+        return "Rabu";
       case 4:
-        return "KAMIS";
+        return "Kamis";
       case 5:
-        return "JUMAT";
+        return "Jumat";
       case 6:
-        return "SABTU";
+        return "Sabtu";
       default:
-        return "MINGGU";
+        return "Minggu";
     }
   }
 
   String get monthName {
     switch (this.month) {
       case 1:
-        return "JAN";
+        return "Jan";
       case 2:
-        return "FEB";
+        return "Feb";
       case 3:
-        return "MAR";
+        return "Mar";
       case 4:
-        return "APR";
+        return "Apr";
       case 5:
-        return "MEI";
+        return "Mei";
       case 6:
-        return "JUN";
+        return "Jun";
       case 7:
-        return "JUL";
+        return "Jul";
       case 8:
-        return "AGU";
+        return "Agu";
       case 9:
-        return "SEP";
+        return "Sep";
       case 10:
-        return "OKT";
+        return "Okt";
       case 11:
-        return "NOV";
+        return "Nov";
       default:
-        return "DES";
+        return "Des";
     }
   }
+
+  String get dateAndTime => "${this}";
 }

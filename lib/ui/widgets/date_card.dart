@@ -34,7 +34,7 @@ class DateCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              date.dayName,
+              date.dayName.toUpperCase(),
               style: blackTextFont.copyWith(
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
@@ -42,7 +42,8 @@ class DateCard extends StatelessWidget {
             ),
             SizedBox(height: 6),
             Text(
-              (date.day.toString() + " " + date.monthName.toString()),
+              (date.day.toString() + " " + date.monthName.toString())
+                  .toUpperCase(),
               style: blackTextFont.copyWith(
                 fontSize: 14,
                 fontWeight: FontWeight.w400,

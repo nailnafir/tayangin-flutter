@@ -133,8 +133,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                     MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   Text("ID Pembelian",
-                                      style: blackTextFont.copyWith(
-                                          color: Colors.black45,
+                                      style: grayTextFont.copyWith(
                                           fontSize: 14,
                                           fontWeight: FontWeight.w400)),
                                   Text(widget.ticket.bookingCode,
@@ -143,7 +142,53 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                           fontWeight: FontWeight.w500)),
                                 ],
                               ),
-                            )
+                            ),
+                            SizedBox(height: 10),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: defaultMargin),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Text("Bioskop",
+                                      style: grayTextFont.copyWith(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w400)),
+                                  Container(
+                                    width: MediaQuery.of(context).size.width -
+                                        2 * defaultMargin -
+                                        120,
+                                    child: Text(widget.ticket.theater.name,
+                                        textAlign: TextAlign.end,
+                                        style: blackTextFont.copyWith(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w500)),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: defaultMargin),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Text("Tanggal & Waktu",
+                                      style: grayTextFont.copyWith(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w400)),
+                                  Text(widget.ticket.bookingCode,
+                                      style: blackTextFont.copyWith(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w500)),
+                                ],
+                              ),
+                            ),
+                            SizedBox(height: 10),
                           ],
                         );
                       }),
