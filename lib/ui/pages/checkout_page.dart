@@ -116,6 +116,33 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                   ],
                                 )
                               ],
+                            ),
+                            Container(
+                              margin: EdgeInsets.symmetric(
+                                  horizontal: defaultMargin, vertical: 30),
+                              child: Divider(
+                                color: accentColorLightGray,
+                                thickness: 1,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: defaultMargin),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Text("ID Pembelian",
+                                      style: blackTextFont.copyWith(
+                                          color: Colors.black45,
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w400)),
+                                  Text(widget.ticket.bookingCode,
+                                      style: blackTextFont.copyWith(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w500)),
+                                ],
+                              ),
                             )
                           ],
                         );

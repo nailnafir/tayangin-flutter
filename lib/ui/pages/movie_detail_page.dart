@@ -184,10 +184,9 @@ class MovieDetailPage extends StatelessWidget {
                       EdgeInsets.fromLTRB(defaultMargin, 0, defaultMargin, 30),
                   child: Text(
                     movie.overview,
-                    style: blackTextFont.copyWith(
+                    style: grayTextFont.copyWith(
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
-                      color: Colors.black45,
                       height: 1.3,
                     ),
                     textAlign: TextAlign.justify,
