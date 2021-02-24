@@ -288,6 +288,60 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                 thickness: 1,
                               ),
                             ),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: defaultMargin),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Text("Saldo Kamu",
+                                      style: grayTextFont.copyWith(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w400)),
+                                  Text(
+                                      NumberFormat.currency(
+                                              locale: 'id-ID',
+                                              decimalDigits: 0,
+                                              symbol: 'IDR ')
+                                          .format(user.balance),
+                                      style: (user.balance >= total)
+                                          ? greenNumberFont.copyWith(
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w700)
+                                          : redNumberFont.copyWith(
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w700)),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.symmetric(vertical: 30),
+                              width: 250,
+                              height: 50,
+                              child: RaisedButton(
+                                  elevation: 2,
+                                  color: user.balance >= total
+                                      ? accentColorGreen
+                                      : mainColorBlue,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8)),
+                                  child: Text(
+                                    user.balance >= total
+                                        ? "Bayar Sekarang"
+                                        : "Isi Saldo",
+                                    style: whiteTextFont.copyWith(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                  onPressed: () {
+                                    if (user.balance >= total) {
+                                      // TODO: UANG CUKUP
+                                    } else {
+                                      // TODO: UANG KURANG
+                                    }
+                                  }),
+                            )
                           ],
                         );
                       }),
