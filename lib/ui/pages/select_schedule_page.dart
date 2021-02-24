@@ -42,10 +42,11 @@ class _SelectSchedulePageState extends State<SelectSchedulePage> {
               children: <Widget>[
                 //NOTE: BACK ICON
                 Container(
-                  margin: EdgeInsets.only(top: 16, left: defaultMargin),
+                  margin: EdgeInsets.only(top: 16),
                   child: Stack(
                     children: <Widget>[
                       Container(
+                        margin: EdgeInsets.only(left: defaultMargin),
                         padding: EdgeInsets.all(1),
                         alignment: Alignment.centerLeft,
                         child: GestureDetector(
