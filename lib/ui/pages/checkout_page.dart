@@ -11,6 +11,8 @@ class CheckoutPage extends StatefulWidget {
 class _CheckoutPageState extends State<CheckoutPage> {
   @override
   Widget build(BuildContext context) {
+    int total = 26500 * widget.ticket.seats.length;
+
     return WillPopScope(
         onWillPop: () async {
           context.bloc<PageBloc>().add(GoToSelectSeatPage(widget.ticket));
@@ -189,6 +191,103 @@ class _CheckoutPageState extends State<CheckoutPage> {
                               ),
                             ),
                             SizedBox(height: 10),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: defaultMargin),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Text("Nomor Kursi",
+                                      style: grayTextFont.copyWith(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w400)),
+                                  Container(
+                                    width: MediaQuery.of(context).size.width -
+                                        2 * defaultMargin -
+                                        120,
+                                    child: Text(widget.ticket.seatsInString,
+                                        textAlign: TextAlign.end,
+                                        style: blackTextFont.copyWith(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w500)),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: defaultMargin),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Text("Harga",
+                                      style: grayTextFont.copyWith(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w400)),
+                                  Text(
+                                      "IDR 25.000 x ${widget.ticket.seats.length}",
+                                      style: blackTextFont.copyWith(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w500)),
+                                ],
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: defaultMargin),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Text("Biaya Layanan",
+                                      style: grayTextFont.copyWith(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w400)),
+                                  Text(
+                                      "IDR 1.500 x ${widget.ticket.seats.length}",
+                                      style: blackTextFont.copyWith(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w500)),
+                                ],
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: defaultMargin),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Text("Total Bayar",
+                                      style: grayTextFont.copyWith(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w400)),
+                                  Text(
+                                      NumberFormat.currency(
+                                              locale: 'id-ID',
+                                              decimalDigits: 0,
+                                              symbol: 'IDR ')
+                                          .format(total),
+                                      style: blackTextFont.copyWith(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w700)),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.symmetric(
+                                  horizontal: defaultMargin, vertical: 30),
+                              child: Divider(
+                                color: accentColorLightGray,
+                                thickness: 1,
+                              ),
+                            ),
                           ],
                         );
                       }),
