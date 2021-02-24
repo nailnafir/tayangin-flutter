@@ -181,7 +181,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                       style: grayTextFont.copyWith(
                                           fontSize: 14,
                                           fontWeight: FontWeight.w400)),
-                                  Text(widget.ticket.bookingCode,
+                                  Text(widget.ticket.time.dateAndTime,
                                       style: blackTextFont.copyWith(
                                           fontSize: 14,
                                           fontWeight: FontWeight.w500)),

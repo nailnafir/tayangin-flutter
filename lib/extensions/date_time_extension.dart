@@ -50,5 +50,6 @@ extension DateTimeExtension on DateTime {
     }
   }
 
-  String get dateAndTime => "${this}";
+  String get dateAndTime =>
+      "${this.dayName} ${this.day} ${this.monthName}, ${this.hour}:${this.minute}${this.second}";
 }

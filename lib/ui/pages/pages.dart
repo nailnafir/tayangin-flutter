@@ -18,6 +18,7 @@ import 'package:tayangin_flutter/services/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tayangin_flutter/shared/shared.dart';
 import 'package:tayangin_flutter/ui/widgets/widgets.dart';
+import 'package:tayangin_flutter/extensions/extensions.dart';
 
 part 'splash_page.dart';
 part 'main_page.dart';
