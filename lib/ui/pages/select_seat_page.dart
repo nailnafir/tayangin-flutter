@@ -30,10 +30,11 @@ class _SelectSeatPageState extends State<SelectSeatPage> {
                 children: <Widget>[
                   //NOTE: HEADER
                   Container(
-                    margin: EdgeInsets.only(top: 16, left: defaultMargin),
+                    margin: EdgeInsets.only(top: 16),
                     child: Stack(
                       children: <Widget>[
                         Container(
+                          margin: EdgeInsets.only(left: defaultMargin),
                           padding: EdgeInsets.all(1),
                           alignment: Alignment.centerLeft,
                           child: GestureDetector(
