@@ -162,7 +162,13 @@ class _SelectSeatPageState extends State<SelectSeatPage> {
                                     fontSize: 16, fontWeight: FontWeight.w500)
                                 : grayTextFont.copyWith(
                                     fontSize: 16, fontWeight: FontWeight.w500)),
-                        onPressed: () {}),
+                        onPressed: selectedSeats.length > 0
+                            ? () {
+                                context.bloc<PageBloc>().add(GoToCheckoutPage(
+                                    widget.ticket
+                                        .copyWith(seats: selectedSeats)));
+                              }
+                            : null),
                   )
                 ],
               )
