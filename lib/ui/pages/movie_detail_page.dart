@@ -107,9 +107,10 @@ class MovieDetailPage extends StatelessWidget {
                                       fontWeight: FontWeight.w400),
                                 )
                               : SizedBox(
-                                  height: 50,
-                                  width: 50,
-                                  child: SpinKitFadingCircle(
+                                  height: 18,
+                                  width: 18,
+                                  child: SpinKitThreeBounce(
+                                    size: 12,
                                     color: mainColorBlue,
                                   ),
                                 ),
@@ -157,9 +158,13 @@ class MovieDetailPage extends StatelessWidget {
                                     ),
                                   );
                                 } else {
-                                  return SpinKitThreeBounce(
-                                    color: mainColorBlue,
-                                    size: 50,
+                                  return SizedBox(
+                                    height: 116,
+                                    width: 116,
+                                    child: SpinKitThreeBounce(
+                                      color: mainColorBlue,
+                                      size: 50,
+                                    ),
                                   );
                                 }
                               })

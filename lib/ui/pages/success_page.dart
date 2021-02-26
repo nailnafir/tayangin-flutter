@@ -27,7 +27,7 @@ class SuccessPage extends StatelessWidget {
                       )
                     : Center(
                         child: SpinKitFadingCircle(
-                          size: 50,
+                          size: 100,
                           color: mainColorBlue,
                         ),
                       )),
