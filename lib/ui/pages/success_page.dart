@@ -21,10 +21,12 @@ class SuccessPage extends StatelessWidget {
             builder: (_, snapshot) =>
                 (snapshot.connectionState == ConnectionState.done)
                     ? Center(
-                        child: RaisedButton(onPressed: () {}),
+                        child: RaisedButton(onPressed: () {
+                          context.bloc<PageBloc>().add(GoToMainPage());
+                        }),
                       )
                     : Center(
-                        child: SpinKitThreeBounce(
+                        child: SpinKitFadingCircle(
                           size: 50,
                           color: mainColorBlue,
                         ),

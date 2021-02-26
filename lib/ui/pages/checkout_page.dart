@@ -350,7 +350,9 @@ class _CheckoutPageState extends State<CheckoutPage> {
 
                                       context.bloc<PageBloc>().add(
                                           GoToSuccessPage(
-                                              widget.ticket, transaction));
+                                              widget.ticket
+                                                  .copyWith(totalPrice: total),
+                                              transaction));
                                     } else {
                                       // TODO: UANG KURANG
                                     }
