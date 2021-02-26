@@ -116,19 +116,23 @@ class _SelectSchedulePageState extends State<SelectSchedulePage> {
                     width: 250,
                     margin: EdgeInsets.symmetric(horizontal: defaultMargin),
                     child: BlocBuilder<UserBloc, UserState>(
-                      builder: (_, userState) => RaisedButton(
+                      builder: (_, userState) => FloatingActionButton(
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8)),
-                          color:
+                          backgroundColor:
                               (isValid) ? mainColorBlue : accentColorLightGray,
                           elevation: 2,
                           child: Text(
                             "Lanjutkan",
                             style: isValid
                                 ? whiteTextFont.copyWith(
-                                    fontSize: 16, fontWeight: FontWeight.w500)
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                    letterSpacing: 0)
                                 : grayTextFont.copyWith(
-                                    fontSize: 16, fontWeight: FontWeight.w500),
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                    letterSpacing: 0),
                           ),
                           onPressed: () {
                             if (isValid) {
