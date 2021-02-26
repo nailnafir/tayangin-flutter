@@ -8,6 +8,38 @@ class SuccessPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return WillPopScope(
+      onWillPop: () async {
+        return;
+      },
+      child: Scaffold(
+        body: FutureBuilder(
+            // jika ada tiketnya, berarti lagi beli tiket, kalo gak ada ya topup
+            future: ticket != null
+                ? processingTicketOrder(context)
+                : processingTopUp(),
+            builder: (_, snapshot) =>
+                (snapshot.connectionState == ConnectionState.done)
+                    ? Center(
+                        child: RaisedButton(onPressed: () {}),
+                      )
+                    : Center(
+                        child: SpinKitThreeBounce(
+                          size: 50,
+                          color: mainColorBlue,
+                        ),
+                      )),
+      ),
+    );
   }
+
+  // perlu build context untuk memanggil event dari dua bloc
+  Future<void> processingTicketOrder(BuildContext context) async {
+    context.bloc<UserBloc>().add(Purchase(ticket.totalPrice));
+    context.bloc<TicketBloc>().add(BuyTicket(ticket, transaction.userID));
+
+    await TayanginTransactionServices.saveTransaction(transaction);
+  }
+
+  Future<void> processingTopUp() async {}
 }
