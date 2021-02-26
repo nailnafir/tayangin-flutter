@@ -148,20 +148,24 @@ class _SelectSeatPageState extends State<SelectSeatPage> {
                     height: 50,
                     margin: EdgeInsets.fromLTRB(
                         defaultMargin, 10, defaultMargin, 30),
-                    child: RaisedButton(
+                    child: FloatingActionButton(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         ),
                         elevation: 2,
-                        color: selectedSeats.length > 0
+                        backgroundColor: selectedSeats.length > 0
                             ? mainColorBlue
                             : accentColorLightGray,
                         child: Text("Lanjutkan",
                             style: selectedSeats.length > 0
                                 ? whiteTextFont.copyWith(
-                                    fontSize: 16, fontWeight: FontWeight.w500)
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                    letterSpacing: 0)
                                 : grayTextFont.copyWith(
-                                    fontSize: 16, fontWeight: FontWeight.w500)),
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                    letterSpacing: 0)),
                         onPressed: selectedSeats.length > 0
                             ? () {
                                 context.bloc<PageBloc>().add(GoToCheckoutPage(
