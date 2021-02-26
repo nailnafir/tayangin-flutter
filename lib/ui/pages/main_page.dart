@@ -34,9 +34,7 @@ class _MainPageState extends State<MainPage> {
             },
             children: <Widget>[
               MoviePage(),
-              Center(
-                child: Text("Tiket Saya"),
-              )
+              TicketPage(),
             ],
           ),
           createCustomBottomNavbar(),
