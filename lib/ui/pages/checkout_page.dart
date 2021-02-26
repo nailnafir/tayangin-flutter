@@ -336,7 +336,21 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                   ),
                                   onPressed: () {
                                     if (user.balance >= total) {
-                                      // TODO: UANG CUKUP
+                                      TayanginTransaction transaction =
+                                          TayanginTransaction(
+                                              userID: user.id,
+                                              title: widget
+                                                  .ticket.movieDetail.title,
+                                              subtitle:
+                                                  widget.ticket.theater.name,
+                                              time: DateTime.now(),
+                                              amount: -total,
+                                              picture: widget.ticket.movieDetail
+                                                  .posterPath);
+
+                                      context.bloc<PageBloc>().add(
+                                          GoToSuccessPage(
+                                              widget.ticket, transaction));
                                     } else {
                                       // TODO: UANG KURANG
                                     }
