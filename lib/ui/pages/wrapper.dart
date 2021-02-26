@@ -47,6 +47,9 @@ class Wrapper extends StatelessWidget {
                                         ? SelectSeatPage(pageState.ticket)
                                         : (pageState is OnCheckoutPage)
                                             ? CheckoutPage(pageState.ticket)
-                                            : MainPage());
+                                            : (pageState is OnSuccessPage)
+                                                ? SuccessPage(pageState.ticket,
+                                                    pageState.transaction)
+                                                : MainPage());
   }
 }
