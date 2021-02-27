@@ -99,3 +99,11 @@ class OnTicketPage extends PageState {
   @override
   List<Object> get props => [ticket];
 }
+
+class OnTicketDetailPage extends PageState {
+  final Ticket ticket;
+  OnTicketDetailPage(this.ticket);
+
+  @override
+  List<Object> get props => [ticket];
+}

@@ -9,8 +9,13 @@ class TicketDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return WillPopScope(
         onWillPop: () async {
-          context.bloc<PageBloc>();
+          context.bloc<PageBloc>().add(GoToTicketPage(ticket));
+          return;
         },
-        child: Scaffold());
+        child: Scaffold(
+          body: Center(
+            child: Text(ticket.movieDetail.title),
+          ),
+        ));
   }
 }
