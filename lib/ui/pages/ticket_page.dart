@@ -156,7 +156,7 @@ class TicketViewer extends StatelessWidget {
     return ListView.builder(
       itemCount: sortedTickets.length,
       itemBuilder: (_, index) => Container(
-        margin: EdgeInsets.only(top: index == 0 ? 130 : 18),
+        margin: EdgeInsets.only(top: index == 0 ? 150 : 18),
         child: Row(
           children: <Widget>[
             Container(
@@ -172,7 +172,33 @@ class TicketViewer extends StatelessWidget {
                 ),
               ),
             ),
-            Column(),
+            SizedBox(width: 18),
+            Container(
+              width: MediaQuery.of(context).size.width -
+                  2 * defaultMargin -
+                  80 -
+                  18,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    sortedTickets[index].movieDetail.title,
+                    maxLines: 2,
+                    overflow: TextOverflow.clip,
+                    style: blackTextFont.copyWith(
+                        fontSize: 18, fontWeight: FontWeight.w400),
+                  ),
+                  SizedBox(height: 4),
+                  Text(sortedTickets[index].movieDetail.genresAndLanguage,
+                      style: grayTextFont.copyWith(
+                          fontSize: 12, fontWeight: FontWeight.w400)),
+                  SizedBox(height: 4),
+                  Text(sortedTickets[index].theater.name,
+                      style: grayTextFont.copyWith(
+                          fontSize: 12, fontWeight: FontWeight.w400)),
+                ],
+              ),
+            ),
           ],
         ),
       ),
