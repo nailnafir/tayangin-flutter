@@ -156,7 +156,11 @@ class TicketViewer extends StatelessWidget {
     return ListView.builder(
       itemCount: sortedTickets.length,
       itemBuilder: (_, index) => GestureDetector(
-        onTap: () {},
+        onTap: () {
+          context
+              .bloc<PageBloc>()
+              .add(GoToTicketDetailPage(sortedTickets[index]));
+        },
         child: Container(
           margin: EdgeInsets.only(top: index == 0 ? 150 : 18),
           child: Row(
