@@ -1,20 +1,25 @@
 part of 'pages.dart';
 
 class MainPage extends StatefulWidget {
+  final int bottomNavBarIndex;
+  final bool isExpired;
+
+  MainPage({this.bottomNavBarIndex = 0, this.isExpired = false});
+
   @override
   _MainPageState createState() => _MainPageState();
 }
 
 class _MainPageState extends State<MainPage> {
-  int bottomNavbarIndex;
+  int bottomNavBarIndex;
   PageController pageController;
 
   @override
   void initState() {
     super.initState();
 
-    bottomNavbarIndex = 0;
-    pageController = PageController(initialPage: bottomNavbarIndex);
+    bottomNavBarIndex = widget.bottomNavBarIndex;
+    pageController = PageController(initialPage: bottomNavBarIndex);
   }
 
   @override
@@ -29,12 +34,12 @@ class _MainPageState extends State<MainPage> {
             controller: pageController,
             onPageChanged: (index) {
               setState(() {
-                bottomNavbarIndex = index;
+                bottomNavBarIndex = index;
               });
             },
             children: <Widget>[
               MoviePage(),
-              TicketPage(),
+              TicketPage(isExpiredTicket: widget.isExpired),
             ],
           ),
           createCustomBottomNavbar(),
@@ -86,10 +91,10 @@ class _MainPageState extends State<MainPage> {
               backgroundColor: Colors.transparent,
               selectedItemColor: mainColorBlue,
               unselectedItemColor: accentColorLightGray,
-              currentIndex: bottomNavbarIndex,
+              currentIndex: bottomNavBarIndex,
               onTap: (index) {
                 setState(() {
-                  bottomNavbarIndex = index;
+                  bottomNavBarIndex = index;
                   pageController.jumpToPage(index);
                 });
               },
@@ -104,7 +109,7 @@ class _MainPageState extends State<MainPage> {
                     margin: EdgeInsets.only(bottom: 4),
                     height: 24,
                     width: 24,
-                    child: SvgPicture.asset((bottomNavbarIndex == 0)
+                    child: SvgPicture.asset((bottomNavBarIndex == 0)
                         ? "assets/icon_movies_colored.svg"
                         : "assets/icon_movies_gray.svg"),
                   ),
@@ -119,7 +124,7 @@ class _MainPageState extends State<MainPage> {
                     margin: EdgeInsets.only(bottom: 4),
                     height: 24,
                     width: 24,
-                    child: SvgPicture.asset((bottomNavbarIndex == 1)
+                    child: SvgPicture.asset((bottomNavBarIndex == 1)
                         ? "assets/icon_my_ticket_colored.svg"
                         : "assets/icon_my_ticket_gray.svg"),
                   ),

@@ -9,7 +9,7 @@ class TicketDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        context.bloc<PageBloc>().add(GoToTicketPage(ticket));
+        context.bloc<PageBloc>().add(GoToMainPage());
         return;
       },
       child: Scaffold(
