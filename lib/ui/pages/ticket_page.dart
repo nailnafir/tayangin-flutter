@@ -14,7 +14,18 @@ class _TicketPageState extends State<TicketPage> {
       body: Stack(
         children: <Widget>[
           //NOTE: CONTENT
-          Container(),
+          BlocBuilder<TicketBloc, TicketState>(
+            builder: (_, ticketState) => Container(
+              margin: EdgeInsets.symmetric(horizontal: defaultMargin),
+              child: TicketViewer(isExpiredTickets
+                  ? ticketState.tickets
+                      .where((ticket) => ticket.time.isBefore(DateTime.now()))
+                      .toList()
+                  : ticketState.tickets
+                      .where((ticket) => !ticket.time.isBefore(DateTime.now()))
+                      .toList()),
+            ),
+          ),
           //NOTE: HEADER
           Container(height: 120, color: mainColorBlue),
           SafeArea(
@@ -54,7 +65,7 @@ class _TicketPageState extends State<TicketPage> {
                                   fontWeight: FontWeight.w500,
                                   color: isExpiredTickets
                                       ? Colors.white
-                                      : Color(0xFF5D5CA3),
+                                      : accentColorBlue2,
                                 ),
                               ),
                             ),
@@ -83,7 +94,7 @@ class _TicketPageState extends State<TicketPage> {
                                   fontWeight: FontWeight.w500,
                                   color: !isExpiredTickets
                                       ? Colors.white
-                                      : Color(0xFF5D5CA3),
+                                      : accentColorBlue2,
                                 ),
                               ),
                             ),
@@ -129,4 +140,42 @@ class HeaderClipper extends CustomClipper<Path> {
 
   @override
   bool shouldReclip(covariant CustomClipper oldClipper) => false;
+}
+
+class TicketViewer extends StatelessWidget {
+  final List<Ticket> tickets;
+
+  TicketViewer(this.tickets);
+
+  @override
+  Widget build(BuildContext context) {
+    var sortedTickets = tickets;
+    sortedTickets
+        .sort((ticket1, ticket2) => ticket1.time.compareTo(ticket2.time));
+
+    return ListView.builder(
+      itemCount: sortedTickets.length,
+      itemBuilder: (_, index) => Container(
+        margin: EdgeInsets.only(top: index == 0 ? 130 : 18),
+        child: Row(
+          children: <Widget>[
+            Container(
+              width: 80,
+              height: 100,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                image: DecorationImage(
+                  image: NetworkImage(imageBaseURL +
+                      'w500' +
+                      sortedTickets[index].movieDetail.posterPath),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            Column(),
+          ],
+        ),
+      ),
+    );
+  }
 }
