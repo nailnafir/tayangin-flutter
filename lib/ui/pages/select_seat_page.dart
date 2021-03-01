@@ -48,7 +48,7 @@ class _SelectSeatPageState extends State<SelectSeatPage> {
                         ),
                         Center(
                           child: Text(
-                            "Pilih Bangku",
+                            "Tempat Duduk",
                             style: blackTextFont.copyWith(
                                 fontSize: 20, fontWeight: FontWeight.w500),
                             textAlign: TextAlign.center,
