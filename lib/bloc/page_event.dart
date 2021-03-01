@@ -99,3 +99,8 @@ class GoToTicketDetailPage extends PageEvent {
   @override
   List<Object> get props => [ticket];
 }
+
+class GoToProfilePage extends PageEvent {
+  @override
+  List<Object> get props => [];
+}
