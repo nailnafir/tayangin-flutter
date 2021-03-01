@@ -30,8 +30,8 @@ class MoviePage extends StatelessWidget {
                   offset: Offset(0.0, 3.0))
             ],
             borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(35),
-              bottomRight: Radius.circular(35),
+              bottomLeft: Radius.circular(30),
+              bottomRight: Radius.circular(30),
             ),
           ),
           padding: EdgeInsets.fromLTRB(defaultMargin, 26, defaultMargin, 26),
