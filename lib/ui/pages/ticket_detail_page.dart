@@ -91,13 +91,20 @@ class TicketDetailPage extends StatelessWidget {
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
-                              SizedBox(height: 4),
+                              SizedBox(height: 2),
                               Text(
                                 ticket.movieDetail.genresAndLanguage,
                                 style: grayTextFont.copyWith(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w400,
                                 ),
+                              ),
+                              SizedBox(height: 4),
+                              RatingStars(
+                                color: accentColorDarkGray,
+                                fontSize: 12,
+                                starSize: 18,
+                                voteAverage: ticket.movieDetail.voteAverage,
                               ),
                               SizedBox(height: 18),
                               Row(
@@ -155,7 +162,7 @@ class TicketDetailPage extends StatelessWidget {
                                     MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   Text(
-                                    "Nomor Kursi",
+                                    "Tempat Duduk",
                                     style: grayTextFont.copyWith(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w400,
@@ -190,10 +197,73 @@ class TicketDetailPage extends StatelessWidget {
                                       fontSize: 14,
                                       fontWeight: FontWeight.w400,
                                     ),
-                                  )
+                                  ),
                                 ],
                               ),
-                              SizedBox(height: 10),
+                              SizedBox(height: 18),
+                              generateDashedDivider(
+                                  MediaQuery.of(context).size.width -
+                                      2 * defaultMargin -
+                                      38),
+                            ],
+                          ),
+                        ),
+                      ),
+                      ClipPath(
+                        clipper: TicketBottomClipper(),
+                        child: Container(
+                          width: double.infinity,
+                          color: accentColorYellow,
+                          padding: EdgeInsets.all(18),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text(
+                                    "Nama:",
+                                    style: grayTextFont.copyWith(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                  Text(
+                                    ticket.name,
+                                    style: blackTextFont.copyWith(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                  SizedBox(height: 8),
+                                  Text(
+                                    "Dibayar:",
+                                    style: grayTextFont.copyWith(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                  Text(
+                                    NumberFormat.currency(
+                                      locale: "id-ID",
+                                      decimalDigits: 0,
+                                      symbol: "IDR ",
+                                    ).format(ticket.totalPrice),
+                                    style: blackTextFont.copyWith(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              QrImage(
+                                version: 6,
+                                foregroundColor: Colors.black,
+                                errorCorrectionLevel: QrErrorCorrectLevel.H,
+                                size: 80,
+                                padding: EdgeInsets.all(0),
+                                data: ticket.bookingCode,
+                              ),
                             ],
                           ),
                         ),
