@@ -57,14 +57,19 @@ class Wrapper extends StatelessWidget {
                                                         is OnTicketDetailPage)
                                                     ? TicketDetailPage(
                                                         pageState.ticket)
-                                                    : (pageState is OnMainPage)
-                                                        ? MainPage(
-                                                            bottomNavBarIndex:
-                                                                pageState
-                                                                    .bottomNavBarIndex,
-                                                            isExpired: pageState
-                                                                .isExpired,
-                                                          )
-                                                        : Container());
+                                                    : (pageState
+                                                            is OnProfilePage)
+                                                        ? ProfilePage()
+                                                        : (pageState
+                                                                is OnMainPage)
+                                                            ? MainPage(
+                                                                bottomNavBarIndex:
+                                                                    pageState
+                                                                        .bottomNavBarIndex,
+                                                                isExpired:
+                                                                    pageState
+                                                                        .isExpired,
+                                                              )
+                                                            : Container());
   }
 }
