@@ -105,6 +105,176 @@ class _ProfilePageState extends State<ProfilePage> {
                               ),
                             ],
                           ),
+                          Container(
+                            height: 350,
+                            margin: EdgeInsets.only(top: 250),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(50),
+                                topRight: Radius.circular(50),
+                              ),
+                              color: Colors.white,
+                            ),
+                            child: Container(
+                              margin: EdgeInsets.only(top: defaultMargin),
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: defaultMargin),
+                              child: Column(
+                                children: [
+                                  Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Container(
+                                        width: 24,
+                                        height: 24,
+                                        child: SvgPicture.asset(
+                                            "assets/icon_profile.svg"),
+                                      ),
+                                      SizedBox(width: 10),
+                                      Text(
+                                        "Ubah Profil",
+                                        style: blackTextFont.copyWith(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w400),
+                                      ),
+                                    ],
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.symmetric(vertical: 12),
+                                    child: generateDashedDivider(
+                                        MediaQuery.of(context).size.width -
+                                            2 * defaultMargin),
+                                  ),
+                                  Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Container(
+                                        width: 24,
+                                        height: 24,
+                                        child: SvgPicture.asset(
+                                            "assets/icon_wallet_balance.svg"),
+                                      ),
+                                      SizedBox(width: 10),
+                                      Text(
+                                        "Dompet Saya",
+                                        style: blackTextFont.copyWith(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w400),
+                                      ),
+                                    ],
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.symmetric(vertical: 12),
+                                    child: generateDashedDivider(
+                                        MediaQuery.of(context).size.width -
+                                            2 * defaultMargin),
+                                  ),
+                                  Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Container(
+                                        width: 24,
+                                        height: 24,
+                                        child: SvgPicture.asset(
+                                            "assets/icon_translate.svg"),
+                                      ),
+                                      SizedBox(width: 10),
+                                      Text(
+                                        "Ganti Bahasa",
+                                        style: blackTextFont.copyWith(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w400),
+                                      ),
+                                    ],
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.symmetric(vertical: 12),
+                                    child: generateDashedDivider(
+                                        MediaQuery.of(context).size.width -
+                                            2 * defaultMargin),
+                                  ),
+                                  Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Container(
+                                        width: 24,
+                                        height: 24,
+                                        child: SvgPicture.asset(
+                                            "assets/icon_rate_like.svg"),
+                                      ),
+                                      SizedBox(width: 10),
+                                      Text(
+                                        "Nilai Aplikasi Tayangin",
+                                        style: blackTextFont.copyWith(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w400),
+                                      ),
+                                    ],
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.symmetric(vertical: 12),
+                                    child: generateDashedDivider(
+                                        MediaQuery.of(context).size.width -
+                                            2 * defaultMargin),
+                                  ),
+                                  Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Container(
+                                        width: 24,
+                                        height: 24,
+                                        child: SvgPicture.asset(
+                                            "assets/icon_contact_me.svg"),
+                                      ),
+                                      SizedBox(width: 10),
+                                      Text(
+                                        "Kontak Bantuan",
+                                        style: blackTextFont.copyWith(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w400),
+                                      ),
+                                    ],
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.symmetric(vertical: 12),
+                                    child: generateDashedDivider(
+                                        MediaQuery.of(context).size.width -
+                                            2 * defaultMargin),
+                                  ),
+                                  Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Container(
+                                        width: 24,
+                                        height: 24,
+                                        child: SvgPicture.asset(
+                                            "assets/icon_logout.svg"),
+                                      ),
+                                      SizedBox(width: 10),
+                                      Text(
+                                        "Keluar",
+                                        style: blackTextFont.copyWith(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w400),
+                                      ),
+                                    ],
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.symmetric(vertical: 12),
+                                    child: generateDashedDivider(
+                                        MediaQuery.of(context).size.width -
+                                            2 * defaultMargin),
+                                  )
+                                ],
+                              ),
+                            ),
+                          )
                         ],
                       ),
                     ],
@@ -112,7 +282,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 } else {
                   return SizedBox();
                 }
-              })
+              }),
             ],
           ),
         ),
