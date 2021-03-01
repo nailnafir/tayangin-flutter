@@ -74,7 +74,7 @@ class _TicketPageState extends State<TicketPage> {
                                 style: whiteTextFont.copyWith(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w500,
-                                  color: isExpiredTickets
+                                  color: !isExpiredTickets
                                       ? Colors.white
                                       : accentColorBlue2,
                                 ),
@@ -84,7 +84,7 @@ class _TicketPageState extends State<TicketPage> {
                             Container(
                               height: 4,
                               width: MediaQuery.of(context).size.width * 0.5,
-                              color: isExpiredTickets
+                              color: !isExpiredTickets
                                   ? mainColorYellow
                                   : Colors.transparent,
                             ),
@@ -103,7 +103,7 @@ class _TicketPageState extends State<TicketPage> {
                                 style: whiteTextFont.copyWith(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w500,
-                                  color: !isExpiredTickets
+                                  color: isExpiredTickets
                                       ? Colors.white
                                       : accentColorBlue2,
                                 ),
@@ -113,7 +113,7 @@ class _TicketPageState extends State<TicketPage> {
                             Container(
                               height: 4,
                               width: MediaQuery.of(context).size.width * 0.5,
-                              color: !isExpiredTickets
+                              color: isExpiredTickets
                                   ? mainColorYellow
                                   : Colors.transparent,
                             ),
