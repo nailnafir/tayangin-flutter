@@ -65,7 +65,18 @@ class _TopUpPageState extends State<TopUpPage> {
                       SizedBox(height: 30),
                       TextField(
                         controller: amountController,
-                        onChanged: (text) {},
+                        onChanged: (text) {
+                          String temp = '';
+                          for (int i = 0; i < text.length; i++) {
+                            temp += text.isDigit(i) ? text[i] : '';
+                          }
+
+                          amountController.text = NumberFormat.currency(
+                            locale: 'id_ID',
+                            symbol: 'IDR ',
+                            decimalDigits: 0,
+                          ).format(temp);
+                        },
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8)),

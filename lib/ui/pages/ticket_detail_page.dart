@@ -245,7 +245,7 @@ class TicketDetailPage extends StatelessWidget {
                                   ),
                                   Text(
                                     NumberFormat.currency(
-                                      locale: "id-ID",
+                                      locale: "id_ID",
                                       decimalDigits: 0,
                                       symbol: "IDR ",
                                     ).format(ticket.totalPrice),
