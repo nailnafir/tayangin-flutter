@@ -11,9 +11,13 @@ class TopUpPage extends StatefulWidget {
 
 class _TopUpPageState extends State<TopUpPage> {
   TextEditingController amountController = TextEditingController(text: 'IDR 0');
+  int selectedAmount = 0;
 
   @override
   Widget build(BuildContext context) {
+    context.bloc<ThemeBloc>().add(ChangeTheme(ThemeData().copyWith(
+          primaryColor: mainColorYellow,
+        )));
     return WillPopScope(
       onWillPop: () async {
         context.bloc<PageBloc>().add(widget.pageEvent);
@@ -66,17 +70,29 @@ class _TopUpPageState extends State<TopUpPage> {
                       TextField(
                         controller: amountController,
                         onChanged: (text) {
+                          // kalau dia angka, tambahkan ke temp (concat)
+                          // kalo tidak, concat dengan string kosong
                           String temp = '';
                           for (int i = 0; i < text.length; i++) {
                             temp += text.isDigit(i) ? text[i] : '';
                           }
 
+                          // ubah temp ke bentuk integer
+                          selectedAmount = int.tryParse(temp) ?? 0;
+
+                          // buat format currency ke IDR
                           amountController.text = NumberFormat.currency(
                             locale: 'id_ID',
                             symbol: 'IDR ',
                             decimalDigits: 0,
-                          ).format(temp);
+                          ).format(selectedAmount);
+
+                          // pindahkan kursor textfield ke paling belakang
+                          amountController.selection =
+                              TextSelection.fromPosition(TextPosition(
+                                  offset: amountController.text.length));
                         },
+                        keyboardType: TextInputType.number,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8)),
