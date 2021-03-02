@@ -270,7 +270,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                           fontWeight: FontWeight.w400)),
                                   Text(
                                       NumberFormat.currency(
-                                              locale: 'id-ID',
+                                              locale: 'id_ID',
                                               decimalDigits: 0,
                                               symbol: 'IDR ')
                                           .format(total),
@@ -301,7 +301,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                           fontWeight: FontWeight.w400)),
                                   Text(
                                       NumberFormat.currency(
-                                              locale: 'id-ID',
+                                              locale: 'id_ID',
                                               decimalDigits: 0,
                                               symbol: 'IDR ')
                                           .format(user.balance),
