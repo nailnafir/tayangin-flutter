@@ -99,6 +99,9 @@ class _SelectSchedulePageState extends State<SelectSchedulePage> {
                         onTap: () {
                           setState(() {
                             selectedDate = dates[index];
+                            isValid = false;
+                            selectedTheater = null;
+                            selectedTime = null;
                           });
                         },
                       ),
@@ -180,33 +183,37 @@ class _SelectSchedulePageState extends State<SelectSchedulePage> {
         height: 50,
         margin: EdgeInsets.only(bottom: defaultMargin),
         child: ListView.builder(
-            itemCount: schedule.length,
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (_, index) => Container(
-                  margin: EdgeInsets.only(
-                    left: (index == 0) ? defaultMargin : 0,
-                    right: (index == schedule.length - 1) ? defaultMargin : 18,
-                  ),
-                  child: SelectableBox(
-                    "${schedule[index]}:00",
-                    textStyle: (schedule[index] > DateTime.now().hour ||
-                            selectedDate.day != DateTime.now().day)
-                        ? blackTextFont.copyWith(fontSize: 14)
-                        : grayTextFont.copyWith(fontSize: 14),
-                    height: 50,
-                    isSelected: selectedTheater == theater &&
-                        selectedTime == schedule[index],
-                    isEnabled: schedule[index] > DateTime.now().hour ||
-                        selectedDate.day != DateTime.now().day,
-                    onTap: () {
+          itemCount: schedule.length,
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (_, index) => Container(
+            margin: EdgeInsets.only(
+              left: (index == 0) ? defaultMargin : 0,
+              right: (index == schedule.length - 1) ? defaultMargin : 18,
+            ),
+            child: SelectableBox(
+              "${schedule[index]}:00",
+              textStyle: (schedule[index] > DateTime.now().hour ||
+                      selectedDate.day != DateTime.now().day)
+                  ? blackTextFont.copyWith(fontSize: 14)
+                  : grayTextFont.copyWith(fontSize: 14),
+              height: 50,
+              isSelected:
+                  selectedTheater == theater && selectedTime == schedule[index],
+              isEnabled: schedule[index] > DateTime.now().hour ||
+                  selectedDate.day != DateTime.now().day,
+              onTap: !(schedule[index] > DateTime.now().hour ||
+                      selectedDate.day != DateTime.now().day)
+                  ? null
+                  : () {
                       setState(() {
                         selectedTheater = theater;
                         selectedTime = schedule[index];
                         isValid = true;
                       });
                     },
-                  ),
-                )),
+            ),
+          ),
+        ),
       ));
     }
 
