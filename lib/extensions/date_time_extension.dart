@@ -98,6 +98,8 @@ extension DateTimeExtension on DateTime {
     }
   }
 
+  String get hourAndMinute => "${this.hour}:${this.minute}${this.second}";
+
   String get dateAndTime =>
       "${this.dayName} ${this.day} ${this.shortMonthName}, ${this.hour}:${this.minute}${this.second}";
 
