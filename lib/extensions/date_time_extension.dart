@@ -94,10 +94,13 @@ extension DateTimeExtension on DateTime {
       case 11:
         return "November";
       default:
-        return "Dessember";
+        return "Desember";
     }
   }
 
   String get dateAndTime =>
       "${this.dayName} ${this.day} ${this.shortMonthName}, ${this.hour}:${this.minute}${this.second}";
+
+  String get fullDateAndYear =>
+      "${this.dayName}, ${this.day} ${this.monthName} ${this.year}";
 }
