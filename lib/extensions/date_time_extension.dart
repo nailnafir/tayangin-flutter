@@ -2,6 +2,25 @@ part of 'extensions.dart';
 
 extension DateTimeExtension on DateTime {
   // membuat getter
+  String get shortDayName {
+    switch (this.weekday) {
+      case 1:
+        return "Senin";
+      case 2:
+        return "Selasa";
+      case 3:
+        return "Rabu";
+      case 4:
+        return "Kamis";
+      case 5:
+        return "Jumat";
+      case 6:
+        return "Sabtu";
+      default:
+        return "Minggu";
+    }
+  }
+
   String get dayName {
     switch (this.weekday) {
       case 1:
@@ -21,7 +40,7 @@ extension DateTimeExtension on DateTime {
     }
   }
 
-  String get monthName {
+  String get shortMonthName {
     switch (this.month) {
       case 1:
         return "Jan";
@@ -51,5 +70,5 @@ extension DateTimeExtension on DateTime {
   }
 
   String get dateAndTime =>
-      "${this.dayName} ${this.day} ${this.monthName}, ${this.hour}:${this.minute}${this.second}";
+      "${this.dayName} ${this.day} ${this.shortMonthName}, ${this.hour}:${this.minute}${this.second}";
 }
