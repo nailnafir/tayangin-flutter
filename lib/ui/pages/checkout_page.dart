@@ -354,7 +354,9 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                                   .copyWith(totalPrice: total),
                                               transaction));
                                     } else {
-                                      // TODO: UANG KURANG
+                                      context.bloc<PageBloc>().add(
+                                          GoToTopUpPage(
+                                              GoToCheckoutPage(widget.ticket)));
                                     }
                                   }),
                             )
