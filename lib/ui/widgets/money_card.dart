@@ -36,7 +36,12 @@ class MoneyCard extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                 )),
             SizedBox(height: 4),
-            Text('$amount',
+            Text(
+                NumberFormat.currency(
+                  locale: 'id_ID',
+                  decimalDigits: 0,
+                  symbol: '',
+                ).format(amount),
                 style: blackTextFont.copyWith(
                   fontSize: 14,
                   fontWeight: FontWeight.w500,

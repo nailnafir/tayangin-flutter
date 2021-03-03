@@ -18,6 +18,10 @@ class _TopUpPageState extends State<TopUpPage> {
     context.bloc<ThemeBloc>().add(ChangeTheme(ThemeData().copyWith(
           primaryColor: mainColorYellow,
         )));
+
+    double cardWidth =
+        (MediaQuery.of(context).size.width - 2 * defaultMargin - 18 - 18) / 3;
+
     return WillPopScope(
       onWillPop: () async {
         context.bloc<PageBloc>().add(widget.pageEvent);
@@ -113,8 +117,22 @@ class _TopUpPageState extends State<TopUpPage> {
                         ),
                       ),
                       Wrap(
-                        spacing: 20, // jarak horizontal
-                        runSpacing: 20, // jarak vertikal
+                        spacing: 18, // jarak horizontal
+                        runSpacing: 18, // jarak vertikal
+                        children: <Widget>[
+                          MoneyCard(
+                            amount: 50000,
+                            width: cardWidth,
+                          ),
+                          MoneyCard(
+                            amount: 50000,
+                            width: cardWidth,
+                          ),
+                          MoneyCard(
+                            amount: 50000,
+                            width: cardWidth,
+                          ),
+                        ],
                       )
                     ],
                   ),
