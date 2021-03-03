@@ -72,10 +72,9 @@ class _TopUpPageState extends State<TopUpPage> {
                       //NOTE: TEXTFIELD
                       SizedBox(height: 30),
                       TextField(
-                        controller: amountController,
                         onChanged: (text) {
-                          // kalau dia angka, tambahkan ke temp (concat)
-                          // kalo tidak, concat dengan string kosong
+                          // kalau dia angka, tambahkan ke temp (concat). kalo tidak, concat dengan string kosong
+
                           String temp = '';
                           for (int i = 0; i < text.length; i++) {
                             temp += text.isDigit(i) ? text[i] : '';
@@ -98,6 +97,7 @@ class _TopUpPageState extends State<TopUpPage> {
                               TextSelection.fromPosition(TextPosition(
                                   offset: amountController.text.length));
                         },
+                        controller: amountController,
                         keyboardType: TextInputType.number,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
@@ -203,9 +203,10 @@ class _TopUpPageState extends State<TopUpPage> {
                                           userID:
                                               (userState as UserLoaded).user.id,
                                           title: "Isi Saldo",
-                                          subtitle: null,
+                                          subtitle:
+                                              "${DateTime.now().dayName}, ${DateTime.now().day} ${DateTime.now().monthName} ${DateTime.now().year}",
                                           amount: selectedAmount,
-                                          time: null,
+                                          time: DateTime.now(),
                                         ),
                                       ),
                                     );
