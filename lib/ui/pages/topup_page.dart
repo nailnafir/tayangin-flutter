@@ -98,6 +98,23 @@ class _TopUpPageState extends State<TopUpPage> {
                               borderRadius: BorderRadius.circular(8)),
                           labelText: "Jumlah",
                         ),
+                      ),
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child: Container(
+                          margin: EdgeInsets.only(top: 30, bottom: 12),
+                          child: Text(
+                            "Pilih Sesukamu",
+                            style: blackTextFont.copyWith(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Wrap(
+                        spacing: 20, // jarak horizontal
+                        runSpacing: 20, // jarak vertikal
                       )
                     ],
                   ),
