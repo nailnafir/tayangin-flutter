@@ -82,7 +82,9 @@ class _TopUpPageState extends State<TopUpPage> {
                           }
 
                           // ubah temp ke bentuk integer
-                          selectedAmount = int.tryParse(temp) ?? 0;
+                          setState(() {
+                            selectedAmount = int.tryParse(temp) ?? 0;
+                          });
 
                           // buat format currency ke IDR
                           amountController.text = NumberFormat.currency(
@@ -120,16 +122,40 @@ class _TopUpPageState extends State<TopUpPage> {
                         spacing: 18, // jarak horizontal
                         runSpacing: 18, // jarak vertikal
                         children: <Widget>[
-                          MoneyCard(
+                          makeMoneyCard(
                             amount: 50000,
                             width: cardWidth,
                           ),
-                          MoneyCard(
-                            amount: 50000,
+                          makeMoneyCard(
+                            amount: 100000,
                             width: cardWidth,
                           ),
-                          MoneyCard(
-                            amount: 50000,
+                          makeMoneyCard(
+                            amount: 150000,
+                            width: cardWidth,
+                          ),
+                          makeMoneyCard(
+                            amount: 200000,
+                            width: cardWidth,
+                          ),
+                          makeMoneyCard(
+                            amount: 250000,
+                            width: cardWidth,
+                          ),
+                          makeMoneyCard(
+                            amount: 500000,
+                            width: cardWidth,
+                          ),
+                          makeMoneyCard(
+                            amount: 1000000,
+                            width: cardWidth,
+                          ),
+                          makeMoneyCard(
+                            amount: 2500000,
+                            width: cardWidth,
+                          ),
+                          makeMoneyCard(
+                            amount: 5000000,
                             width: cardWidth,
                           ),
                         ],
@@ -142,6 +168,35 @@ class _TopUpPageState extends State<TopUpPage> {
           ],
         ),
       ),
+    );
+  }
+
+  MoneyCard makeMoneyCard({int amount, double width}) {
+    return MoneyCard(
+      amount: amount,
+      width: width,
+      isSelected: amount == selectedAmount,
+      onTap: () {
+        setState(() {
+          // select amount dan deselect
+          if (selectedAmount != amount) {
+            selectedAmount = amount;
+          } else {
+            selectedAmount = 0;
+          }
+
+          // buat input text nya bernilai sama dengan yang diselect amount
+          amountController.text = NumberFormat.currency(
+            locale: 'id_ID',
+            decimalDigits: 0,
+            symbol: 'IDR ',
+          ).format(selectedAmount);
+
+          // pindahkan kursor ke belakang
+          amountController.selection = TextSelection.fromPosition(
+              TextPosition(offset: amountController.text.length));
+        });
+      },
     );
   }
 }
