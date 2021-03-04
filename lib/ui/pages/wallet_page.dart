@@ -7,8 +7,16 @@ class WalletPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(),
+    return WillPopScope(
+      onWillPop: () async {
+        context.bloc<PageBloc>().add(pageEvent);
+        return;
+      },
+      child: Scaffold(
+        body: Center(
+          child: Text("Dompet Saya"),
+        ),
+      ),
     );
   }
 }

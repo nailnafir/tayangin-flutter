@@ -147,7 +147,10 @@ class _ProfilePageState extends State<ProfilePage> {
                                             2 * defaultMargin),
                                   ),
                                   GestureDetector(
-                                    onTap: () {},
+                                    onTap: () {
+                                      context.bloc<PageBloc>().add(
+                                          GoToWalletPage(GoToProfilePage()));
+                                    },
                                     child: Row(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
