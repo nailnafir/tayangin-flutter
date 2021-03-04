@@ -86,7 +86,7 @@ class WalletPage extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                Padding(
+                                Container(
                                   padding: EdgeInsets.all(18),
                                   child: Column(
                                     crossAxisAlignment:
@@ -214,7 +214,32 @@ class WalletPage extends StatelessWidget {
                                 ),
                               ],
                             ),
-                          )
+                          ),
+                          Container(
+                            alignment: Alignment.topLeft,
+                            margin: EdgeInsets.only(bottom: 12),
+                            child: Text(
+                              "Transaksi Terakhir",
+                              style: blackTextFont.copyWith(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                          FutureBuilder(
+                              future:
+                                  TayanginTransactionServices.getTransaction(
+                                      (userState as UserLoaded).user.id),
+                              builder: (_, snapshot) {
+                                if (snapshot.hasData) {
+                                  return generateTransactionList(snapshot.data);
+                                } else {
+                                  return SpinKitThreeBounce(
+                                    size: 50,
+                                    color: mainColorBlue,
+                                  );
+                                }
+                              })
                         ],
                       );
                     },
@@ -225,6 +250,12 @@ class WalletPage extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  Column generateTransactionList(List<TayanginTransaction> transactions) {
+    return Column(
+      children: transactions.map((e) => Text(e.title)).toList(),
     );
   }
 }
