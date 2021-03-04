@@ -252,24 +252,30 @@ class _ProfilePageState extends State<ProfilePage> {
                                         MediaQuery.of(context).size.width -
                                             2 * defaultMargin),
                                   ),
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: <Widget>[
-                                      Container(
-                                        width: 24,
-                                        height: 24,
-                                        child: SvgPicture.asset(
-                                            "assets/icon_logout.svg"),
-                                      ),
-                                      SizedBox(width: 10),
-                                      Text(
-                                        "Keluar",
-                                        style: blackTextFont.copyWith(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w400),
-                                      ),
-                                    ],
+                                  GestureDetector(
+                                    onTap: () {
+                                      context.bloc<UserBloc>().add(SignOut());
+                                      AuthServices.signOut();
+                                    },
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        Container(
+                                          width: 24,
+                                          height: 24,
+                                          child: SvgPicture.asset(
+                                              "assets/icon_logout.svg"),
+                                        ),
+                                        SizedBox(width: 10),
+                                        Text(
+                                          "Keluar",
+                                          style: blackTextFont.copyWith(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w400),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                   Container(
                                     margin: EdgeInsets.symmetric(vertical: 12),
