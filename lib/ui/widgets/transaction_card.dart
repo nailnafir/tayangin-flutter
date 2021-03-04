@@ -20,6 +20,7 @@ class TransactionCard extends StatelessWidget {
               image: (transaction.picture != null)
                   ? NetworkImage(imageBaseURL + "w500" + transaction.picture)
                   : AssetImage("assets/icon_bg_default_top_up.png"),
+              fit: BoxFit.cover,
             ),
           ),
         ),

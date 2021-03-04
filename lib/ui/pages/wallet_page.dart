@@ -232,7 +232,11 @@ class WalletPage extends StatelessWidget {
                                       (userState as UserLoaded).user.id),
                               builder: (_, snapshot) {
                                 if (snapshot.hasData) {
-                                  return generateTransactionList(snapshot.data);
+                                  return generateTransactionList(
+                                    snapshot.data,
+                                    MediaQuery.of(context).size.width -
+                                        2 * defaultMargin,
+                                  );
                                 } else {
                                   return SpinKitThreeBounce(
                                     size: 50,
@@ -253,9 +257,12 @@ class WalletPage extends StatelessWidget {
     );
   }
 
-  Column generateTransactionList(List<TayanginTransaction> transactions) {
+  Column generateTransactionList(
+      List<TayanginTransaction> transactions, double width) {
     return Column(
-      children: transactions.map((e) => Text(e.title)).toList(),
+      children: transactions
+          .map((transaction) => TransactionCard(transaction, width))
+          .toList(),
     );
   }
 }
