@@ -227,24 +227,33 @@ class _ProfilePageState extends State<ProfilePage> {
                                         MediaQuery.of(context).size.width -
                                             2 * defaultMargin),
                                   ),
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: <Widget>[
-                                      Container(
-                                        width: 24,
-                                        height: 24,
-                                        child: SvgPicture.asset(
-                                            "assets/icon_contact_me.svg"),
-                                      ),
-                                      SizedBox(width: 10),
-                                      Text(
-                                        "Kontak Bantuan",
-                                        style: blackTextFont.copyWith(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w400),
-                                      ),
-                                    ],
+                                  GestureDetector(
+                                    onTap: () async {
+                                      if (await canLaunch(contactMeURL)) {
+                                        await launch(contactMeURL);
+                                      } else {
+                                        throw 'Gagal menjalankan $contactMeURL';
+                                      }
+                                    },
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        Container(
+                                          width: 24,
+                                          height: 24,
+                                          child: SvgPicture.asset(
+                                              "assets/icon_contact_me.svg"),
+                                        ),
+                                        SizedBox(width: 10),
+                                        Text(
+                                          "Kontak Bantuan",
+                                          style: blackTextFont.copyWith(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w400),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                   Container(
                                     margin: EdgeInsets.symmetric(vertical: 12),
