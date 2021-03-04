@@ -15,241 +15,304 @@ class WalletPage extends StatelessWidget {
       child: Scaffold(
         body: Stack(
           children: [
-            SafeArea(child: Container(color: Colors.white)),
-            ListView(
-              children: <Widget>[
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: defaultMargin),
-                  child: BlocBuilder<UserBloc, UserState>(
-                    builder: (_, userState) {
-                      return Column(
-                        children: <Widget>[
-                          //NOTE: ICON BACK
-                          Container(
-                            margin: EdgeInsets.only(top: 16),
-                            child: Stack(
-                              children: <Widget>[
-                                Container(
-                                  padding: EdgeInsets.all(1),
-                                  alignment: Alignment.centerLeft,
-                                  child: GestureDetector(
-                                      onTap: () {
-                                        context.bloc<PageBloc>().add(pageEvent);
-                                      },
-                                      child: Icon(Icons.arrow_back,
-                                          color: Colors.black)),
-                                ),
-                                Center(
-                                  child: Text(
-                                    'Dompet Saya',
-                                    style: blackTextFont.copyWith(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w500,
+            SafeArea(
+              child: Container(
+                color: Colors.white,
+                child: ListView(
+                  children: <Widget>[
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: defaultMargin),
+                      child: BlocBuilder<UserBloc, UserState>(
+                        builder: (_, userState) {
+                          return Column(
+                            children: <Widget>[
+                              //NOTE: ICON BACK
+                              Container(
+                                margin: EdgeInsets.only(top: 16),
+                                child: Stack(
+                                  children: <Widget>[
+                                    Container(
+                                      padding: EdgeInsets.all(1),
+                                      alignment: Alignment.centerLeft,
+                                      child: GestureDetector(
+                                          onTap: () {
+                                            context
+                                                .bloc<PageBloc>()
+                                                .add(pageEvent);
+                                          },
+                                          child: Icon(Icons.arrow_back,
+                                              color: Colors.black)),
                                     ),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                          //NOTE: CARD
-                          Container(
-                            height: 180,
-                            width: double.infinity,
-                            margin: EdgeInsets.symmetric(vertical: 30),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(12),
-                              color: mainColorBlue,
-                              boxShadow: [
-                                BoxShadow(
-                                    color: Colors.grey,
-                                    blurRadius: 3.0,
-                                    spreadRadius: 0.5,
-                                    offset: Offset(0.0, 3.0))
-                              ],
-                            ),
-                            child: Stack(
-                              children: <Widget>[
-                                ClipPath(
-                                  clipper: CardReflectionClipper(),
-                                  child: Container(
-                                    height: 180,
-                                    width: double.infinity,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(12),
-                                      gradient: LinearGradient(
-                                          begin: Alignment.topRight,
-                                          end: Alignment.bottomLeft,
-                                          colors: [
-                                            Colors.white.withOpacity(0.1),
-                                            Colors.white.withOpacity(0.1),
-                                          ]),
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  padding: EdgeInsets.all(18),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: <Widget>[
-                                      Row(
-                                        children: <Widget>[
-                                          Container(
-                                            width: 18,
-                                            height: 18,
-                                            decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              color: accentColorYellow,
-                                            ),
-                                          ),
-                                          SizedBox(width: 4),
-                                          Container(
-                                            width: 30,
-                                            height: 30,
-                                            decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              color: mainColorYellow,
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                      Text(
-                                        NumberFormat.currency(
-                                                locale: 'id_ID',
-                                                decimalDigits: 0,
-                                                symbol: 'IDR ')
-                                            .format((userState as UserLoaded)
-                                                .user
-                                                .balance),
-                                        style: yellowNumberFont.copyWith(
-                                          fontSize: 28,
-                                          fontWeight: FontWeight.w600,
+                                    Center(
+                                      child: Text(
+                                        'Dompet Saya',
+                                        style: blackTextFont.copyWith(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w500,
                                         ),
                                       ),
-                                      Row(
+                                    )
+                                  ],
+                                ),
+                              ),
+                              //NOTE: CARD
+                              Container(
+                                height: 180,
+                                width: double.infinity,
+                                margin: EdgeInsets.symmetric(vertical: 30),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                  color: mainColorBlue,
+                                  boxShadow: [
+                                    BoxShadow(
+                                        color: Colors.grey,
+                                        blurRadius: 3.0,
+                                        spreadRadius: 0.5,
+                                        offset: Offset(0.0, 3.0))
+                                  ],
+                                ),
+                                child: Stack(
+                                  children: <Widget>[
+                                    ClipPath(
+                                      clipper: CardReflectionClipper(),
+                                      child: Container(
+                                        height: 180,
+                                        width: double.infinity,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(12),
+                                          gradient: LinearGradient(
+                                              begin: Alignment.topRight,
+                                              end: Alignment.bottomLeft,
+                                              colors: [
+                                                Colors.white.withOpacity(0.1),
+                                                Colors.white.withOpacity(0.1),
+                                              ]),
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      padding: EdgeInsets.all(18),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         mainAxisAlignment:
-                                            MainAxisAlignment.start,
+                                            MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
-                                          Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
+                                          Row(
                                             children: <Widget>[
-                                              Text(
-                                                'Pemilik Kartu',
-                                                style: whiteTextFont.copyWith(
-                                                  fontSize: 12,
-                                                  fontWeight: FontWeight.w300,
-                                                  color: Colors.white54,
+                                              Container(
+                                                width: 18,
+                                                height: 18,
+                                                decoration: BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                  color: accentColorYellow,
                                                 ),
                                               ),
-                                              Row(
-                                                children: [
-                                                  Text(
-                                                    (userState as UserLoaded)
-                                                        .user
-                                                        .name,
-                                                    style:
-                                                        whiteTextFont.copyWith(
-                                                      fontSize: 14,
-                                                      fontWeight:
-                                                          FontWeight.w400,
-                                                      color: Colors.white,
-                                                    ),
-                                                  ),
-                                                  SizedBox(width: 4),
-                                                  Image.asset(
-                                                    "assets/icon_verified.png",
-                                                    width: 14,
-                                                    height: 14,
-                                                  )
-                                                ],
-                                              ),
+                                              SizedBox(width: 4),
+                                              Container(
+                                                width: 30,
+                                                height: 30,
+                                                decoration: BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                  color: mainColorYellow,
+                                                ),
+                                              )
                                             ],
                                           ),
-                                          SizedBox(width: 30),
-                                          Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: <Widget>[
-                                              Text(
-                                                'ID Kartu',
-                                                style: whiteTextFont.copyWith(
-                                                  fontSize: 12,
-                                                  fontWeight: FontWeight.w300,
-                                                  color: Colors.white54,
-                                                ),
-                                              ),
-                                              Row(
-                                                children: [
-                                                  Text(
+                                          Text(
+                                            NumberFormat.currency(
+                                                    locale: 'id_ID',
+                                                    decimalDigits: 0,
+                                                    symbol: 'IDR ')
+                                                .format(
                                                     (userState as UserLoaded)
                                                         .user
-                                                        .id
-                                                        .substring(0, 12)
-                                                        .toUpperCase(),
+                                                        .balance),
+                                            style: yellowNumberFont.copyWith(
+                                              fontSize: 28,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            children: <Widget>[
+                                              Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: <Widget>[
+                                                  Text(
+                                                    'Pemilik Kartu',
                                                     style:
                                                         whiteTextFont.copyWith(
-                                                      fontSize: 14,
+                                                      fontSize: 12,
                                                       fontWeight:
-                                                          FontWeight.w400,
-                                                      color: Colors.white,
+                                                          FontWeight.w300,
+                                                      color: Colors.white54,
                                                     ),
                                                   ),
-                                                  SizedBox(width: 4),
-                                                  Image.asset(
-                                                    "assets/icon_verified.png",
-                                                    width: 14,
-                                                    height: 14,
-                                                  )
+                                                  Row(
+                                                    children: [
+                                                      Text(
+                                                        (userState
+                                                                as UserLoaded)
+                                                            .user
+                                                            .name,
+                                                        style: whiteTextFont
+                                                            .copyWith(
+                                                          fontSize: 14,
+                                                          fontWeight:
+                                                              FontWeight.w400,
+                                                          color: Colors.white,
+                                                        ),
+                                                      ),
+                                                      SizedBox(width: 4),
+                                                      Image.asset(
+                                                        "assets/icon_verified.png",
+                                                        width: 14,
+                                                        height: 14,
+                                                      )
+                                                    ],
+                                                  ),
                                                 ],
                                               ),
+                                              SizedBox(width: 30),
+                                              Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: <Widget>[
+                                                  Text(
+                                                    'ID Kartu',
+                                                    style:
+                                                        whiteTextFont.copyWith(
+                                                      fontSize: 12,
+                                                      fontWeight:
+                                                          FontWeight.w300,
+                                                      color: Colors.white54,
+                                                    ),
+                                                  ),
+                                                  Row(
+                                                    children: [
+                                                      Text(
+                                                        (userState
+                                                                as UserLoaded)
+                                                            .user
+                                                            .id
+                                                            .substring(0, 12)
+                                                            .toUpperCase(),
+                                                        style: whiteTextFont
+                                                            .copyWith(
+                                                          fontSize: 14,
+                                                          fontWeight:
+                                                              FontWeight.w400,
+                                                          color: Colors.white,
+                                                        ),
+                                                      ),
+                                                      SizedBox(width: 4),
+                                                      Image.asset(
+                                                        "assets/icon_verified.png",
+                                                        width: 14,
+                                                        height: 14,
+                                                      )
+                                                    ],
+                                                  ),
+                                                ],
+                                              )
                                             ],
-                                          )
+                                          ),
                                         ],
                                       ),
-                                    ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              //NOTE: TRANSACTION HISTORY
+                              Container(
+                                alignment: Alignment.topLeft,
+                                margin: EdgeInsets.only(bottom: 12),
+                                child: Text(
+                                  "Transaksi Terakhir",
+                                  style: blackTextFont.copyWith(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w500,
                                   ),
                                 ),
-                              ],
-                            ),
-                          ),
-                          //NOTE: TRANSACTION HISTORY
-                          Container(
-                            alignment: Alignment.topLeft,
-                            margin: EdgeInsets.only(bottom: 12),
-                            child: Text(
-                              "Transaksi Terakhir",
-                              style: blackTextFont.copyWith(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w500,
                               ),
-                            ),
-                          ),
-                          FutureBuilder(
-                              future:
-                                  TayanginTransactionServices.getTransaction(
-                                      (userState as UserLoaded).user.id),
-                              builder: (_, snapshot) {
-                                if (snapshot.hasData) {
-                                  return generateTransactionList(
-                                    snapshot.data,
-                                    MediaQuery.of(context).size.width -
-                                        2 * defaultMargin,
-                                  );
-                                } else {
-                                  return SpinKitThreeBounce(
-                                    size: 50,
-                                    color: mainColorBlue,
-                                  );
-                                }
-                              })
-                        ],
-                      );
-                    },
+                              FutureBuilder(
+                                  future: TayanginTransactionServices
+                                      .getTransaction(
+                                          (userState as UserLoaded).user.id),
+                                  builder: (_, snapshot) {
+                                    if (snapshot.hasData) {
+                                      return generateTransactionList(
+                                        snapshot.data,
+                                        MediaQuery.of(context).size.width -
+                                            2 * defaultMargin,
+                                      );
+                                    } else {
+                                      return SpinKitThreeBounce(
+                                        size: 50,
+                                        color: mainColorBlue,
+                                      );
+                                    }
+                                  }),
+                              SizedBox(height: 100),
+                            ],
+                          );
+                        },
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+            //NOTE: BUTTON
+            Stack(
+              children: [
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Container(
+                    width: double.infinity,
+                    height: 70,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.3),
+                          spreadRadius: 3,
+                          blurRadius: 7,
+                          offset: Offset(0, 3),
+                        ),
+                      ],
+                    ),
                   ),
-                )
+                ),
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Container(
+                    width: 250,
+                    height: 50,
+                    margin: EdgeInsets.symmetric(vertical: 10),
+                    child: RaisedButton(
+                      elevation: 2,
+                      color: mainColorBlue,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8)),
+                      child: Text(
+                        "Isi Saldo",
+                        style: whiteTextFont.copyWith(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      onPressed: () {
+                        context.bloc<PageBloc>().add(
+                            GoToTopUpPage(GoToWalletPage(GoToProfilePage())));
+                      },
+                    ),
+                  ),
+                ),
               ],
             )
           ],
