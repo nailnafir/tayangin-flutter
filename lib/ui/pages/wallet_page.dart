@@ -260,6 +260,9 @@ class WalletPage extends StatelessWidget {
 
   Column generateTransactionList(
       List<TayanginTransaction> transactions, double width) {
+    transactions.sort((transaction1, transaction2) =>
+        transaction2.time.compareTo(transaction1.time));
+
     return Column(
       children: transactions
           .map((transaction) => Container(
