@@ -146,24 +146,27 @@ class _ProfilePageState extends State<ProfilePage> {
                                         MediaQuery.of(context).size.width -
                                             2 * defaultMargin),
                                   ),
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: <Widget>[
-                                      Container(
-                                        width: 24,
-                                        height: 24,
-                                        child: SvgPicture.asset(
-                                            "assets/icon_wallet_balance.svg"),
-                                      ),
-                                      SizedBox(width: 10),
-                                      Text(
-                                        "Dompet Saya",
-                                        style: blackTextFont.copyWith(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w400),
-                                      ),
-                                    ],
+                                  GestureDetector(
+                                    onTap: () {},
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        Container(
+                                          width: 24,
+                                          height: 24,
+                                          child: SvgPicture.asset(
+                                              "assets/icon_wallet_balance.svg"),
+                                        ),
+                                        SizedBox(width: 10),
+                                        Text(
+                                          "Dompet Saya",
+                                          style: blackTextFont.copyWith(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w400),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                   Container(
                                     margin: EdgeInsets.symmetric(vertical: 12),
