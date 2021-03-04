@@ -215,6 +215,7 @@ class WalletPage extends StatelessWidget {
                               ],
                             ),
                           ),
+                          //NOTE: TRANSACTION HISTORY
                           Container(
                             alignment: Alignment.topLeft,
                             margin: EdgeInsets.only(bottom: 12),
@@ -261,7 +262,9 @@ class WalletPage extends StatelessWidget {
       List<TayanginTransaction> transactions, double width) {
     return Column(
       children: transactions
-          .map((transaction) => TransactionCard(transaction, width))
+          .map((transaction) => Container(
+              padding: EdgeInsets.only(bottom: 18),
+              child: TransactionCard(transaction, width)))
           .toList(),
     );
   }
