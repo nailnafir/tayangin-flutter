@@ -115,7 +115,8 @@ class _SignInPageState extends State<SignInPage> {
                                           });
 
                                           Flushbar(
-                                            duration: Duration(seconds: 5),
+                                            duration:
+                                                Duration(milliseconds: 3000),
                                             flushbarPosition:
                                                 FlushbarPosition.TOP,
                                             backgroundColor: accentColorRed,
