@@ -67,13 +67,13 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                   ),
                   Container(
-                    width: 96,
-                    height: 110,
+                    width: 100,
+                    height: 114,
                     child: Stack(
                       children: <Widget>[
                         Container(
-                          width: 96,
-                          height: 96,
+                          width: 100,
+                          height: 100,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             image: DecorationImage(
@@ -118,7 +118,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 35),
+                  SizedBox(height: 30),
                   TextField(
                     controller: nameController,
                     decoration: InputDecoration(
