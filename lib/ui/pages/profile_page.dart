@@ -121,24 +121,36 @@ class _ProfilePageState extends State<ProfilePage> {
                                   horizontal: defaultMargin),
                               child: Column(
                                 children: [
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: <Widget>[
-                                      Container(
-                                        width: 24,
-                                        height: 24,
-                                        child: SvgPicture.asset(
-                                            "assets/icon_profile.svg"),
-                                      ),
-                                      SizedBox(width: 10),
-                                      Text(
-                                        "Ubah Profil",
-                                        style: blackTextFont.copyWith(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w400),
-                                      ),
-                                    ],
+                                  BlocBuilder<UserBloc, UserState>(
+                                    builder: (_, userState) {
+                                      return GestureDetector(
+                                        onTap: () {
+                                          context.bloc<PageBloc>().add(
+                                              GoToEditProfilePage(
+                                                  (userState as UserLoaded)
+                                                      .user));
+                                        },
+                                        child: Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: <Widget>[
+                                            Container(
+                                              width: 24,
+                                              height: 24,
+                                              child: SvgPicture.asset(
+                                                  "assets/icon_profile.svg"),
+                                            ),
+                                            SizedBox(width: 10),
+                                            Text(
+                                              "Ubah Profil",
+                                              style: blackTextFont.copyWith(
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.w400),
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    },
                                   ),
                                   Container(
                                     margin: EdgeInsets.symmetric(vertical: 12),

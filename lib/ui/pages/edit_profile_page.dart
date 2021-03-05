@@ -19,7 +19,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
       },
       child: Scaffold(
         body: Center(
-          child: Text("Ubah Profil"),
+          child: Text(widget.user.name),
         ),
       ),
     );
