@@ -89,7 +89,7 @@ class _SignInPageState extends State<SignInPage> {
                         height: 50,
                         margin: EdgeInsets.only(top: 50, bottom: 20),
                         child: isSigningIn
-                            ? SpinKitThreeBounce(color: mainColorBlue)
+                            ? SpinKitFadingCircle(color: mainColorBlue)
                             : FloatingActionButton(
                                 child: Text("Masuk",
                                     style: isEmailValid && isPasswordValid
