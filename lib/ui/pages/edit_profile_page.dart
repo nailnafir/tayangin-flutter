@@ -102,17 +102,22 @@ class _EditProfilePageState extends State<EditProfilePage> {
                                       alignment: Alignment.bottomCenter,
                                       child: GestureDetector(
                                         onTap: () async {
+                                          // validasi ambil foto jika kosong
                                           if (profilePath == "") {
                                             profileImageFile = await getImage();
 
+                                            // validasi jika sudah terisi
                                             if (profileImageFile != null) {
                                               profilePath = basename(
                                                   profileImageFile.path);
                                             }
                                           } else {
+                                            // set semua jadi kosong
                                             profileImageFile = null;
                                             profilePath = "";
                                           }
+
+                                          setState(() {});
                                         },
                                         child: Container(
                                           height: 28,
