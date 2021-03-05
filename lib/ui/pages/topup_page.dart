@@ -160,62 +160,62 @@ class _TopUpPageState extends State<TopUpPage> {
                           ),
                         ],
                       ),
+                      Container(
+                        margin: EdgeInsets.symmetric(vertical: 30),
+                        width: 250,
+                        height: 50,
+                        child: BlocBuilder<UserBloc, UserState>(
+                          builder: (_, userState) {
+                            return FloatingActionButton(
+                              elevation: 2,
+                              backgroundColor: selectedAmount > 0
+                                  ? accentColorGreen
+                                  : accentColorLightGray,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8)),
+                              child: Text(
+                                'Isi Saldo Sekarang',
+                                style: selectedAmount > 0
+                                    ? whiteTextFont.copyWith(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500,
+                                        letterSpacing: 0,
+                                      )
+                                    : grayTextFont.copyWith(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500,
+                                        letterSpacing: 0,
+                                      ),
+                              ),
+                              onPressed: selectedAmount > 0
+                                  ? () {
+                                      context.bloc<PageBloc>().add(
+                                            GoToSuccessPage(
+                                              null,
+                                              TayanginTransaction(
+                                                userID:
+                                                    (userState as UserLoaded)
+                                                        .user
+                                                        .id,
+                                                title: "Isi Saldo",
+                                                subtitle:
+                                                    "${DateTime.now().dayName}, ${DateTime.now().day} ${DateTime.now().monthName} ${DateTime.now().year}",
+                                                amount: selectedAmount,
+                                                time: DateTime.now(),
+                                              ),
+                                            ),
+                                          );
+                                    }
+                                  : null,
+                            );
+                          },
+                        ),
+                      )
                     ],
                   ),
                 )
               ],
             ),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                  margin: EdgeInsets.only(bottom: 30),
-                  width: 250,
-                  height: 50,
-                  child: BlocBuilder<UserBloc, UserState>(
-                    builder: (_, userState) {
-                      return FloatingActionButton(
-                        elevation: 2,
-                        backgroundColor: selectedAmount > 0
-                            ? accentColorGreen
-                            : accentColorLightGray,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8)),
-                        child: Text(
-                          'Isi Saldo Sekarang',
-                          style: selectedAmount > 0
-                              ? whiteTextFont.copyWith(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                  letterSpacing: 0,
-                                )
-                              : grayTextFont.copyWith(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                  letterSpacing: 0,
-                                ),
-                        ),
-                        onPressed: selectedAmount > 0
-                            ? () {
-                                context.bloc<PageBloc>().add(
-                                      GoToSuccessPage(
-                                        null,
-                                        TayanginTransaction(
-                                          userID:
-                                              (userState as UserLoaded).user.id,
-                                          title: "Isi Saldo",
-                                          subtitle:
-                                              "${DateTime.now().dayName}, ${DateTime.now().day} ${DateTime.now().monthName} ${DateTime.now().year}",
-                                          amount: selectedAmount,
-                                          time: DateTime.now(),
-                                        ),
-                                      ),
-                                    );
-                              }
-                            : null,
-                      );
-                    },
-                  )),
-            )
           ],
         ),
       ),
