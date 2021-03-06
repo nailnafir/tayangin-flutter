@@ -24,42 +24,42 @@ class _ProfilePageState extends State<ProfilePage> {
 
                   return Column(
                     children: [
+                      Container(
+                        margin: EdgeInsets.only(top: 16),
+                        child: Stack(
+                          children: <Widget>[
+                            Container(
+                              margin: EdgeInsets.only(left: defaultMargin),
+                              padding: EdgeInsets.all(1),
+                              alignment: Alignment.centerLeft,
+                              child: GestureDetector(
+                                onTap: () {
+                                  context
+                                      .bloc<PageBloc>()
+                                      .add(GoToMainPage(bottomNavBarIndex: 0));
+                                },
+                                child:
+                                    Icon(Icons.arrow_back, color: Colors.black),
+                              ),
+                            ),
+                            Center(
+                              child: Text(
+                                "Profil Saya",
+                                style: blackTextFont.copyWith(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                       Stack(
                         children: <Widget>[
-                          //NOTE: HEADER
-                          Container(
-                            margin: EdgeInsets.only(top: 16),
-                            child: Stack(
-                              children: <Widget>[
-                                Container(
-                                  margin: EdgeInsets.only(left: defaultMargin),
-                                  padding: EdgeInsets.all(1),
-                                  alignment: Alignment.centerLeft,
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      context.bloc<PageBloc>().add(
-                                          GoToMainPage(bottomNavBarIndex: 0));
-                                    },
-                                    child: Icon(Icons.arrow_back,
-                                        color: Colors.black),
-                                  ),
-                                ),
-                                Center(
-                                  child: Text(
-                                    "Profil Saya",
-                                    style: blackTextFont.copyWith(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
                           //NOTE: PHOTO PROFILE
                           Container(
                             height: 350,
-                            margin: EdgeInsets.only(top: 120),
+                            margin: EdgeInsets.only(top: 80),
                             decoration: BoxDecoration(
                               color: mainColorBlue,
                               borderRadius: BorderRadius.only(
@@ -74,7 +74,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 child: Container(
                                   width: 100,
                                   height: 100,
-                                  margin: EdgeInsets.only(top: 70),
+                                  margin: EdgeInsets.only(top: 30),
                                   decoration: BoxDecoration(
                                     shape: BoxShape.circle,
                                     image: DecorationImage(
@@ -106,7 +106,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             ],
                           ),
                           Container(
-                            margin: EdgeInsets.only(top: 250),
+                            margin: EdgeInsets.only(top: 210),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(50),
@@ -345,7 +345,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 ],
                               ),
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ],
