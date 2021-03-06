@@ -123,6 +123,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 children: [
                                   BlocBuilder<UserBloc, UserState>(
                                     builder: (_, userState) {
+                                      //NOTE: EDIT PROFILE
                                       return GestureDetector(
                                         onTap: () {
                                           context.bloc<PageBloc>().add(
@@ -158,6 +159,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                         MediaQuery.of(context).size.width -
                                             2 * defaultMargin),
                                   ),
+                                  //NOTE: MY WALLET
                                   GestureDetector(
                                     onTap: () {
                                       context.bloc<PageBloc>().add(
@@ -189,6 +191,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                         MediaQuery.of(context).size.width -
                                             2 * defaultMargin),
                                   ),
+                                  //NOTE: CHANGE LANGUAGE
                                   Row(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -214,31 +217,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                         MediaQuery.of(context).size.width -
                                             2 * defaultMargin),
                                   ),
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: <Widget>[
-                                      Container(
-                                        width: 24,
-                                        height: 24,
-                                        child: SvgPicture.asset(
-                                            "assets/icon_rate_like.svg"),
-                                      ),
-                                      SizedBox(width: 10),
-                                      Text(
-                                        "Nilai Aplikasi Tayangin",
-                                        style: blackTextFont.copyWith(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w400),
-                                      ),
-                                    ],
-                                  ),
-                                  Container(
-                                    margin: EdgeInsets.symmetric(vertical: 12),
-                                    child: generateDashedDivider(
-                                        MediaQuery.of(context).size.width -
-                                            2 * defaultMargin),
-                                  ),
+                                  //NOTE: CONTACT ME
                                   GestureDetector(
                                     onTap: () async {
                                       if (await canLaunch(contactMeURL)) {
@@ -273,6 +252,65 @@ class _ProfilePageState extends State<ProfilePage> {
                                         MediaQuery.of(context).size.width -
                                             2 * defaultMargin),
                                   ),
+                                  //NOTE: RATE APPS
+                                  Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Container(
+                                        width: 24,
+                                        height: 24,
+                                        child: SvgPicture.asset(
+                                            "assets/icon_rate_like.svg"),
+                                      ),
+                                      SizedBox(width: 10),
+                                      Text(
+                                        "Nilai Aplikasi Tayangin",
+                                        style: blackTextFont.copyWith(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w400),
+                                      ),
+                                    ],
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.symmetric(vertical: 12),
+                                    child: generateDashedDivider(
+                                        MediaQuery.of(context).size.width -
+                                            2 * defaultMargin),
+                                  ),
+                                  //NOTE: ABOUT APPS
+                                  GestureDetector(
+                                    onTap: () {
+                                      context.bloc<UserBloc>().add(SignOut());
+                                      AuthServices.signOut();
+                                    },
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        Container(
+                                          width: 24,
+                                          height: 24,
+                                          child: SvgPicture.asset(
+                                              "assets/icon_about_apps.svg"),
+                                        ),
+                                        SizedBox(width: 10),
+                                        Text(
+                                          "Tentang Aplikasi Tayangin",
+                                          style: blackTextFont.copyWith(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w400),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.symmetric(vertical: 12),
+                                    child: generateDashedDivider(
+                                        MediaQuery.of(context).size.width -
+                                            2 * defaultMargin),
+                                  ),
+                                  //NOTE: SIGN OUT
                                   GestureDetector(
                                     onTap: () {
                                       context.bloc<UserBloc>().add(SignOut());
