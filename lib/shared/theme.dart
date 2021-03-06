@@ -21,13 +21,10 @@ TextStyle grayTextFont = GoogleFonts.poppins()
 TextStyle yellowTextFont = GoogleFonts.poppins()
     .copyWith(color: mainColorYellow, fontWeight: FontWeight.w500);
 
-TextStyle blackNumberFont =
-    GoogleFonts.robotoMono().copyWith(color: Colors.black);
-TextStyle whiteNumberFont =
-    GoogleFonts.robotoMono().copyWith(color: Colors.white);
+TextStyle blackNumberFont = GoogleFonts.lato().copyWith(color: Colors.black);
+TextStyle whiteNumberFont = GoogleFonts.lato().copyWith(color: Colors.white);
 TextStyle yellowNumberFont =
-    GoogleFonts.robotoMono().copyWith(color: mainColorYellow);
-TextStyle redNumberFont =
-    GoogleFonts.robotoMono().copyWith(color: accentColorRed);
+    GoogleFonts.lato().copyWith(color: mainColorYellow);
+TextStyle redNumberFont = GoogleFonts.lato().copyWith(color: accentColorRed);
 TextStyle greenNumberFont =
-    GoogleFonts.robotoMono().copyWith(color: accentColorGreen);
+    GoogleFonts.lato().copyWith(color: accentColorGreen);

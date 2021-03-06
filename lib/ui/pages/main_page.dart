@@ -24,50 +24,61 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Stack(
-        children: <Widget>[
-          Container(color: mainColorBlue),
-          SafeArea(child: Container(color: Colors.white)),
-          PageView(
-            controller: pageController,
-            onPageChanged: (index) {
-              setState(() {
-                bottomNavBarIndex = index;
-              });
-            },
-            children: <Widget>[
-              MoviePage(),
-              TicketPage(isExpiredTicket: widget.isExpired),
-            ],
-          ),
-          createCustomBottomNavbar(),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              height: 50,
-              width: 50,
-              margin: EdgeInsets.only(bottom: 42),
-              child: FloatingActionButton(
-                elevation: 0,
-                backgroundColor: mainColorYellow,
-                child: SizedBox(
-                  height: 24,
-                  width: 24,
-                  child: Icon(
-                    MdiIcons.walletPlus,
-                    color: Colors.black.withOpacity(0.55),
-                    size: 24,
+    Future<bool> onBackPressed() {
+      return showDialog(
+            context: context,
+            builder: (context) {},
+          ) ??
+          false;
+    }
+
+    return WillPopScope(
+      onWillPop: onBackPressed,
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: Stack(
+          children: <Widget>[
+            Container(color: mainColorBlue),
+            SafeArea(child: Container(color: Colors.white)),
+            PageView(
+              controller: pageController,
+              onPageChanged: (index) {
+                setState(() {
+                  bottomNavBarIndex = index;
+                });
+              },
+              children: <Widget>[
+                MoviePage(),
+                TicketPage(isExpiredTicket: widget.isExpired),
+              ],
+            ),
+            createCustomBottomNavbar(),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                height: 50,
+                width: 50,
+                margin: EdgeInsets.only(bottom: 42),
+                child: FloatingActionButton(
+                  elevation: 0,
+                  backgroundColor: mainColorYellow,
+                  child: SizedBox(
+                    height: 24,
+                    width: 24,
+                    child: Icon(
+                      MdiIcons.walletPlus,
+                      color: Colors.black.withOpacity(0.55),
+                      size: 24,
+                    ),
                   ),
+                  onPressed: () {
+                    context.bloc<PageBloc>().add(GoToTopUpPage(GoToMainPage()));
+                  },
                 ),
-                onPressed: () {
-                  context.bloc<PageBloc>().add(GoToTopUpPage(GoToMainPage()));
-                },
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
