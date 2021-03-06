@@ -89,7 +89,7 @@ class _MainPageState extends State<MainPage> {
               elevation: 0,
               backgroundColor: Colors.transparent,
               selectedItemColor: mainColorBlue,
-              unselectedItemColor: accentColorLightGray,
+              unselectedItemColor: accentColorDarkGray,
               currentIndex: bottomNavBarIndex,
               onTap: (index) {
                 setState(() {
@@ -101,7 +101,7 @@ class _MainPageState extends State<MainPage> {
                 BottomNavigationBarItem(
                   title: Text(
                     "Koleksi Film",
-                    style: grayTextFont.copyWith(
+                    style: GoogleFonts.poppins(
                         fontSize: 12, fontWeight: FontWeight.w600),
                   ),
                   icon: Container(
@@ -116,7 +116,7 @@ class _MainPageState extends State<MainPage> {
                 BottomNavigationBarItem(
                   title: Text(
                     "Tiket Saya",
-                    style: grayTextFont.copyWith(
+                    style: GoogleFonts.poppins(
                         fontSize: 12, fontWeight: FontWeight.w600),
                   ),
                   icon: Container(
