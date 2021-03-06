@@ -106,7 +106,6 @@ class _ProfilePageState extends State<ProfilePage> {
                             ],
                           ),
                           Container(
-                            height: 350,
                             margin: EdgeInsets.only(top: 250),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.only(
