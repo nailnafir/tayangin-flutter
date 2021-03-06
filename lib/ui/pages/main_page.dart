@@ -101,7 +101,7 @@ class _MainPageState extends State<MainPage> {
                 BottomNavigationBarItem(
                   title: Text(
                     "Koleksi Film",
-                    style: GoogleFonts.poppins(
+                    style: grayTextFont.copyWith(
                         fontSize: 12, fontWeight: FontWeight.w600),
                   ),
                   icon: Container(
@@ -116,7 +116,7 @@ class _MainPageState extends State<MainPage> {
                 BottomNavigationBarItem(
                   title: Text(
                     "Tiket Saya",
-                    style: GoogleFonts.poppins(
+                    style: grayTextFont.copyWith(
                         fontSize: 12, fontWeight: FontWeight.w600),
                   ),
                   icon: Container(
