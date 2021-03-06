@@ -27,7 +27,34 @@ class _MainPageState extends State<MainPage> {
     Future<bool> onBackPressed() {
       return showDialog(
             context: context,
-            builder: (context) {},
+            builder: (context) {
+              return AlertDialog(
+                title: Text(
+                  "Konfirmasi",
+                  style: blackTextFont.copyWith(
+                      fontSize: 20, fontWeight: FontWeight.w500),
+                ),
+                content: Text(
+                  "Yakin mau keluar aplikasi?",
+                  style: blackTextFont.copyWith(
+                      fontSize: 14, fontWeight: FontWeight.w400),
+                ),
+                actions: <Widget>[
+                  TextButton(
+                    child: Text("Tidak"),
+                    onPressed: () {
+                      Navigator.of(context).pop(false); // tidak keluar
+                    },
+                  ),
+                  TextButton(
+                    child: Text("Ya"),
+                    onPressed: () {
+                      Navigator.of(context).pop(true); // keluar
+                    },
+                  ),
+                ],
+              );
+            },
           ) ??
           false;
     }
