@@ -47,9 +47,9 @@ class AboutAppsPage extends StatelessWidget {
                     ),
                     //NOTE: ILLUSTRATION
                     Container(
-                      width: 250,
-                      height: 250,
-                      margin: EdgeInsets.only(top: 50, bottom: 30),
+                      width: 300,
+                      height: 300,
+                      margin: EdgeInsets.only(bottom: 30),
                       child: Lottie.asset("assets/illustration_me.json"),
                     ),
                     Container(
@@ -86,7 +86,7 @@ class AboutAppsPage extends StatelessWidget {
                           ),
                           SizedBox(height: 12),
                           Text(
-                            "${String.fromCharCode(169)}2020 - ${DateTime.now().year}. Tayangin.",
+                            "Versi 1.0.0\n${String.fromCharCode(169)}2020 - ${DateTime.now().year}. Tayangin.",
                             style: grayTextFont.copyWith(
                               fontSize: 12,
                               fontWeight: FontWeight.w400,
