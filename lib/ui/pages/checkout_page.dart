@@ -230,7 +230,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                           fontWeight: FontWeight.w400)),
                                   Text(
                                       "IDR 25.000 x ${widget.ticket.seats.length}",
-                                      style: blackTextFont.copyWith(
+                                      style: blackNumberFont.copyWith(
                                           fontSize: 14,
                                           fontWeight: FontWeight.w500)),
                                 ],
@@ -250,7 +250,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                           fontWeight: FontWeight.w400)),
                                   Text(
                                       "IDR 1.500 x ${widget.ticket.seats.length}",
-                                      style: blackTextFont.copyWith(
+                                      style: blackNumberFont.copyWith(
                                           fontSize: 14,
                                           fontWeight: FontWeight.w500)),
                                 ],
@@ -274,9 +274,9 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                               decimalDigits: 0,
                                               symbol: 'IDR ')
                                           .format(total),
-                                      style: blackTextFont.copyWith(
+                                      style: blackNumberFont.copyWith(
                                           fontSize: 14,
-                                          fontWeight: FontWeight.w700)),
+                                          fontWeight: FontWeight.w600)),
                                 ],
                               ),
                             ),
@@ -308,10 +308,10 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                       style: (user.balance >= total)
                                           ? greenNumberFont.copyWith(
                                               fontSize: 14,
-                                              fontWeight: FontWeight.w700)
+                                              fontWeight: FontWeight.w600)
                                           : redNumberFont.copyWith(
                                               fontSize: 14,
-                                              fontWeight: FontWeight.w700)),
+                                              fontWeight: FontWeight.w600)),
                                 ],
                               ),
                             ),
