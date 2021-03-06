@@ -136,3 +136,8 @@ class OnEditProfilePage extends PageState {
   @override
   List<Object> get props => [user];
 }
+
+class OnAboutAppsPage extends PageState {
+  @override
+  List<Object> get props => [];
+}
