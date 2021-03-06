@@ -281,8 +281,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                   //NOTE: ABOUT APPS
                                   GestureDetector(
                                     onTap: () {
-                                      context.bloc<UserBloc>().add(SignOut());
-                                      AuthServices.signOut();
+                                      context
+                                          .bloc<PageBloc>()
+                                          .add(GoToAboutAppsPage());
                                     },
                                     child: Row(
                                       crossAxisAlignment:
