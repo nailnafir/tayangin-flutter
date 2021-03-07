@@ -25,15 +25,93 @@ class _EditProfilePageState extends State<EditProfilePage> {
 
   @override
   Widget build(BuildContext context) {
+    Future<bool> onDialogConfirmation() {
+      return showDialog(
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                  title: Text(
+                    "Konfirmasi",
+                    style: blackTextFont.copyWith(
+                        fontSize: 20, fontWeight: FontWeight.w500),
+                  ),
+                  content: Text(
+                    "Profil kamu sudah diubah tapi belum disimpan. Mau disimpan gak nih?",
+                    style: blackTextFont.copyWith(
+                        fontSize: 14, fontWeight: FontWeight.w400),
+                  ),
+                  actions: <Widget>[
+                    TextButton(
+                      child: Text(
+                        "Tidak",
+                        style: whiteTextFont.copyWith(
+                          color: accentColorRed,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                      onPressed: () {
+                        // direct ke profile page
+                        context.bloc<PageBloc>().add(GoToProfilePage());
+
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                    TextButton(
+                      child: Container(
+                        padding: EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(4),
+                          color: accentColorGreen,
+                        ),
+                        child: Text(
+                          "Simpan",
+                          style: whiteTextFont.copyWith(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ),
+                      onPressed: () async {
+                        // ubah status jadi loading update
+                        setState(() {
+                          isUpdating = true;
+                        });
+
+                        // validasi untuk upload image
+                        if (profileImageFile != null) {
+                          profilePath = await uploadImage(profileImageFile);
+                        }
+
+                        // update data user dengan bloc
+                        context.bloc<UserBloc>().add(UpdateData(
+                              name: nameController.text,
+                              profileImage: profilePath,
+                            ));
+
+                        // direct ke profile page
+                        context.bloc<PageBloc>().add(GoToProfilePage());
+
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                  ],
+                );
+              }) ??
+          false;
+    }
+
     context
         .bloc<ThemeBloc>()
         .add(ChangeTheme(ThemeData(primaryColor: mainColorYellow)));
 
     return WillPopScope(
-      onWillPop: () async {
-        context.bloc<PageBloc>().add(GoToProfilePage());
-        return;
-      },
+      onWillPop: !(isDataEdited)
+          ? () async {
+              context.bloc<PageBloc>().add(GoToProfilePage());
+              return;
+            }
+          : onDialogConfirmation,
       child: Scaffold(
         body: Container(
           color: Colors.white,
@@ -44,6 +122,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 child: Column(
                   children: <Widget>[
                     Container(
+                      //NOTE: HEADER
                       margin: EdgeInsets.only(top: 16),
                       child: Stack(
                         children: <Widget>[
@@ -51,9 +130,13 @@ class _EditProfilePageState extends State<EditProfilePage> {
                             padding: EdgeInsets.all(1),
                             alignment: Alignment.centerLeft,
                             child: GestureDetector(
-                              onTap: () {
-                                context.bloc<PageBloc>().add(GoToProfilePage());
-                              },
+                              onTap: !(isDataEdited)
+                                  ? () {
+                                      context
+                                          .bloc<PageBloc>()
+                                          .add(GoToProfilePage());
+                                    }
+                                  : onDialogConfirmation,
                               child:
                                   Icon(Icons.arrow_back, color: Colors.black),
                             ),
