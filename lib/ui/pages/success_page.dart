@@ -53,7 +53,7 @@ class SuccessPage extends StatelessWidget {
                         Container(
                           width: 250,
                           height: 50,
-                          margin: EdgeInsets.only(top: 50, bottom: 20),
+                          margin: EdgeInsets.only(top: 50, bottom: 12),
                           child: RaisedButton(
                             elevation: 2,
                             color: mainColorBlue,
