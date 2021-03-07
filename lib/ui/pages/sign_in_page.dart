@@ -78,9 +78,16 @@ class _SignInPageState extends State<SignInPage> {
                         Text("Lupa password? ",
                             style: grayTextFont.copyWith(
                                 fontWeight: FontWeight.w400)),
-                        Text("Reset disini",
-                            style: yellowTextFont.copyWith(
-                                fontWeight: FontWeight.w400)),
+                        GestureDetector(
+                          onTap: () {
+                            context
+                                .bloc<PageBloc>()
+                                .add(GoToForgotPasswordPage());
+                          },
+                          child: Text("Reset disini",
+                              style: yellowTextFont.copyWith(
+                                  fontWeight: FontWeight.w400)),
+                        ),
                       ],
                     ),
                     Center(
