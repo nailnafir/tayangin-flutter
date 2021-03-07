@@ -59,7 +59,7 @@ class AboutAppsPage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Tayangin, aplikasi pembelian ticket bioskop secara online di Jakarta dan Tangerang.",
+                            "Tayangin, aplikasi pembelian tiket bioskop secara online di Tangerang dan sekitarnya.",
                             style: blackTextFont.copyWith(
                               fontSize: 14,
                               fontWeight: FontWeight.w400,
