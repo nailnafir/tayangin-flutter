@@ -108,19 +108,24 @@ class _SignInPageState extends State<SignInPage> {
                                 elevation: 2,
                                 onPressed: isEmailValid && isPasswordValid
                                     ? () async {
+                                        // ubah state jadi true
                                         setState(() {
                                           isSigningIn = true;
                                         });
+
+                                        // tampung dan berikan result dari inputan text
                                         SignInSignUpResult result =
                                             await AuthServices.signIn(
                                                 emailController.text,
                                                 passwordController.text);
 
+                                        // ubah state lagi jadi false jika hasilnya keluar
                                         if (result.user == null) {
                                           setState(() {
                                             isSigningIn = false;
                                           });
 
+                                          // berikan pesan
                                           Flushbar(
                                             duration:
                                                 Duration(milliseconds: 3000),
@@ -133,7 +138,8 @@ class _SignInPageState extends State<SignInPage> {
                                       }
                                     : null,
                                 shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8))),
+                                    borderRadius: BorderRadius.circular(8)),
+                              ),
                       ),
                     ),
                     Row(
