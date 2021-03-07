@@ -197,6 +197,14 @@ class _SignUpPageState extends State<SignUpPage> {
                                     message:
                                         "Email yang dimasukkan bukan format email")
                                 .show(context);
+                          } else if (widget.registrationData.profileImage ==
+                              null) {
+                            Flushbar(
+                                    duration: Duration(milliseconds: 3000),
+                                    flushbarPosition: FlushbarPosition.TOP,
+                                    backgroundColor: accentColorRed,
+                                    message: "Foto tidak boleh kosong")
+                                .show(context);
                           } else {
                             widget.registrationData.name = nameController.text;
                             widget.registrationData.email =
