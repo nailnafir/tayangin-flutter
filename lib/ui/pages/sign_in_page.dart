@@ -87,7 +87,7 @@ class _SignInPageState extends State<SignInPage> {
                       child: Container(
                         width: 250,
                         height: 50,
-                        margin: EdgeInsets.only(top: 50, bottom: 20),
+                        margin: EdgeInsets.only(top: 50, bottom: 12),
                         child: isSigningIn
                             ? SpinKitFadingCircle(color: mainColorBlue)
                             : FloatingActionButton(
@@ -139,7 +139,9 @@ class _SignInPageState extends State<SignInPage> {
                         ),
                         GestureDetector(
                           onTap: () {
-                            context.bloc<PageBloc>().add(GoToLoginPage());
+                            context
+                                .bloc<PageBloc>()
+                                .add(GoToRegistrationPage(RegistrationData()));
                           },
                           child: Text(
                             "Buat disini",
