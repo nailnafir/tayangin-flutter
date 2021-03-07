@@ -42,48 +42,50 @@ class Wrapper extends StatelessWidget {
                         : (pageState is OnAccountConfirmationPage)
                             ? AccountConfirmationPage(
                                 pageState.registrationData)
-                            : (pageState is OnMovieDetailPage)
-                                ? MovieDetailPage(pageState.movie)
-                                : (pageState is OnSelectSchedulePage)
-                                    ? SelectSchedulePage(pageState.movieDetail)
-                                    : (pageState is OnSelectSeatPage)
-                                        ? SelectSeatPage(pageState.ticket)
-                                        : (pageState is OnCheckoutPage)
-                                            ? CheckoutPage(pageState.ticket)
-                                            : (pageState is OnSuccessPage)
-                                                ? SuccessPage(pageState.ticket,
-                                                    pageState.transaction)
-                                                : (pageState
-                                                        is OnTicketDetailPage)
-                                                    ? TicketDetailPage(
-                                                        pageState.ticket)
+                            : (pageState is OnForgotPasswordPage)
+                                ? ForgotPasswordPage()
+                                : (pageState is OnMovieDetailPage)
+                                    ? MovieDetailPage(pageState.movie)
+                                    : (pageState is OnSelectSchedulePage)
+                                        ? SelectSchedulePage(
+                                            pageState.movieDetail)
+                                        : (pageState is OnSelectSeatPage)
+                                            ? SelectSeatPage(pageState.ticket)
+                                            : (pageState is OnCheckoutPage)
+                                                ? CheckoutPage(pageState.ticket)
+                                                : (pageState is OnSuccessPage)
+                                                    ? SuccessPage(
+                                                        pageState.ticket,
+                                                        pageState.transaction)
                                                     : (pageState
-                                                            is OnProfilePage)
-                                                        ? ProfilePage()
+                                                            is OnTicketDetailPage)
+                                                        ? TicketDetailPage(
+                                                            pageState.ticket)
                                                         : (pageState
-                                                                is OnTopUpPage)
-                                                            ? TopUpPage(
-                                                                pageState
-                                                                    .pageEvent)
+                                                                is OnProfilePage)
+                                                            ? ProfilePage()
                                                             : (pageState
-                                                                    is OnWalletPage)
-                                                                ? WalletPage(
+                                                                    is OnTopUpPage)
+                                                                ? TopUpPage(
                                                                     pageState
                                                                         .pageEvent)
                                                                 : (pageState
-                                                                        is OnEditProfilePage)
-                                                                    ? EditProfilePage(
+                                                                        is OnWalletPage)
+                                                                    ? WalletPage(
                                                                         pageState
-                                                                            .user)
+                                                                            .pageEvent)
                                                                     : (pageState
-                                                                            is OnAboutAppsPage)
-                                                                        ? AboutAppsPage()
+                                                                            is OnEditProfilePage)
+                                                                        ? EditProfilePage(pageState
+                                                                            .user)
                                                                         : (pageState
-                                                                                is OnMainPage)
-                                                                            ? MainPage(
-                                                                                bottomNavBarIndex: pageState.bottomNavBarIndex,
-                                                                                isExpired: pageState.isExpired,
-                                                                              )
-                                                                            : Container());
+                                                                                is OnAboutAppsPage)
+                                                                            ? AboutAppsPage()
+                                                                            : (pageState is OnMainPage)
+                                                                                ? MainPage(
+                                                                                    bottomNavBarIndex: pageState.bottomNavBarIndex,
+                                                                                    isExpired: pageState.isExpired,
+                                                                                  )
+                                                                                : Container());
   }
 }
