@@ -117,7 +117,16 @@ class _EditProfilePageState extends State<EditProfilePage> {
                                             profilePath = "";
                                           }
 
-                                          setState(() {});
+                                          setState(() {
+                                            isDataEdited =
+                                                (nameController.text.trim() !=
+                                                            widget.user.name ||
+                                                        profilePath !=
+                                                            widget.user
+                                                                .profilePicture)
+                                                    ? true
+                                                    : false;
+                                          });
                                         },
                                         child: Container(
                                           height: 28,
@@ -283,6 +292,11 @@ class _EditProfilePageState extends State<EditProfilePage> {
                                             name: nameController.text,
                                             profileImage: profilePath,
                                           ));
+
+                                      // direct ke profile page
+                                      context
+                                          .bloc<PageBloc>()
+                                          .add(GoToProfilePage());
                                     }
                                   : null,
                             ),
