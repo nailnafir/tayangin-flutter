@@ -41,13 +41,33 @@ class _MainPageState extends State<MainPage> {
                 ),
                 actions: <Widget>[
                   TextButton(
-                    child: Text("Tidak"),
+                    child: Text(
+                      "Tidak",
+                      style: whiteTextFont.copyWith(
+                        color: accentColorGreen,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
                     onPressed: () {
                       Navigator.of(context).pop(false); // tidak keluar
                     },
                   ),
                   TextButton(
-                    child: Text("Ya"),
+                    child: Container(
+                      padding: EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(4),
+                        color: accentColorRed,
+                      ),
+                      child: Text(
+                        "Keluar",
+                        style: whiteTextFont.copyWith(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
                     onPressed: () {
                       Navigator.of(context).pop(true); // keluar
                     },
