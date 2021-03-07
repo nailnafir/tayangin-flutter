@@ -51,6 +51,11 @@ class GoToAccountConfirmationPage extends PageEvent {
   List<Object> get props => [];
 }
 
+class GoToForgotPasswordPage extends PageEvent {
+  @override
+  List<Object> get props => [];
+}
+
 class GoToMovieDetailPage extends PageEvent {
   final Movie movie;
   GoToMovieDetailPage(this.movie);
