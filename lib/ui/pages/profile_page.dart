@@ -56,7 +56,6 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                       Stack(
                         children: <Widget>[
-                          //NOTE: PHOTO PROFILE
                           Container(
                             height: 350,
                             margin: EdgeInsets.only(top: 80),
@@ -70,22 +69,40 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                           Column(
                             children: [
-                              Center(
-                                child: Container(
-                                  width: 100,
-                                  height: 100,
-                                  margin: EdgeInsets.only(top: 30),
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    image: DecorationImage(
-                                      image: (user.profilePicture != "")
-                                          ? NetworkImage(user.profilePicture)
-                                          : AssetImage(
-                                              "assets/user_pic_default.png"),
-                                      fit: BoxFit.cover,
+                              Stack(
+                                children: <Widget>[
+                                  //NOTE: lOADER
+                                  Center(
+                                    child: Container(
+                                      width: 100,
+                                      height: 100,
+                                      margin: EdgeInsets.only(top: 30),
+                                      child: SpinKitFadingCircle(
+                                        color: mainColorYellow,
+                                        size: 100,
+                                      ),
                                     ),
                                   ),
-                                ),
+                                  //NOTE: PHOTO PROFILE
+                                  Center(
+                                    child: Container(
+                                      width: 100,
+                                      height: 100,
+                                      margin: EdgeInsets.only(top: 30),
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        image: DecorationImage(
+                                          image: (user.profilePicture != "")
+                                              ? NetworkImage(
+                                                  user.profilePicture)
+                                              : AssetImage(
+                                                  "assets/user_pic_default.png"),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
                               SizedBox(height: 12),
                               Text(
