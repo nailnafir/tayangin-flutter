@@ -1,13 +1,13 @@
 part of 'services.dart';
 
 class AuthServices {
-  static FirebaseAuth _auth = FirebaseAuth.instance;
+  static auth.FirebaseAuth _auth = auth.FirebaseAuth.instance;
 
   static Future<SignInSignUpResult> signUp(String email, String password,
       String name, List<String> selectedGenres, String selectedLanguage) async {
     try {
       // daftarkan email dan password ke firebase auth
-      AuthResult result = await _auth.createUserWithEmailAndPassword(
+      auth.UserCredential result = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
 
       // membuat data user di firestore convert dari firebaseUser ke User
@@ -29,7 +29,7 @@ class AuthServices {
       String email, String password) async {
     try {
       // jika signIn berhasil, maka akan ambil data user dari firestore
-      AuthResult result = await _auth.signInWithEmailAndPassword(
+      auth.UserCredential result = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
 
       UserApp user = await result.user.fromFireStore();
@@ -49,7 +49,7 @@ class AuthServices {
   }
 
   // menghubungkan aplikasi dengan authentication firebase
-  static Stream<FirebaseUser> get userStream => _auth.onAuthStateChanged;
+  static Stream<auth.User> get userStream => _auth.authStateChanges();
 }
 
 class SignInSignUpResult {

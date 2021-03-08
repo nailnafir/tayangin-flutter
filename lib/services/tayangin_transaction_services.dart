@@ -3,12 +3,12 @@ part of 'services.dart';
 class TayanginTransactionServices {
   // membuat reference ke transaction collection atau ke tabel transaksi firebase
   static CollectionReference transactionCollection =
-      Firestore.instance.collection('transactions');
+      FirebaseFirestore.instance.collection('transactions');
 
   // membuat method untuk save transaksi
   static Future<void> saveTransaction(
       TayanginTransaction tayanginTransaction) async {
-    await transactionCollection.document().setData({
+    await transactionCollection.doc().set({
       'userID': tayanginTransaction.userID,
       'title': tayanginTransaction.title,
       'subtitle': tayanginTransaction.subtitle,
@@ -20,19 +20,19 @@ class TayanginTransactionServices {
 
   // membuat method untuk get data transaksi
   static Future<List<TayanginTransaction>> getTransaction(String userID) async {
-    QuerySnapshot snapshot = await transactionCollection.getDocuments();
+    QuerySnapshot snapshot = await transactionCollection.get();
 
-    var documents = snapshot.documents
-        .where((document) => document.data['userID'] == userID);
+    var documents =
+        snapshot.docs.where((document) => document.data()['userID'] == userID);
 
     return documents
         .map((e) => TayanginTransaction(
-              userID: e.data['userID'],
-              title: e.data['title'],
-              subtitle: e.data['subtitle'],
-              time: DateTime.fromMillisecondsSinceEpoch(e.data['time']),
-              amount: e.data['amount'],
-              picture: e.data['picture'],
+              userID: e.data()['userID'],
+              title: e.data()['title'],
+              subtitle: e.data()['subtitle'],
+              time: DateTime.fromMillisecondsSinceEpoch(e.data()['time']),
+              amount: e.data()['amount'],
+              picture: e.data()['picture'],
             ))
         .toList();
   }

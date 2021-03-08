@@ -9,14 +9,17 @@ Future<String> uploadImage(File image) async {
   String fileName = basename(image.path);
 
   // arahkan pada objek yang ada di firebase storage dengan nama filename
-  StorageReference ref = FirebaseStorage.instance.ref().child(fileName);
+  Reference ref = FirebaseStorage.instance.ref().child(fileName);
 
   // memberikan tugas pada reference untuk upload file
-  StorageUploadTask task = ref.putFile(image);
+  UploadTask task = ref.putFile(image);
 
   // setelah melakukan tugasnya, kita minta kembaliannya
   // ketika complete, dia akan mengembalikan storage task snapshot
-  StorageTaskSnapshot snapshot = await task.onComplete;
+  // firebase storage versi baru tidak usah menggunakan on complete lagi
+  // TaskSnapshot snapshot = await task.onComplete;
+
+  TaskSnapshot snapshot = await task;
 
   // setelah mendapat snapshot hasil dari task, kembalikan download url nya
   return await snapshot.ref.getDownloadURL();
