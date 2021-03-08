@@ -2,11 +2,14 @@ part of 'services.dart';
 
 class MovieServices {
   static Future<List<Movie>> getMovies(int page, {http.Client client}) async {
-    String url =
-        "https://api.themoviedb.org/3/discover/movie?api_key=$apiKey&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=$page";
+    // code versi dibawah sudah usang dengan http package jadul
+    // String url =
+    //     "https://api.themoviedb.org/3/discover/movie?api_key=$apiKey&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=$page";
+
+    var url = Uri.https('api.themoviedb.org',
+        '/3/discover/movie?api_key=$apiKey&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=$page');
 
     client ??= http.Client();
-
     var response = await client.get(url);
 
     // jika gagal
@@ -24,8 +27,12 @@ class MovieServices {
 
   static Future<MovieDetail> getDetails(Movie movie,
       {int movieID, http.Client client}) async {
-    String url =
-        "https://api.themoviedb.org/3/movie/${movieID ?? movie.id}?api_key=$apiKey&language=en-US";
+    // code versi dibawah sudah usang dengan http package jadul
+    // String url =
+    //     "https://api.themoviedb.org/3/movie/${movieID ?? movie.id}?api_key=$apiKey&language=en-US";
+
+    var url = Uri.https('api.themoviedb.org',
+        '/3/movie/${movieID ?? movie.id}?api_key=$apiKey&language=en-US');
 
     client ??= http.Client();
 
@@ -68,8 +75,12 @@ class MovieServices {
 
   static Future<List<Credit>> getCredits(int movieID,
       {http.Client client}) async {
-    String url =
-        "https://api.themoviedb.org/3/movie/$movieID/credits?api_key=$apiKey";
+    // code versi dibawah sudah usang dengan http package jadul
+    // String url =
+    //     "https://api.themoviedb.org/3/movie/$movieID/credits?api_key=$apiKey";
+
+    var url = Uri.https(
+        'api.themoviedb.org', '/3/movie/$movieID/credits?api_key=$apiKey');
 
     client ??= http.Client();
 
