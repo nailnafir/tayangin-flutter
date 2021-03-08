@@ -6,8 +6,19 @@ class MovieServices {
     // String url =
     //     "https://api.themoviedb.org/3/discover/movie?api_key=$apiKey&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=$page";
 
-    var url = Uri.https('api.themoviedb.org',
-        '/3/discover/movie?api_key=$apiKey&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=$page');
+    // code http request versi baru
+    var host = "api.themoviedb.org";
+    var path = "/3/discover/movie";
+    var params = {
+      "api_key": "$apiKey",
+      "language": "en-US",
+      "sort_by": "popularity.desc",
+      "include_adult": "false",
+      "include_video": "false",
+      "page": "$page",
+    };
+
+    var url = Uri.https(host, path, params);
 
     client ??= http.Client();
     var response = await client.get(url);
@@ -31,8 +42,15 @@ class MovieServices {
     // String url =
     //     "https://api.themoviedb.org/3/movie/${movieID ?? movie.id}?api_key=$apiKey&language=en-US";
 
-    var url = Uri.https('api.themoviedb.org',
-        '/3/movie/${movieID ?? movie.id}?api_key=$apiKey&language=en-US');
+    // code http request versi baru
+    var host = "api.themoviedb.org";
+    var path = "/3/movie/${movieID ?? movie.id}";
+    var params = {
+      "api_key": "$apiKey",
+      "language": "en-US",
+    };
+
+    var url = Uri.https(host, path, params);
 
     client ??= http.Client();
 
@@ -79,8 +97,14 @@ class MovieServices {
     // String url =
     //     "https://api.themoviedb.org/3/movie/$movieID/credits?api_key=$apiKey";
 
-    var url = Uri.https(
-        'api.themoviedb.org', '/3/movie/$movieID/credits?api_key=$apiKey');
+    // code http request versi baru
+    var host = "api.themoviedb.org";
+    var path = "/3/movie/$movieID/credits";
+    var params = {
+      "api_key": "$apiKey",
+    };
+
+    var url = Uri.https(host, path, params);
 
     client ??= http.Client();
 
