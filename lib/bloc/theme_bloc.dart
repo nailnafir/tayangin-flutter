@@ -8,7 +8,8 @@ part 'theme_event.dart';
 part 'theme_state.dart';
 
 class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
-  ThemeState get initialState => ThemeState(ThemeData());
+  // versi baru initial state di masukkan lewat constractor parent, tidak lagi override getter
+  ThemeBloc() : super(ThemeState(ThemeData()));
 
   @override
   Stream<ThemeState> mapEventToState(

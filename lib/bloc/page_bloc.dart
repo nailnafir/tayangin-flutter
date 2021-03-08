@@ -9,8 +9,8 @@ part 'page_event.dart';
 part 'page_state.dart';
 
 class PageBloc extends Bloc<PageEvent, PageState> {
-  @override
-  PageState get initialState => OnInitialPage();
+  // versi baru initial state di masukkan lewat constractor parent, tidak lagi override getter
+  PageBloc() : super(OnInitialPage());
 
   @override
   Stream<PageState> mapEventToState(

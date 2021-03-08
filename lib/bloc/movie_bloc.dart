@@ -9,8 +9,8 @@ part 'movie_event.dart';
 part 'movie_state.dart';
 
 class MovieBloc extends Bloc<MovieEvent, MovieState> {
-  @override
-  MovieState get initialState => MovieInitial();
+  // versi baru initial state di masukkan lewat constractor parent, tidak lagi override getter
+  MovieBloc() : super(MovieInitial());
 
   @override
   Stream<MovieState> mapEventToState(

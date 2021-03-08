@@ -9,7 +9,8 @@ part 'ticket_event.dart';
 part 'ticket_state.dart';
 
 class TicketBloc extends Bloc<TicketEvent, TicketState> {
-  TicketState get initialState => TicketState([]);
+  // versi baru initial state di masukkan lewat constractor parent, tidak lagi override getter
+  TicketBloc() : super(TicketState([]));
 
   @override
   Stream<TicketState> mapEventToState(
