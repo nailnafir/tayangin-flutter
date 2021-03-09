@@ -46,7 +46,7 @@ class MoviePage extends StatelessWidget {
                         ),
                       ),
                       padding: EdgeInsets.fromLTRB(
-                          defaultMargin, 26, defaultMargin, 26),
+                          defaultMargin, 28, defaultMargin, 28),
                       child: BlocBuilder<UserBloc, UserState>(
                         builder: (_, userState) {
                           if (userState is UserLoaded) {
@@ -91,6 +91,7 @@ class MoviePage extends StatelessWidget {
                                   ],
                                 ),
                                 Container(
+                                  margin: EdgeInsets.symmetric(vertical: 1),
                                   padding: EdgeInsets.all(5),
                                   decoration: BoxDecoration(
                                     shape: BoxShape.circle,
