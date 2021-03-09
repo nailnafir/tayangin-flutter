@@ -179,18 +179,34 @@ class TicketViewer extends StatelessWidget {
           ),
           child: Row(
             children: <Widget>[
-              Container(
-                width: 80,
-                height: 100,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  image: DecorationImage(
-                    image: NetworkImage(imageBaseURL +
-                        'w500' +
-                        sortedTickets[index].movieDetail.posterPath),
-                    fit: BoxFit.cover,
+              Stack(
+                children: [
+                  Shimmer.fromColors(
+                    baseColor: Colors.grey[350],
+                    highlightColor: Colors.grey[100],
+                    child: Container(
+                      width: 80,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        color: Colors.grey,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
                   ),
-                ),
+                  Container(
+                    width: 80,
+                    height: 100,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      image: DecorationImage(
+                        image: NetworkImage(imageBaseURL +
+                            'w500' +
+                            sortedTickets[index].movieDetail.posterPath),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                ],
               ),
               SizedBox(width: 18),
               Container(

@@ -14,6 +14,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:provider/provider.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:random_string/random_string.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:tayangin_flutter/bloc/blocs.dart';
 import 'package:tayangin_flutter/models/models.dart';
 import 'package:tayangin_flutter/services/services.dart';
