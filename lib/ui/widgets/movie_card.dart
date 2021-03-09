@@ -14,45 +14,62 @@ class MovieCard extends StatelessWidget {
           onTap();
         }
       },
-      child: Container(
-        height: 140,
-        width: 200,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          image: DecorationImage(
-              image: NetworkImage(imageBaseURL + "w780" + movie.backdropPath),
-              fit: BoxFit.cover),
-        ),
-        child: Container(
-          height: 140,
-          width: 200,
-          padding: EdgeInsets.all(10),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
-            gradient: LinearGradient(
-              begin: Alignment.bottomCenter,
-              end: Alignment.topCenter,
-              colors: [
-                Colors.black.withOpacity(0.5),
-                Colors.black.withOpacity(0)
-              ],
+      child: Stack(
+        children: [
+          Shimmer.fromColors(
+            baseColor: Colors.grey[350],
+            highlightColor: Colors.grey[100],
+            child: Container(
+              height: 140,
+              width: 200,
+              decoration: BoxDecoration(
+                color: Colors.grey,
+                borderRadius: BorderRadius.circular(8),
+              ),
             ),
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                movie.title,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: whiteTextFont.copyWith(
-                    fontSize: 14, fontWeight: FontWeight.w500),
+          Container(
+            height: 140,
+            width: 200,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              image: DecorationImage(
+                  image:
+                      NetworkImage(imageBaseURL + "w780" + movie.backdropPath),
+                  fit: BoxFit.cover),
+            ),
+            child: Container(
+              height: 140,
+              width: 200,
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                gradient: LinearGradient(
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter,
+                  colors: [
+                    Colors.black.withOpacity(0.5),
+                    Colors.black.withOpacity(0)
+                  ],
+                ),
               ),
-              RatingStars(voteAverage: movie.voteAverage)
-            ],
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    movie.title,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: whiteTextFont.copyWith(
+                        fontSize: 14, fontWeight: FontWeight.w500),
+                  ),
+                  RatingStars(voteAverage: movie.voteAverage)
+                ],
+              ),
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
