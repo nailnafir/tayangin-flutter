@@ -28,13 +28,16 @@ class _TicketPageState extends State<TicketPage> {
           BlocBuilder<TicketBloc, TicketState>(
             builder: (_, ticketState) => Container(
               margin: EdgeInsets.symmetric(horizontal: defaultMargin),
-              child: TicketViewer(isExpiredTickets
-                  ? ticketState.tickets
-                      .where((ticket) => ticket.time.isBefore(DateTime.now()))
-                      .toList()
-                  : ticketState.tickets
-                      .where((ticket) => !ticket.time.isBefore(DateTime.now()))
-                      .toList()),
+              child: TicketViewer(
+                isExpiredTickets
+                    ? ticketState.tickets
+                        .where((ticket) => ticket.time.isBefore(DateTime.now()))
+                        .toList()
+                    : ticketState.tickets
+                        .where(
+                            (ticket) => !ticket.time.isBefore(DateTime.now()))
+                        .toList(),
+              ),
             ),
           ),
           //NOTE: HEADER
@@ -153,6 +156,81 @@ class HeaderClipper extends CustomClipper<Path> {
   bool shouldReclip(covariant CustomClipper oldClipper) => false;
 }
 
+class ShimmerList extends StatelessWidget {
+  final List<Ticket> tickets;
+  ShimmerList(this.tickets);
+
+  @override
+  Widget build(BuildContext context) {
+    var sortedTickets = tickets;
+    sortedTickets
+        .sort((ticket1, ticket2) => ticket1.time.compareTo(ticket2.time));
+
+    return SafeArea(
+      child: ListView.builder(
+        itemCount: sortedTickets.length,
+        itemBuilder: (_, index) => Shimmer.fromColors(
+          period: Duration(seconds: 1),
+          baseColor: Colors.grey[300],
+          highlightColor: Colors.grey[100],
+          child: Container(
+            margin: EdgeInsets.only(
+              top: index == 0 ? 150 : 18,
+              bottom: index == sortedTickets.length - 1 ? 100 : 0,
+            ),
+            child: Row(
+              children: <Widget>[
+                Container(
+                  width: 80,
+                  height: 100,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    color: Colors.grey,
+                  ),
+                ),
+                SizedBox(width: 18),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Container(
+                      width: MediaQuery.of(context).size.width -
+                          2 * defaultMargin -
+                          80 -
+                          18,
+                      height: 12,
+                      color: Colors.grey,
+                    ),
+                    SizedBox(height: 8),
+                    Container(
+                      width: MediaQuery.of(context).size.width -
+                          2 * defaultMargin -
+                          80 -
+                          18,
+                      height: 12,
+                      color: Colors.grey,
+                    ),
+                    SizedBox(height: 8),
+                    Container(
+                      width: MediaQuery.of(context).size.width -
+                          2 * defaultMargin -
+                          80 -
+                          18 -
+                          80,
+                      height: 12,
+                      color: Colors.grey,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class TicketViewer extends StatelessWidget {
   final List<Ticket> tickets;
 
@@ -182,7 +260,8 @@ class TicketViewer extends StatelessWidget {
               Stack(
                 children: [
                   Shimmer.fromColors(
-                    baseColor: Colors.grey[350],
+                    period: Duration(seconds: 1),
+                    baseColor: Colors.grey[300],
                     highlightColor: Colors.grey[100],
                     child: Container(
                       width: 80,
