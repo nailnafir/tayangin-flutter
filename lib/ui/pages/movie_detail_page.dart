@@ -40,7 +40,16 @@ class MovieDetailPage extends StatelessWidget {
                             children: <Widget>[
                               //NOTE: BACKDROP
                               Stack(
-                                children: <Widget>[
+                                children: [
+                                  Shimmer.fromColors(
+                                    period: Duration(seconds: 1),
+                                    baseColor: Colors.grey[300],
+                                    highlightColor: Colors.grey[100],
+                                    child: Container(
+                                      height: 250,
+                                      color: Colors.grey,
+                                    ),
+                                  ),
                                   Container(
                                     height: 250,
                                     decoration: BoxDecoration(
@@ -64,9 +73,10 @@ class MovieDetailPage extends StatelessWidget {
                                         ],
                                       ),
                                     ),
-                                  )
+                                  ),
                                 ],
                               ),
+
                               // NOTE: BACK ICON
                               Container(
                                 margin: EdgeInsets.only(
