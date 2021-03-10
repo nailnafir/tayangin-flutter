@@ -17,7 +17,8 @@ class MovieCard extends StatelessWidget {
       child: Stack(
         children: [
           Shimmer.fromColors(
-            baseColor: Colors.grey[350],
+            period: Duration(seconds: 1),
+            baseColor: Colors.grey[300],
             highlightColor: Colors.grey[100],
             child: Container(
               height: 140,
