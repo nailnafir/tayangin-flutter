@@ -8,18 +8,35 @@ class CreditCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Container(
-          height: 80,
-          width: 70,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
-            image: (credit.profilePath == null)
-                ? null
-                : DecorationImage(
-                    image: NetworkImage(
-                        imageBaseURL + "w185" + credit.profilePath),
-                    fit: BoxFit.cover),
-          ),
+        Stack(
+          children: [
+            Shimmer.fromColors(
+              period: Duration(seconds: 1),
+              baseColor: Colors.grey[300],
+              highlightColor: Colors.grey[100],
+              child: Container(
+                height: 80,
+                width: 70,
+                decoration: BoxDecoration(
+                  color: Colors.grey,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+              ),
+            ),
+            Container(
+              height: 80,
+              width: 70,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                image: (credit.profilePath == null)
+                    ? null
+                    : DecorationImage(
+                        image: NetworkImage(
+                            imageBaseURL + "w185" + credit.profilePath),
+                        fit: BoxFit.cover),
+              ),
+            ),
+          ],
         ),
         Container(
           margin: EdgeInsets.only(top: 8),
