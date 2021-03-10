@@ -11,8 +11,9 @@ class ComingSoonCard extends StatelessWidget {
     return Stack(
       children: [
         Shimmer.fromColors(
-          baseColor: Colors.grey[350],
+          baseColor: Colors.grey[300],
           highlightColor: Colors.grey[100],
+          period: Duration(seconds: 1),
           child: Container(
             width: 140,
             height: 200,
