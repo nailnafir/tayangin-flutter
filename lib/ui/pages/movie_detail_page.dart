@@ -100,11 +100,18 @@ class MovieDetailPage extends StatelessWidget {
                           ),
                           // NOTE: GENRE
                           (snapshot.hasData)
-                              ? Text(
-                                  movieDetail.genresAndLanguage,
-                                  style: grayTextFont.copyWith(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w400),
+                              ? Container(
+                                  width: MediaQuery.of(context).size.width -
+                                      2 * defaultMargin,
+                                  child: Text(
+                                    movieDetail.genresAndLanguage,
+                                    overflow: TextOverflow.clip,
+                                    maxLines: 2,
+                                    style: grayTextFont.copyWith(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w400),
+                                    textAlign: TextAlign.center,
+                                  ),
                                 )
                               : SizedBox(
                                   height: 18,
