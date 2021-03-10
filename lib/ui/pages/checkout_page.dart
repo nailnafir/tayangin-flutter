@@ -64,19 +64,39 @@ class _CheckoutPageState extends State<CheckoutPage> {
                             //NOTE: MOVIE DESCRIPTION
                             Row(
                               children: <Widget>[
-                                Container(
-                                  width: 80,
-                                  height: 100,
-                                  margin: EdgeInsets.only(
-                                      left: defaultMargin, right: 18),
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(8),
-                                      image: DecorationImage(
-                                          image: NetworkImage(imageBaseURL +
-                                              "w342" +
-                                              widget.ticket.movieDetail
-                                                  .posterPath),
-                                          fit: BoxFit.cover)),
+                                Stack(
+                                  children: [
+                                    Shimmer.fromColors(
+                                      period: Duration(seconds: 1),
+                                      baseColor: Colors.grey[300],
+                                      highlightColor: Colors.grey[100],
+                                      child: Container(
+                                        width: 80,
+                                        height: 100,
+                                        margin: EdgeInsets.only(
+                                            left: defaultMargin, right: 18),
+                                        decoration: BoxDecoration(
+                                            color: Colors.grey,
+                                            borderRadius:
+                                                BorderRadius.circular(8)),
+                                      ),
+                                    ),
+                                    Container(
+                                      width: 80,
+                                      height: 100,
+                                      margin: EdgeInsets.only(
+                                          left: defaultMargin, right: 18),
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(8),
+                                          image: DecorationImage(
+                                              image: NetworkImage(imageBaseURL +
+                                                  "w342" +
+                                                  widget.ticket.movieDetail
+                                                      .posterPath),
+                                              fit: BoxFit.cover)),
+                                    ),
+                                  ],
                                 ),
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -128,7 +148,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.symmetric(
+                              padding: EdgeInsets.symmetric(
                                   horizontal: defaultMargin),
                               child: Row(
                                 mainAxisAlignment:
@@ -147,7 +167,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                             ),
                             SizedBox(height: 10),
                             Padding(
-                              padding: const EdgeInsets.symmetric(
+                              padding: EdgeInsets.symmetric(
                                   horizontal: defaultMargin),
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -173,7 +193,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                             ),
                             SizedBox(height: 10),
                             Padding(
-                              padding: const EdgeInsets.symmetric(
+                              padding: EdgeInsets.symmetric(
                                   horizontal: defaultMargin),
                               child: Row(
                                 mainAxisAlignment:
@@ -192,7 +212,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                             ),
                             SizedBox(height: 10),
                             Padding(
-                              padding: const EdgeInsets.symmetric(
+                              padding: EdgeInsets.symmetric(
                                   horizontal: defaultMargin),
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -218,7 +238,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                             ),
                             SizedBox(height: 10),
                             Padding(
-                              padding: const EdgeInsets.symmetric(
+                              padding: EdgeInsets.symmetric(
                                   horizontal: defaultMargin),
                               child: Row(
                                 mainAxisAlignment:
@@ -238,7 +258,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                             ),
                             SizedBox(height: 10),
                             Padding(
-                              padding: const EdgeInsets.symmetric(
+                              padding: EdgeInsets.symmetric(
                                   horizontal: defaultMargin),
                               child: Row(
                                 mainAxisAlignment:
@@ -258,7 +278,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                             ),
                             SizedBox(height: 10),
                             Padding(
-                              padding: const EdgeInsets.symmetric(
+                              padding: EdgeInsets.symmetric(
                                   horizontal: defaultMargin),
                               child: Row(
                                 mainAxisAlignment:
@@ -289,7 +309,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.symmetric(
+                              padding: EdgeInsets.symmetric(
                                   horizontal: defaultMargin),
                               child: Row(
                                 mainAxisAlignment:
