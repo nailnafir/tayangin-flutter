@@ -41,10 +41,14 @@ class PromoCard extends StatelessWidget {
                   ),
                 ],
               ),
-              Text(
-                "DISC ${promo.discount}%",
-                style: yellowNumberFont.copyWith(
-                    fontSize: 18, fontWeight: FontWeight.w500),
+              Shimmer.fromColors(
+                baseColor: mainColorYellow,
+                highlightColor: Colors.white,
+                child: Text(
+                  "DISC ${promo.discount}%",
+                  style: yellowNumberFont.copyWith(
+                      fontSize: 18, fontWeight: FontWeight.w600),
+                ),
               )
             ],
           ),
