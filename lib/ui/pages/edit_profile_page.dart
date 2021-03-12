@@ -322,11 +322,13 @@ class _EditProfilePageState extends State<EditProfilePage> {
                                     widget.user.email);
 
                                 Flushbar(
+                                  icon: Icon(MdiIcons.checkCircleOutline,
+                                      color: Colors.white),
                                   duration: Duration(milliseconds: 3000),
                                   flushbarPosition: FlushbarPosition.TOP,
-                                  backgroundColor: accentColorRed,
+                                  backgroundColor: accentColorGreen,
                                   message:
-                                      "Kami sudah kirimkan link reset password ke email kamu",
+                                      "Kami sudah mengirimkan link untuk reset password ke email kamu",
                                 ).show(context);
                               },
                       ),
