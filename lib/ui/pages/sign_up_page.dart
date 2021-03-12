@@ -167,6 +167,8 @@ class _SignUpPageState extends State<SignUpPage> {
                               passwordController.text.trim() != "" &&
                               retypePasswordController.text.trim() != "")) {
                             Flushbar(
+                                    icon: Icon(MdiIcons.closeCircleOutline,
+                                        color: Colors.white),
                                     duration: Duration(milliseconds: 3000),
                                     flushbarPosition: FlushbarPosition.TOP,
                                     backgroundColor: accentColorRed,
@@ -175,6 +177,8 @@ class _SignUpPageState extends State<SignUpPage> {
                           } else if (passwordController.text !=
                               retypePasswordController.text) {
                             Flushbar(
+                                    icon: Icon(MdiIcons.closeCircleOutline,
+                                        color: Colors.white),
                                     duration: Duration(milliseconds: 3000),
                                     flushbarPosition: FlushbarPosition.TOP,
                                     backgroundColor: accentColorRed,
@@ -183,6 +187,8 @@ class _SignUpPageState extends State<SignUpPage> {
                                 .show(context);
                           } else if (passwordController.text.length < 6) {
                             Flushbar(
+                                    icon: Icon(MdiIcons.closeCircleOutline,
+                                        color: Colors.white),
                                     duration: Duration(milliseconds: 3000),
                                     flushbarPosition: FlushbarPosition.TOP,
                                     backgroundColor: accentColorRed,
@@ -191,6 +197,8 @@ class _SignUpPageState extends State<SignUpPage> {
                           } else if (!EmailValidator.validate(
                               emailController.text)) {
                             Flushbar(
+                                    icon: Icon(MdiIcons.closeCircleOutline,
+                                        color: Colors.white),
                                     duration: Duration(milliseconds: 3000),
                                     flushbarPosition: FlushbarPosition.TOP,
                                     backgroundColor: accentColorRed,
@@ -200,6 +208,8 @@ class _SignUpPageState extends State<SignUpPage> {
                           } else if (widget.registrationData.profileImage ==
                               null) {
                             Flushbar(
+                                    icon: Icon(MdiIcons.closeCircleOutline,
+                                        color: Colors.white),
                                     duration: Duration(milliseconds: 3000),
                                     flushbarPosition: FlushbarPosition.TOP,
                                     backgroundColor: accentColorRed,
