@@ -118,6 +118,8 @@ class _AccountConfirmationPageState extends State<AccountConfirmationPage> {
                                 });
 
                                 Flushbar(
+                                        icon: Icon(MdiIcons.closeCircleOutline,
+                                            color: Colors.white),
                                         duration: Duration(milliseconds: 3000),
                                         flushbarPosition: FlushbarPosition.TOP,
                                         backgroundColor: accentColorRed,
