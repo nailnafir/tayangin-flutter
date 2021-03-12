@@ -296,7 +296,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                             ),
                             SizedBox(width: 4),
                             Text(
-                              "Ubah Password",
+                              "Reset Password",
                               style: whiteTextFont.copyWith(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w500,
