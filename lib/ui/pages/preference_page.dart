@@ -117,6 +117,8 @@ class _PreferencePageState extends State<PreferencePage> {
                         onPressed: () {
                           if (selectedGenres.length != 4) {
                             Flushbar(
+                                    icon: Icon(MdiIcons.closeCircleOutline,
+                                        color: Colors.white),
                                     duration: Duration(milliseconds: 3000),
                                     flushbarPosition: FlushbarPosition.TOP,
                                     backgroundColor: accentColorRed,
