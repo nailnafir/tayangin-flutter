@@ -127,6 +127,9 @@ class _SignInPageState extends State<SignInPage> {
 
                                           // berikan pesan
                                           Flushbar(
+                                            icon: Icon(
+                                                MdiIcons.closeCircleOutline,
+                                                color: Colors.white),
                                             duration:
                                                 Duration(milliseconds: 3000),
                                             flushbarPosition:
