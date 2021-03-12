@@ -122,11 +122,13 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                                         emailController.text);
 
                                     Flushbar(
+                                      icon: Icon(MdiIcons.checkCircleOutline,
+                                          color: Colors.white),
                                       duration: Duration(milliseconds: 3000),
                                       flushbarPosition: FlushbarPosition.TOP,
                                       backgroundColor: accentColorRed,
                                       message:
-                                          "Kami sudah kirimkan link reset password ke email kamu",
+                                          "Kami sudah mengirimkan link untuk reset password ke email kamu",
                                     ).show(context);
                                   }
                                 : null,
