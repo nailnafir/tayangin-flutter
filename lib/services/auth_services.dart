@@ -21,7 +21,8 @@ class AuthServices {
 
       return SignInSignUpResult(user: user);
     } catch (e) {
-      return SignInSignUpResult(message: e.toString().split(']')[1].trim());
+      // return SignInSignUpResult(message: e.toString().split(']')[1].trim());
+      return SignInSignUpResult(message: (e as FirebaseException).message);
     }
   }
 
@@ -36,7 +37,8 @@ class AuthServices {
 
       return SignInSignUpResult(user: user);
     } catch (e) {
-      return SignInSignUpResult(message: e.toString().split(']')[1].trim());
+      // return SignInSignUpResult(message: e.toString().split(']')[1].trim());
+      return SignInSignUpResult(message: (e as FirebaseException).message);
     }
   }
 
