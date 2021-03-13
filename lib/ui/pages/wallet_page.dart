@@ -1,18 +1,20 @@
 part of 'pages.dart';
 
-class WalletPage extends StatelessWidget {
+class WalletPage extends StatefulWidget {
   final PageEvent pageEvent;
 
   WalletPage(this.pageEvent);
 
   @override
-  Widget build(BuildContext context) {
-    // deklarasi firebase user
-    auth.User firebaseUser = Provider.of<auth.User>(context);
+  _WalletPageState createState() => _WalletPageState();
+}
 
+class _WalletPageState extends State<WalletPage> {
+  @override
+  Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        context.bloc<PageBloc>().add(pageEvent);
+        context.bloc<PageBloc>().add(widget.pageEvent);
         return;
       },
       child: Scaffold(
@@ -25,7 +27,10 @@ class WalletPage extends StatelessWidget {
                     color: Colors.white,
                     child: RefreshIndicator(
                       color: mainColorBlue,
-                      onRefresh: () async {},
+                      onRefresh: () async {
+                        await Future.delayed(new Duration(seconds: 1));
+                        setState(() {});
+                      },
                       child: ListView(
                         children: <Widget>[
                           Container(
@@ -45,7 +50,7 @@ class WalletPage extends StatelessWidget {
                                             onTap: () {
                                               context
                                                   .bloc<PageBloc>()
-                                                  .add(pageEvent);
+                                                  .add(widget.pageEvent);
                                             },
                                             child: Icon(Icons.arrow_back,
                                                 color: Colors.black)),
