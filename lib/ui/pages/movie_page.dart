@@ -30,6 +30,7 @@ class MoviePage extends StatelessWidget {
               child: RefreshIndicator(
                 color: mainColorBlue,
                 onRefresh: () async {
+                  await Future.delayed(Duration(seconds: 1));
                   context.bloc<UserBloc>().add(LoadUser(firebaseUser.uid));
                   context.bloc<MovieBloc>().add(FetchMovies());
                 },
