@@ -1,8 +1,10 @@
 part of 'pages.dart';
 
 class SignUpPage extends StatefulWidget {
+  final bool isPasswordVisible;
   final RegistrationData registrationData;
-  SignUpPage(this.registrationData);
+
+  SignUpPage(this.registrationData, {this.isPasswordVisible = true});
 
   @override
   _SignUpPageState createState() => _SignUpPageState();
@@ -14,9 +16,13 @@ class _SignUpPageState extends State<SignUpPage> {
   TextEditingController passwordController = TextEditingController();
   TextEditingController retypePasswordController = TextEditingController();
 
+  bool isPasswordVisible;
+
   @override
   void initState() {
     super.initState();
+
+    isPasswordVisible = true;
 
     nameController.text = widget.registrationData.name;
     emailController.text = widget.registrationData.email;
@@ -121,6 +127,8 @@ class _SignUpPageState extends State<SignUpPage> {
                   SizedBox(height: 30),
                   TextField(
                     controller: nameController,
+                    keyboardType: TextInputType.name,
+                    textCapitalization: TextCapitalization.words,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8)),
@@ -129,6 +137,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   SizedBox(height: 20),
                   TextField(
                     controller: emailController,
+                    keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8)),
@@ -137,15 +146,27 @@ class _SignUpPageState extends State<SignUpPage> {
                   SizedBox(height: 20),
                   TextField(
                     controller: passwordController,
-                    obscureText: true,
+                    keyboardType: TextInputType.visiblePassword,
+                    obscureText: isPasswordVisible,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8)),
+                        suffixIcon: IconButton(
+                          icon: Icon(isPasswordVisible
+                              ? MdiIcons.eye
+                              : MdiIcons.eyeOff),
+                          onPressed: () {
+                            setState(() {
+                              isPasswordVisible = !isPasswordVisible;
+                            });
+                          },
+                        ),
                         labelText: "Password"),
                   ),
                   SizedBox(height: 20),
                   TextField(
                     controller: retypePasswordController,
+                    keyboardType: TextInputType.visiblePassword,
                     obscureText: true,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
