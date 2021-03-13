@@ -7,6 +7,9 @@ class WalletPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // deklarasi firebase user
+    auth.User firebaseUser = Provider.of<auth.User>(context);
+
     return WillPopScope(
       onWillPop: () async {
         context.bloc<PageBloc>().add(pageEvent);
@@ -22,9 +25,7 @@ class WalletPage extends StatelessWidget {
                     color: Colors.white,
                     child: RefreshIndicator(
                       color: mainColorBlue,
-                      onRefresh: () async {
-                        await Future.delayed(Duration(seconds: 1));
-                      },
+                      onRefresh: () async {},
                       child: ListView(
                         children: <Widget>[
                           Container(
