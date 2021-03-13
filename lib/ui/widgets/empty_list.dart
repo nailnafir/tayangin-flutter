@@ -30,7 +30,7 @@ class EmptyList extends StatelessWidget {
               fontWeight: FontWeight.w400,
             ),
           ),
-          SizedBox(height: 50),
+          SizedBox(height: 10),
         ],
       ),
     );
