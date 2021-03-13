@@ -249,82 +249,98 @@ class TicketViewer extends StatelessWidget {
     sortedTickets
         .sort((ticket1, ticket2) => ticket1.time.compareTo(ticket2.time));
 
-    return ListView.builder(
-      itemCount: sortedTickets.length,
-      itemBuilder: (_, index) => GestureDetector(
-        onTap: () {
-          context
-              .bloc<PageBloc>()
-              .add(GoToTicketDetailPage(sortedTickets[index]));
-        },
-        child: Container(
-          margin: EdgeInsets.only(
-            top: index == 0 ? 150 : 18,
-            bottom: index == sortedTickets.length - 1 ? 100 : 0,
+    if (sortedTickets.length == 0) {
+      return Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Container(
+            child: EmptyList(
+              title: "Waduh, Tiket Kosong!",
+              assetPath: "assets/illustration_empty_list.json",
+              width: 300,
+              height: 300,
+            ),
           ),
-          child: Row(
-            children: <Widget>[
-              Stack(
-                children: [
-                  Shimmer.fromColors(
-                    period: Duration(seconds: 1),
-                    baseColor: Colors.grey[300],
-                    highlightColor: Colors.grey[100],
-                    child: Container(
+        ],
+      );
+    } else {
+      return ListView.builder(
+        itemCount: sortedTickets.length,
+        itemBuilder: (_, index) => GestureDetector(
+          onTap: () {
+            context
+                .bloc<PageBloc>()
+                .add(GoToTicketDetailPage(sortedTickets[index]));
+          },
+          child: Container(
+            margin: EdgeInsets.only(
+              top: index == 0 ? 150 : 18,
+              bottom: index == sortedTickets.length - 1 ? 100 : 0,
+            ),
+            child: Row(
+              children: <Widget>[
+                Stack(
+                  children: [
+                    Shimmer.fromColors(
+                      period: Duration(seconds: 1),
+                      baseColor: Colors.grey[300],
+                      highlightColor: Colors.grey[100],
+                      child: Container(
+                        width: 80,
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: Colors.grey,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                    ),
+                    Container(
                       width: 80,
                       height: 100,
                       decoration: BoxDecoration(
-                        color: Colors.grey,
                         borderRadius: BorderRadius.circular(8),
+                        image: DecorationImage(
+                          image: NetworkImage(imageBaseURL +
+                              'w500' +
+                              sortedTickets[index].movieDetail.posterPath),
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
-                  ),
-                  Container(
-                    width: 80,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      image: DecorationImage(
-                        image: NetworkImage(imageBaseURL +
-                            'w500' +
-                            sortedTickets[index].movieDetail.posterPath),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(width: 18),
-              Container(
-                width: MediaQuery.of(context).size.width -
-                    2 * defaultMargin -
-                    80 -
-                    18,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      sortedTickets[index].movieDetail.title,
-                      maxLines: 2,
-                      overflow: TextOverflow.clip,
-                      style: blackTextFont.copyWith(
-                          fontSize: 18, fontWeight: FontWeight.w400),
-                    ),
-                    SizedBox(height: 4),
-                    Text(sortedTickets[index].movieDetail.genresAndLanguage,
-                        style: grayTextFont.copyWith(
-                            fontSize: 12, fontWeight: FontWeight.w400)),
-                    SizedBox(height: 4),
-                    Text(sortedTickets[index].theater.name,
-                        style: grayTextFont.copyWith(
-                            fontSize: 12, fontWeight: FontWeight.w400)),
                   ],
                 ),
-              ),
-            ],
+                SizedBox(width: 18),
+                Container(
+                  width: MediaQuery.of(context).size.width -
+                      2 * defaultMargin -
+                      80 -
+                      18,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        sortedTickets[index].movieDetail.title,
+                        maxLines: 2,
+                        overflow: TextOverflow.clip,
+                        style: blackTextFont.copyWith(
+                            fontSize: 18, fontWeight: FontWeight.w400),
+                      ),
+                      SizedBox(height: 4),
+                      Text(sortedTickets[index].movieDetail.genresAndLanguage,
+                          style: grayTextFont.copyWith(
+                              fontSize: 12, fontWeight: FontWeight.w400)),
+                      SizedBox(height: 4),
+                      Text(sortedTickets[index].theater.name,
+                          style: grayTextFont.copyWith(
+                              fontSize: 12, fontWeight: FontWeight.w400)),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
-      ),
-    );
+      );
+    }
   }
 }
