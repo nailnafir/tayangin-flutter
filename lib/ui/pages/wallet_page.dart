@@ -343,7 +343,7 @@ class _WalletPageState extends State<WalletPage> {
       return Column(
         children: <Widget>[
           EmptyList(
-            title: "Waduh! Transaksi Kosong!",
+            title: "Waduh, Transaksi Kosong!",
             assetPath: "assets/illustration_empty_list.json",
             width: 300,
             height: 300,
