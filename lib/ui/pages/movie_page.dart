@@ -3,7 +3,7 @@ part of 'pages.dart';
 class MoviePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // deklaraso firebase user
+    // deklarasi firebase user
     auth.User firebaseUser = Provider.of<auth.User>(context);
 
     // deklarasi ucapan salam
