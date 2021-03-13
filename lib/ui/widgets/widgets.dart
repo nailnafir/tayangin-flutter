@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
+import 'package:lottie/lottie.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:tayangin_flutter/models/models.dart';
@@ -17,3 +18,4 @@ part 'credit_card.dart';
 part 'date_card.dart';
 part 'money_card.dart';
 part 'transaction_card.dart';
+part 'empty_list.dart';
