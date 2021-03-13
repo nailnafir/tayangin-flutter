@@ -10,19 +10,37 @@ class TransactionCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
-        Container(
-          height: 100,
-          width: 80,
-          margin: EdgeInsets.only(right: 18),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
-            image: DecorationImage(
-              image: (transaction.picture != null)
-                  ? NetworkImage(imageBaseURL + "w500" + transaction.picture)
-                  : AssetImage("assets/icon_bg_default_top_up.png"),
-              fit: BoxFit.cover,
+        Stack(
+          children: [
+            Shimmer.fromColors(
+              period: Duration(seconds: 1),
+              baseColor: Colors.grey[300],
+              highlightColor: Colors.grey[100],
+              child: Container(
+                height: 100,
+                width: 80,
+                decoration: BoxDecoration(
+                  color: Colors.grey,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+              ),
             ),
-          ),
+            Container(
+              height: 100,
+              width: 80,
+              margin: EdgeInsets.only(right: 18),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                image: DecorationImage(
+                  image: (transaction.picture != null)
+                      ? NetworkImage(
+                          imageBaseURL + "w500" + transaction.picture)
+                      : AssetImage("assets/icon_bg_default_top_up.png"),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ],
         ),
         Column(
           children: <Widget>[
