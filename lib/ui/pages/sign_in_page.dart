@@ -1,6 +1,10 @@
 part of 'pages.dart';
 
 class SignInPage extends StatefulWidget {
+  final bool isPasswordVisible;
+
+  SignInPage({this.isPasswordVisible = false});
+
   @override
   _SignInPageState createState() => _SignInPageState();
 }
@@ -12,6 +16,14 @@ class _SignInPageState extends State<SignInPage> {
   bool isEmailValid = false;
   bool isPasswordValid = false;
   bool isSigningIn = false;
+  bool isPasswordVisible;
+
+  @override
+  void initState() {
+    super.initState();
+
+    isPasswordVisible = false;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,6 +65,7 @@ class _SignInPageState extends State<SignInPage> {
                         });
                       },
                       controller: emailController,
+                      keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8)),
@@ -66,10 +79,20 @@ class _SignInPageState extends State<SignInPage> {
                         });
                       },
                       controller: passwordController,
-                      obscureText: true,
+                      obscureText: !isPasswordVisible,
                       decoration: InputDecoration(
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8)),
+                          suffixIcon: IconButton(
+                            icon: Icon(isPasswordVisible
+                                ? MdiIcons.eye
+                                : MdiIcons.eyeOff),
+                            onPressed: () {
+                              setState(() {
+                                isPasswordVisible = !isPasswordVisible;
+                              });
+                            },
+                          ),
                           labelText: "Password"),
                     ),
                     SizedBox(height: 8),
