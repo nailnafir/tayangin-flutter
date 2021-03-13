@@ -16,6 +16,7 @@ import 'package:qr_flutter/qr_flutter.dart';
 import 'package:random_string/random_string.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:tayangin_flutter/bloc/blocs.dart';
+import 'package:tayangin_flutter/bloc/transaction_bloc.dart';
 import 'package:tayangin_flutter/models/models.dart';
 import 'package:tayangin_flutter/services/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:tayangin_flutter/bloc/blocs.dart';
 import 'package:tayangin_flutter/bloc/page_bloc.dart';
 import 'package:tayangin_flutter/bloc/theme_bloc.dart';
+import 'package:tayangin_flutter/bloc/transaction_bloc.dart';
 import 'package:tayangin_flutter/services/services.dart';
 
 import 'ui/pages/pages.dart';
@@ -28,7 +29,8 @@ class MyApp extends StatelessWidget {
               BlocProvider(create: (_) => UserBloc()),
               BlocProvider(create: (_) => ThemeBloc()),
               BlocProvider(create: (_) => MovieBloc()..add(FetchMovies())),
-              BlocProvider(create: (_) => TicketBloc())
+              BlocProvider(create: (_) => TicketBloc()),
+              BlocProvider(create: (_) => TransactionBloc()),
             ],
             child: BlocBuilder<ThemeBloc, ThemeState>(
               builder: (_, themeState) => MaterialApp(
