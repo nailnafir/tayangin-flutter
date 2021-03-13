@@ -341,6 +341,7 @@ class _WalletPageState extends State<WalletPage> {
 
     if (transactions.length == 0) {
       return Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           EmptyList(
             title: "Waduh, Transaksi Kosong!",
