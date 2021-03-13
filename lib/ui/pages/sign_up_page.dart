@@ -4,7 +4,7 @@ class SignUpPage extends StatefulWidget {
   final bool isPasswordVisible;
   final RegistrationData registrationData;
 
-  SignUpPage(this.registrationData, {this.isPasswordVisible = true});
+  SignUpPage(this.registrationData, {this.isPasswordVisible = false});
 
   @override
   _SignUpPageState createState() => _SignUpPageState();
@@ -22,7 +22,7 @@ class _SignUpPageState extends State<SignUpPage> {
   void initState() {
     super.initState();
 
-    isPasswordVisible = true;
+    isPasswordVisible = false;
 
     nameController.text = widget.registrationData.name;
     emailController.text = widget.registrationData.email;
@@ -147,7 +147,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   TextField(
                     controller: passwordController,
                     keyboardType: TextInputType.visiblePassword,
-                    obscureText: isPasswordVisible,
+                    obscureText: !isPasswordVisible,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8)),
@@ -167,10 +167,20 @@ class _SignUpPageState extends State<SignUpPage> {
                   TextField(
                     controller: retypePasswordController,
                     keyboardType: TextInputType.visiblePassword,
-                    obscureText: true,
+                    obscureText: !isPasswordVisible,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8)),
+                        suffixIcon: IconButton(
+                          icon: Icon(isPasswordVisible
+                              ? MdiIcons.eye
+                              : MdiIcons.eyeOff),
+                          onPressed: () {
+                            setState(() {
+                              isPasswordVisible = !isPasswordVisible;
+                            });
+                          },
+                        ),
                         labelText: "Ketik Ulang Password"),
                   ),
                   SizedBox(height: 30),
