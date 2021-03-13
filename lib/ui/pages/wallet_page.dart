@@ -326,13 +326,26 @@ class WalletPage extends StatelessWidget {
     transactions.sort((transaction1, transaction2) =>
         transaction2.time.compareTo(transaction1.time));
 
-    return Column(
-      children: transactions
-          .map((transaction) => Container(
-              padding: EdgeInsets.only(bottom: 18),
-              child: TransactionCard(transaction, width)))
-          .toList(),
-    );
+    if (transactions.length == 0) {
+      return Column(
+        children: <Widget>[
+          EmptyList(
+            title: "Waduh! Transaksi Kosong!",
+            assetPath: "assets/illustration_empty_list.json",
+            width: 300,
+            height: 300,
+          ),
+        ],
+      );
+    } else {
+      return Column(
+        children: transactions
+            .map((transaction) => Container(
+                padding: EdgeInsets.only(bottom: 18),
+                child: TransactionCard(transaction, width)))
+            .toList(),
+      );
+    }
   }
 }
 
