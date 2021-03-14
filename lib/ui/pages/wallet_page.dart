@@ -269,7 +269,7 @@ class _WalletPageState extends State<WalletPage> {
                                         );
                                       }
                                     }),
-                                SizedBox(height: 100),
+                                SizedBox(height: 70),
                               ],
                             ),
                           )
