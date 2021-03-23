@@ -17,6 +17,10 @@ TextStyle blackTextFont = GoogleFonts.poppins().copyWith(color: Colors.black);
 TextStyle whiteTextFont = GoogleFonts.poppins().copyWith(color: Colors.white);
 TextStyle grayTextFont =
     GoogleFonts.poppins().copyWith(color: accentColorDarkGray);
+TextStyle primaryColorTextFont =
+    GoogleFonts.poppins().copyWith(color: mainColorPrimary);
+TextStyle secondaryColorTextFont =
+    GoogleFonts.poppins().copyWith(color: mainColorSecondary);
 
 TextStyle blackNumberFont = GoogleFonts.lato().copyWith(color: Colors.black);
 TextStyle whiteNumberFont = GoogleFonts.lato().copyWith(color: Colors.white);
