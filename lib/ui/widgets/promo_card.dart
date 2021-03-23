@@ -12,7 +12,7 @@ class PromoCard extends StatelessWidget {
           height: 80,
           padding: EdgeInsets.symmetric(horizontal: 16),
           decoration: BoxDecoration(
-            color: mainColorBlue,
+            color: mainColorPrimary,
             borderRadius: BorderRadius.circular(8),
             boxShadow: [
               BoxShadow(
@@ -42,7 +42,7 @@ class PromoCard extends StatelessWidget {
                 ],
               ),
               Shimmer.fromColors(
-                baseColor: mainColorYellow,
+                baseColor: mainColorSecondary,
                 highlightColor: Colors.white,
                 child: Text(
                   "DISC ${promo.discount}%",
