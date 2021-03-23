@@ -82,7 +82,7 @@ class _MainPageState extends State<MainPage> {
     return WillPopScope(
       onWillPop: onBackPressed,
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: bgLight,
         body: Stack(
           children: <Widget>[
             Container(color: mainColorPrimary),
