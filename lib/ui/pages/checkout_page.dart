@@ -21,8 +21,8 @@ class _CheckoutPageState extends State<CheckoutPage> {
         child: Scaffold(
           body: Stack(
             children: <Widget>[
-              Container(color: mainColorBlue),
-              SafeArea(child: Container(color: Colors.white)),
+              Container(color: mainColorPrimary),
+              SafeArea(child: Container(color: bgLight)),
               ListView(
                 children: <Widget>[
                   Stack(
@@ -343,7 +343,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                   elevation: 2,
                                   color: user.balance >= total
                                       ? accentColorGreen
-                                      : mainColorBlue,
+                                      : mainColorPrimary,
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(8)),
                                   child: Text(
