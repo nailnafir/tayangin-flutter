@@ -32,7 +32,7 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     context
         .bloc<ThemeBloc>()
-        .add(ChangeTheme(ThemeData().copyWith(primaryColor: mainColorYellow)));
+        .add(ChangeTheme(ThemeData().copyWith(primaryColor: mainColorPrimary)));
 
     return WillPopScope(
       onWillPop: () async {
@@ -41,7 +41,7 @@ class _SignUpPageState extends State<SignUpPage> {
       },
       child: Scaffold(
         body: Container(
-          color: Colors.white,
+          color: bgLight,
           padding: EdgeInsets.symmetric(horizontal: defaultMargin),
           child: ListView(
             children: <Widget>[
@@ -202,7 +202,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                         color: Colors.white),
                                     duration: Duration(milliseconds: 3000),
                                     flushbarPosition: FlushbarPosition.TOP,
-                                    backgroundColor: accentColorRed,
+                                    backgroundColor: mainColorSecondary,
                                     message: "Harap isi semua data")
                                 .show(context);
                           } else if (passwordController.text !=
@@ -212,7 +212,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                         color: Colors.white),
                                     duration: Duration(milliseconds: 3000),
                                     flushbarPosition: FlushbarPosition.TOP,
-                                    backgroundColor: accentColorRed,
+                                    backgroundColor: mainColorSecondary,
                                     message:
                                         "Password yang dimasukkan tidak sama")
                                 .show(context);
@@ -222,7 +222,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                         color: Colors.white),
                                     duration: Duration(milliseconds: 3000),
                                     flushbarPosition: FlushbarPosition.TOP,
-                                    backgroundColor: accentColorRed,
+                                    backgroundColor: mainColorSecondary,
                                     message: "Minimal password 6 karakter")
                                 .show(context);
                           } else if (!EmailValidator.validate(
@@ -232,7 +232,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                         color: Colors.white),
                                     duration: Duration(milliseconds: 3000),
                                     flushbarPosition: FlushbarPosition.TOP,
-                                    backgroundColor: accentColorRed,
+                                    backgroundColor: mainColorSecondary,
                                     message:
                                         "Email yang dimasukkan bukan format email")
                                 .show(context);
@@ -243,7 +243,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                         color: Colors.white),
                                     duration: Duration(milliseconds: 3000),
                                     flushbarPosition: FlushbarPosition.TOP,
-                                    backgroundColor: accentColorRed,
+                                    backgroundColor: mainColorSecondary,
                                     message: "Foto tidak boleh kosong")
                                 .show(context);
                           } else {
@@ -257,7 +257,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                 GoToPreferencePage(widget.registrationData));
                           }
                         },
-                        backgroundColor: mainColorBlue,
+                        backgroundColor: mainColorPrimary,
                         elevation: 2,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
