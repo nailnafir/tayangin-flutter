@@ -4,7 +4,7 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: mainColorBlue,
+      backgroundColor: mainColorPrimary,
       body: Container(
           padding: EdgeInsets.symmetric(horizontal: defaultMargin),
           child: Column(
@@ -41,7 +41,7 @@ class SplashPage extends StatelessWidget {
                 child: RaisedButton(
                   child: Text("Mulai",
                       style: blackTextFont.copyWith(fontSize: 16)),
-                  color: mainColorYellow,
+                  color: mainColorSecondary,
                   onPressed: () {
                     context
                         .bloc<PageBloc>()
@@ -65,8 +65,8 @@ class SplashPage extends StatelessWidget {
                     },
                     child: Text(
                       "Masuk disini",
-                      style:
-                          yellowTextFont.copyWith(fontWeight: FontWeight.w400),
+                      style: secondaryColorTextFont.copyWith(
+                          fontWeight: FontWeight.w400),
                     ),
                   )
                 ],
