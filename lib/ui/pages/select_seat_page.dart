@@ -22,8 +22,8 @@ class _SelectSeatPageState extends State<SelectSeatPage> {
       },
       child: Scaffold(
         body: Stack(children: <Widget>[
-          Container(color: mainColorBlue),
-          SafeArea(child: Container(color: Colors.white)),
+          Container(color: bgLight),
+          SafeArea(child: Container(color: bgLight)),
           ListView(
             children: <Widget>[
               Column(
@@ -126,7 +126,7 @@ class _SelectSeatPageState extends State<SelectSeatPage> {
                               margin: EdgeInsets.only(right: 8),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(4),
-                                  color: mainColorYellow,
+                                  color: mainColorSecondary,
                                   border:
                                       Border.all(color: Colors.transparent)),
                             ),
@@ -154,7 +154,7 @@ class _SelectSeatPageState extends State<SelectSeatPage> {
                         ),
                         elevation: 2,
                         backgroundColor: selectedSeats.length > 0
-                            ? mainColorBlue
+                            ? mainColorPrimary
                             : accentColorLightGray,
                         child: Text("Lanjutkan",
                             style: selectedSeats.length > 0
