@@ -24,7 +24,7 @@ class MoneyCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
               color: isSelected ? Colors.transparent : accentColorLightGray),
-          color: isSelected ? mainColorYellow : Colors.transparent,
+          color: isSelected ? mainColorSecondary : Colors.transparent,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
