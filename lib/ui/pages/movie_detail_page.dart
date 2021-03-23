@@ -18,11 +18,11 @@ class MovieDetailPage extends StatelessWidget {
         body: Stack(
           children: <Widget>[
             Container(
-              color: mainColorBlue,
+              color: mainColorPrimary,
             ),
             SafeArea(
               child: Container(
-                color: Colors.white,
+                color: bgLight,
                 child: ListView(
                   children: <Widget>[
                     FutureBuilder(
@@ -127,7 +127,7 @@ class MovieDetailPage extends StatelessWidget {
                                       width: 18,
                                       child: SpinKitThreeBounce(
                                         size: 12,
-                                        color: mainColorBlue,
+                                        color: mainColorPrimary,
                                       ),
                                     ),
                               SizedBox(height: 6),
@@ -181,7 +181,7 @@ class MovieDetailPage extends StatelessWidget {
                                         height: 116,
                                         width: 116,
                                         child: SpinKitThreeBounce(
-                                          color: mainColorBlue,
+                                          color: mainColorPrimary,
                                           size: 50,
                                         ),
                                       );
@@ -224,7 +224,7 @@ class MovieDetailPage extends StatelessWidget {
                       child: RaisedButton(
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8)),
-                          color: mainColorBlue,
+                          color: mainColorPrimary,
                           child: Text(
                             "Lanjutkan",
                             style: whiteTextFont.copyWith(
