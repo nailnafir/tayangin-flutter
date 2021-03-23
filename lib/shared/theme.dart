@@ -2,29 +2,27 @@ part of 'shared.dart';
 
 const double defaultMargin = 24;
 
-Color mainColorBlue = Color(0xFF020080);
-Color mainColorYellow = Color(0xFFFFC956);
-Color accentColorBlue1 = Color(0xFF3A3988);
-Color accentColorBlue2 = Color(0xFF7070B0);
+Color bgLight = Color(0xFFF3F3F3);
+Color bgDark = Color(0xFF15153F);
+Color mainColorPrimary = Color(0xFF15153F);
+Color mainColorSecondary = Color(0xFFFE1D5F);
+Color accentColorPrimary = Color(0xFF282A50);
+Color accentColorSecondary = Color(0xFFFFE3EB);
 Color accentColorDarkGray = Color(0xFFADADAD);
 Color accentColorLightGray = Color(0xFFE3E3E3);
-Color accentColorRed = Color(0xFFF12153);
-Color accentColorYellow = Color(0xFFFFF3DE);
+Color accentColorYellow = Color(0xFFECB53C);
 Color accentColorGreen = Color(0xFF00AB1B);
 
-TextStyle blackTextFont = GoogleFonts.poppins()
-    .copyWith(color: Colors.black, fontWeight: FontWeight.w500);
-TextStyle whiteTextFont = GoogleFonts.poppins()
-    .copyWith(color: Colors.white, fontWeight: FontWeight.w500);
-TextStyle grayTextFont = GoogleFonts.poppins()
-    .copyWith(color: accentColorDarkGray, fontWeight: FontWeight.w500);
-TextStyle yellowTextFont = GoogleFonts.poppins()
-    .copyWith(color: mainColorYellow, fontWeight: FontWeight.w500);
+TextStyle blackTextFont = GoogleFonts.poppins().copyWith(color: Colors.black);
+TextStyle whiteTextFont = GoogleFonts.poppins().copyWith(color: Colors.white);
+TextStyle grayTextFont =
+    GoogleFonts.poppins().copyWith(color: accentColorDarkGray);
 
 TextStyle blackNumberFont = GoogleFonts.lato().copyWith(color: Colors.black);
 TextStyle whiteNumberFont = GoogleFonts.lato().copyWith(color: Colors.white);
+TextStyle redNumberFont =
+    GoogleFonts.lato().copyWith(color: mainColorSecondary);
 TextStyle yellowNumberFont =
-    GoogleFonts.lato().copyWith(color: mainColorYellow);
-TextStyle redNumberFont = GoogleFonts.lato().copyWith(color: accentColorRed);
+    GoogleFonts.lato().copyWith(color: accentColorYellow);
 TextStyle greenNumberFont =
     GoogleFonts.lato().copyWith(color: accentColorGreen);
