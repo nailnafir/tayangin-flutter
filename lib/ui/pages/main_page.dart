@@ -58,7 +58,7 @@ class _MainPageState extends State<MainPage> {
                       padding: EdgeInsets.all(8),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(4),
-                        color: accentColorRed,
+                        color: mainColorSecondary,
                       ),
                       child: Text(
                         "Keluar",
@@ -85,8 +85,8 @@ class _MainPageState extends State<MainPage> {
         backgroundColor: Colors.white,
         body: Stack(
           children: <Widget>[
-            Container(color: mainColorBlue),
-            SafeArea(child: Container(color: Colors.white)),
+            Container(color: mainColorPrimary),
+            SafeArea(child: Container(color: bgLight)),
             PageView(
               controller: pageController,
               onPageChanged: (index) {
@@ -108,7 +108,7 @@ class _MainPageState extends State<MainPage> {
                 margin: EdgeInsets.only(bottom: 42),
                 child: FloatingActionButton(
                   elevation: 0,
-                  backgroundColor: mainColorYellow,
+                  backgroundColor: mainColorSecondary,
                   child: SizedBox(
                     height: 24,
                     width: 24,
@@ -137,7 +137,7 @@ class _MainPageState extends State<MainPage> {
           child: Container(
             height: 70,
             decoration: BoxDecoration(
-              color: accentColorYellow,
+              color: accentColorSecondary,
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(30),
                 topRight: Radius.circular(30),
@@ -146,7 +146,7 @@ class _MainPageState extends State<MainPage> {
             child: BottomNavigationBar(
               elevation: 0,
               backgroundColor: Colors.transparent,
-              selectedItemColor: mainColorBlue,
+              selectedItemColor: mainColorPrimary,
               unselectedItemColor: accentColorDarkGray,
               currentIndex: bottomNavBarIndex,
               onTap: (index) {
