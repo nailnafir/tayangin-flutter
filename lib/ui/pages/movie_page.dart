@@ -23,12 +23,12 @@ class MoviePage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          Container(color: mainColorBlue),
+          Container(color: mainColorPrimary),
           SafeArea(
             child: Container(
-              color: Colors.white,
+              color: bgLight,
               child: RefreshIndicator(
-                color: mainColorBlue,
+                color: mainColorPrimary,
                 onRefresh: () async {
                   await Future.delayed(Duration(seconds: 1));
                   context.bloc<UserBloc>().add(LoadUser(firebaseUser.uid));
@@ -43,7 +43,7 @@ class MoviePage extends StatelessWidget {
                       },
                       child: Container(
                         decoration: BoxDecoration(
-                          color: mainColorBlue,
+                          color: mainColorPrimary,
                           boxShadow: [
                             BoxShadow(
                                 color: Colors.grey,
@@ -113,7 +113,8 @@ class MoviePage extends StatelessWidget {
                                     child: Stack(
                                       children: <Widget>[
                                         SpinKitFadingCircle(
-                                            color: mainColorYellow, size: 50),
+                                            color: mainColorSecondary,
+                                            size: 50),
                                         Container(
                                           width: 50,
                                           height: 50,
@@ -138,7 +139,7 @@ class MoviePage extends StatelessWidget {
                               );
                             } else {
                               return SpinKitThreeBounce(
-                                color: mainColorYellow,
+                                color: mainColorSecondary,
                                 size: 50,
                               );
                             }
@@ -182,7 +183,7 @@ class MoviePage extends StatelessWidget {
                           );
                         } else {
                           return SpinKitThreeBounce(
-                            color: mainColorBlue,
+                            color: mainColorPrimary,
                             size: 50,
                           );
                         }
@@ -214,7 +215,7 @@ class MoviePage extends StatelessWidget {
                         );
                       } else {
                         return SpinKitThreeBounce(
-                          color: mainColorBlue,
+                          color: mainColorPrimary,
                           size: 50,
                         );
                       }
@@ -248,7 +249,7 @@ class MoviePage extends StatelessWidget {
                           );
                         } else {
                           return SpinKitThreeBounce(
-                            color: mainColorBlue,
+                            color: mainColorPrimary,
                             size: 50,
                           );
                         }
