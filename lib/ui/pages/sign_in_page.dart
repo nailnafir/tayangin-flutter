@@ -27,9 +27,8 @@ class _SignInPageState extends State<SignInPage> {
 
   @override
   Widget build(BuildContext context) {
-    context
-        .bloc<ThemeBloc>()
-        .add(ChangeTheme(ThemeData().copyWith(primaryColor: mainColorYellow)));
+    context.bloc<ThemeBloc>().add(
+        ChangeTheme(ThemeData().copyWith(primaryColor: mainColorSecondary)));
 
     return WillPopScope(
       onWillPop: () {
@@ -37,7 +36,7 @@ class _SignInPageState extends State<SignInPage> {
         return;
       },
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: bgLight,
         body: Container(
             padding: EdgeInsets.symmetric(horizontal: defaultMargin),
             child: ListView(
@@ -108,7 +107,7 @@ class _SignInPageState extends State<SignInPage> {
                                 .add(GoToForgotPasswordPage());
                           },
                           child: Text("Reset disini",
-                              style: yellowTextFont.copyWith(
+                              style: secondaryColorTextFont.copyWith(
                                   fontWeight: FontWeight.w400)),
                         ),
                       ],
@@ -119,14 +118,14 @@ class _SignInPageState extends State<SignInPage> {
                         height: 50,
                         margin: EdgeInsets.only(top: 50, bottom: 12),
                         child: isSigningIn
-                            ? SpinKitFadingCircle(color: mainColorBlue)
+                            ? SpinKitFadingCircle(color: mainColorPrimary)
                             : FloatingActionButton(
                                 child: Text("Masuk",
                                     style: isEmailValid && isPasswordValid
                                         ? whiteTextFont.copyWith(fontSize: 16)
                                         : grayTextFont.copyWith(fontSize: 16)),
                                 backgroundColor: isEmailValid && isPasswordValid
-                                    ? mainColorBlue
+                                    ? mainColorPrimary
                                     : accentColorLightGray,
                                 elevation: 2,
                                 onPressed: isEmailValid && isPasswordValid
@@ -157,7 +156,7 @@ class _SignInPageState extends State<SignInPage> {
                                                 Duration(milliseconds: 3000),
                                             flushbarPosition:
                                                 FlushbarPosition.TOP,
-                                            backgroundColor: accentColorRed,
+                                            backgroundColor: mainColorSecondary,
                                             message: result.message,
                                           ).show(context);
                                         }
@@ -184,7 +183,7 @@ class _SignInPageState extends State<SignInPage> {
                           },
                           child: Text(
                             "Buat disini",
-                            style: yellowTextFont.copyWith(
+                            style: secondaryColorTextFont.copyWith(
                                 fontWeight: FontWeight.w400),
                           ),
                         )
