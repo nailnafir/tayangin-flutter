@@ -122,7 +122,7 @@ class _AccountConfirmationPageState extends State<AccountConfirmationPage> {
                                             color: Colors.white),
                                         duration: Duration(milliseconds: 3000),
                                         flushbarPosition: FlushbarPosition.TOP,
-                                        backgroundColor: accentColorRed,
+                                        backgroundColor: mainColorSecondary,
                                         message: result.message)
                                     .show(context);
                               }
