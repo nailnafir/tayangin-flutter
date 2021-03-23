@@ -45,7 +45,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       child: Text(
                         "Tidak",
                         style: whiteTextFont.copyWith(
-                          color: accentColorRed,
+                          color: mainColorSecondary,
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
                         ),
@@ -103,7 +103,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
 
     context
         .bloc<ThemeBloc>()
-        .add(ChangeTheme(ThemeData(primaryColor: mainColorYellow)));
+        .add(ChangeTheme(ThemeData(primaryColor: mainColorPrimary)));
 
     return WillPopScope(
       onWillPop: !(isDataEdited)
@@ -114,7 +114,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
           : onDialogConfirmation,
       child: Scaffold(
         body: Container(
-          color: Colors.white,
+          color: bgLight,
           child: ListView(
             children: <Widget>[
               Container(
