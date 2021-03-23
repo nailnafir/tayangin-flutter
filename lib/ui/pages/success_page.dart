@@ -13,7 +13,7 @@ class SuccessPage extends StatelessWidget {
         return;
       },
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: bgLight,
         body: FutureBuilder(
           // jika ada tiketnya, berarti lagi beli tiket, kalo gak ada ya topup
           future: ticket != null
@@ -56,7 +56,7 @@ class SuccessPage extends StatelessWidget {
                           margin: EdgeInsets.only(top: 50, bottom: 12),
                           child: RaisedButton(
                             elevation: 2,
-                            color: mainColorBlue,
+                            color: mainColorPrimary,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8)),
                             child: Text(
@@ -89,7 +89,7 @@ class SuccessPage extends StatelessWidget {
                                 context.bloc<PageBloc>().add(GoToMainPage());
                               },
                               child: Text("Yuk lah!",
-                                  style: yellowTextFont.copyWith(
+                                  style: secondaryColorTextFont.copyWith(
                                       fontWeight: FontWeight.w400)),
                             ),
                           ],
@@ -99,7 +99,7 @@ class SuccessPage extends StatelessWidget {
                   : Center(
                       child: SpinKitFadingCircle(
                         size: 100,
-                        color: mainColorBlue,
+                        color: mainColorPrimary,
                       ),
                     ),
         ),
