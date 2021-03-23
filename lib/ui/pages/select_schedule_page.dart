@@ -34,9 +34,9 @@ class _SelectSchedulePageState extends State<SelectSchedulePage> {
       child: Scaffold(
         body: Stack(
           children: <Widget>[
-            Container(color: mainColorBlue),
+            Container(color: bgLight),
             SafeArea(
-              child: Container(color: Colors.white),
+              child: Container(color: bgLight),
             ),
             ListView(
               children: <Widget>[
@@ -122,8 +122,9 @@ class _SelectSchedulePageState extends State<SelectSchedulePage> {
                       builder: (_, userState) => FloatingActionButton(
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8)),
-                          backgroundColor:
-                              (isValid) ? mainColorBlue : accentColorLightGray,
+                          backgroundColor: (isValid)
+                              ? mainColorPrimary
+                              : accentColorLightGray,
                           elevation: 2,
                           child: Text(
                             "Lanjutkan",
