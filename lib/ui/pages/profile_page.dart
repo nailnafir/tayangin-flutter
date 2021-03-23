@@ -15,7 +15,7 @@ class _ProfilePageState extends State<ProfilePage> {
       },
       child: Scaffold(
         body: Container(
-          color: Colors.white,
+          color: bgLight,
           child: ListView(
             children: <Widget>[
               BlocBuilder<UserBloc, UserState>(builder: (_, userState) {
@@ -60,7 +60,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             height: 350,
                             margin: EdgeInsets.only(top: 80),
                             decoration: BoxDecoration(
-                              color: mainColorBlue,
+                              color: mainColorPrimary,
                               borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(50),
                                 topRight: Radius.circular(50),
@@ -78,7 +78,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                       height: 100,
                                       margin: EdgeInsets.only(top: 30),
                                       child: SpinKitFadingCircle(
-                                        color: mainColorYellow,
+                                        color: mainColorSecondary,
                                         size: 100,
                                       ),
                                     ),
@@ -115,7 +115,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               Text(
                                 user.email,
                                 style: whiteTextFont.copyWith(
-                                  color: accentColorBlue2,
+                                  color: accentColorPrimary,
                                   fontSize: 14,
                                   fontWeight: FontWeight.w400,
                                 ),
