@@ -11,10 +11,10 @@ class AboutAppsPage extends StatelessWidget {
       child: Scaffold(
         body: Stack(
           children: <Widget>[
-            Container(color: Colors.white),
+            Container(color: bgLight),
             SafeArea(
               child: Container(
-                color: Colors.white,
+                color: bgLight,
                 padding: EdgeInsets.symmetric(horizontal: defaultMargin),
                 child: Column(
                   children: <Widget>[
