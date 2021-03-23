@@ -44,7 +44,7 @@ class _PreferencePageState extends State<PreferencePage> {
       },
       child: Scaffold(
         body: Container(
-          color: Colors.white,
+          color: bgLight,
           padding: EdgeInsets.symmetric(horizontal: defaultMargin),
           child: ListView(
             children: <Widget>[
@@ -121,7 +121,7 @@ class _PreferencePageState extends State<PreferencePage> {
                                         color: Colors.white),
                                     duration: Duration(milliseconds: 3000),
                                     flushbarPosition: FlushbarPosition.TOP,
-                                    backgroundColor: accentColorRed,
+                                    backgroundColor: mainColorSecondary,
                                     message: "Harap pilih 4 genre")
                                 .show(context);
                           } else {
@@ -135,7 +135,7 @@ class _PreferencePageState extends State<PreferencePage> {
                                     widget.registrationData));
                           }
                         },
-                        backgroundColor: mainColorBlue,
+                        backgroundColor: mainColorPrimary,
                         elevation: 2,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
