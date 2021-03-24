@@ -23,7 +23,7 @@ class _TicketPageState extends State<TicketPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: RefreshIndicator(
-        color: mainColorBlue,
+        color: mainColorPrimary,
         onRefresh: () async {
           await Future.delayed(new Duration(seconds: 1));
           setState(() {});
@@ -32,6 +32,7 @@ class _TicketPageState extends State<TicketPage> {
           children: <Widget>[
             BlocBuilder<TicketBloc, TicketState>(
               builder: (_, ticketState) => Container(
+                color: bgLight,
                 margin: EdgeInsets.symmetric(horizontal: defaultMargin),
                 child: TicketViewer(
                   isExpiredTickets
@@ -47,13 +48,13 @@ class _TicketPageState extends State<TicketPage> {
               ),
             ),
             //NOTE: HEADER
-            Container(height: 120, color: mainColorBlue),
+            Container(height: 120, color: mainColorPrimary),
             SafeArea(
               child: ClipPath(
                 clipper: HeaderClipper(),
                 child: Container(
                   height: 120,
-                  color: mainColorBlue,
+                  color: mainColorPrimary,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
@@ -85,7 +86,7 @@ class _TicketPageState extends State<TicketPage> {
                                     fontWeight: FontWeight.w500,
                                     color: !isExpiredTickets
                                         ? Colors.white
-                                        : accentColorBlue2,
+                                        : accentColorPrimary,
                                   ),
                                 ),
                               ),
@@ -94,7 +95,7 @@ class _TicketPageState extends State<TicketPage> {
                                 height: 4,
                                 width: MediaQuery.of(context).size.width * 0.5,
                                 color: !isExpiredTickets
-                                    ? mainColorYellow
+                                    ? mainColorSecondary
                                     : Colors.transparent,
                               ),
                             ],
@@ -114,7 +115,7 @@ class _TicketPageState extends State<TicketPage> {
                                     fontWeight: FontWeight.w500,
                                     color: isExpiredTickets
                                         ? Colors.white
-                                        : accentColorBlue2,
+                                        : accentColorPrimary,
                                   ),
                                 ),
                               ),
@@ -123,7 +124,7 @@ class _TicketPageState extends State<TicketPage> {
                                 height: 4,
                                 width: MediaQuery.of(context).size.width * 0.5,
                                 color: isExpiredTickets
-                                    ? mainColorYellow
+                                    ? mainColorSecondary
                                     : Colors.transparent,
                               ),
                             ],
