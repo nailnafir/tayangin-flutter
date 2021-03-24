@@ -49,7 +49,7 @@ class _SignInPageState extends State<SignInPage> {
                     SizedBox(
                         height: 80,
                         width: 80,
-                        child: Image.asset("assets/logo_tayangin_blue.png")),
+                        child: Image.asset("assets/logo_tayangin.png")),
                     Container(
                       margin: EdgeInsets.only(top: 50, bottom: 30),
                       child: Text(
