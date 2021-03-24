@@ -1,13 +1,13 @@
 <svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect y="6" width="20" height="12" rx="2" fill="#020080"/>
-<path d="M16 12L22.5514 8.72428C23.2163 8.39183 24 8.87465 24 9.61803V14.382C24 15.1253 23.2177 15.6088 22.5528 15.2764L16 12Z" fill="#020080"/>
-<circle cx="10" cy="12" r="2" fill="#FFC956"/>
-<circle cx="16" cy="4" r="4" fill="#FFC956"/>
+<rect y="6" width="20" height="12" rx="2" fill="#15153F"/>
+<path d="M16 12L22.5514 8.72428C23.2163 8.39183 24 8.87465 24 9.61803V14.382C24 15.1253 23.2177 15.6088 22.5528 15.2764L16 12Z" fill="#15153F"/>
+<circle cx="10" cy="12" r="2" fill="#FE1D5F"/>
+<circle cx="16" cy="4" r="4" fill="#FE1D5F"/>
 <circle cx="16" cy="2" r="1" fill="white"/>
 <circle cx="18" cy="4" r="1" fill="white"/>
 <circle cx="14" cy="4" r="1" fill="white"/>
 <circle cx="16" cy="6" r="1" fill="white"/>
-<circle cx="4" cy="4" r="4" fill="#FFC956"/>
+<circle cx="4" cy="4" r="4" fill="#FE1D5F"/>
 <circle cx="4" cy="2" r="1" fill="white"/>
 <circle cx="6" cy="4" r="1" fill="white"/>
 <circle cx="2" cy="4" r="1" fill="white"/>
