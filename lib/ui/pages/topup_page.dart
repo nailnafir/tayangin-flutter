@@ -16,7 +16,7 @@ class _TopUpPageState extends State<TopUpPage> {
   @override
   Widget build(BuildContext context) {
     context.bloc<ThemeBloc>().add(ChangeTheme(ThemeData().copyWith(
-          primaryColor: mainColorYellow,
+          primaryColor: mainColorPrimary,
         )));
 
     double cardWidth =
@@ -28,10 +28,11 @@ class _TopUpPageState extends State<TopUpPage> {
         return;
       },
       child: Scaffold(
+        backgroundColor: bgLight,
         body: Stack(
           children: <Widget>[
             SafeArea(
-              child: Container(color: Colors.white),
+              child: Container(color: bgLight),
             ),
             ListView(
               children: <Widget>[
