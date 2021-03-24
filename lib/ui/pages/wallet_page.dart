@@ -18,15 +18,16 @@ class _WalletPageState extends State<WalletPage> {
         return;
       },
       child: Scaffold(
+        backgroundColor: bgLight,
         body: Stack(
           children: [
             SafeArea(
               child: BlocBuilder<UserBloc, UserState>(
                 builder: (_, userState) {
                   return Container(
-                    color: Colors.white,
+                    color: bgLight,
                     child: RefreshIndicator(
-                      color: mainColorBlue,
+                      color: mainColorPrimary,
                       onRefresh: () async {
                         await Future.delayed(new Duration(seconds: 1));
                         setState(() {});
@@ -74,7 +75,7 @@ class _WalletPageState extends State<WalletPage> {
                                   margin: EdgeInsets.symmetric(vertical: 30),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(12),
-                                    color: mainColorBlue,
+                                    color: mainColorPrimary,
                                     boxShadow: [
                                       BoxShadow(
                                           color: Colors.grey,
@@ -127,7 +128,7 @@ class _WalletPageState extends State<WalletPage> {
                                                   height: 30,
                                                   decoration: BoxDecoration(
                                                     shape: BoxShape.circle,
-                                                    color: mainColorYellow,
+                                                    color: mainColorSecondary,
                                                   ),
                                                 )
                                               ],
@@ -265,7 +266,7 @@ class _WalletPageState extends State<WalletPage> {
                                       } else {
                                         return SpinKitThreeBounce(
                                           size: 50,
-                                          color: mainColorBlue,
+                                          color: mainColorPrimary,
                                         );
                                       }
                                     }),
@@ -309,7 +310,7 @@ class _WalletPageState extends State<WalletPage> {
                     margin: EdgeInsets.symmetric(vertical: 10),
                     child: RaisedButton(
                       elevation: 2,
-                      color: mainColorBlue,
+                      color: mainColorPrimary,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8)),
                       child: Text(
