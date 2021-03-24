@@ -27,8 +27,9 @@ class _SignInPageState extends State<SignInPage> {
 
   @override
   Widget build(BuildContext context) {
-    context.bloc<ThemeBloc>().add(
-        ChangeTheme(ThemeData().copyWith(primaryColor: mainColorSecondary)));
+    context
+        .bloc<ThemeBloc>()
+        .add(ChangeTheme(ThemeData().copyWith(primaryColor: mainColorPrimary)));
 
     return WillPopScope(
       onWillPop: () {
