@@ -16,7 +16,7 @@ class SplashPage extends StatelessWidget {
                 width: 140,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("assets/logo_tayangin_yellow.png"),
+                    image: AssetImage("assets/logo_tayangin.png"),
                   ),
                 ),
               ),
