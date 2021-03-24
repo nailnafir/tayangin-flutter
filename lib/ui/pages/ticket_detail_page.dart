@@ -17,8 +17,8 @@ class TicketDetailPage extends StatelessWidget {
       child: Scaffold(
         body: Stack(
           children: <Widget>[
-            Container(color: mainColorBlue),
-            SafeArea(child: Container(color: Colors.white)),
+            Container(color: bgLight),
+            SafeArea(child: Container(color: bgLight)),
             Container(
               padding: EdgeInsets.symmetric(horizontal: defaultMargin),
               child: ListView(
@@ -77,7 +77,7 @@ class TicketDetailPage extends StatelessWidget {
                         clipper: TicketTopClipper(),
                         child: Container(
                           width: double.infinity,
-                          color: accentColorYellow,
+                          color: accentColorSecondary,
                           padding: EdgeInsets.fromLTRB(18, 18, 18, 0),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
