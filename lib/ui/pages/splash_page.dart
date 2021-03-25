@@ -40,7 +40,7 @@ class SplashPage extends StatelessWidget {
                 margin: EdgeInsets.only(top: 50, bottom: 20),
                 child: RaisedButton(
                   child: Text("Mulai",
-                      style: blackTextFont.copyWith(fontSize: 16)),
+                      style: whiteTextFont.copyWith(fontSize: 16)),
                   color: mainColorSecondary,
                   onPressed: () {
                     context
