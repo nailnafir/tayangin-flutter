@@ -15,7 +15,7 @@ class BrowseButton extends StatelessWidget {
             width: 50,
             height: 50,
             decoration: BoxDecoration(
-              color: accentColorYellow,
+              color: softColorSecondary,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Center(
