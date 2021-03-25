@@ -115,7 +115,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               Text(
                                 user.email,
                                 style: whiteTextFont.copyWith(
-                                  color: accentColorPrimary,
+                                  color: accentColorTertiary,
                                   fontSize: 14,
                                   fontWeight: FontWeight.w400,
                                 ),
