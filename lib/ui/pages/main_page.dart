@@ -137,7 +137,7 @@ class _MainPageState extends State<MainPage> {
           child: Container(
             height: 70,
             decoration: BoxDecoration(
-              color: accentColorSecondary,
+              color: softColorSecondary,
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(30),
                 topRight: Radius.circular(30),
