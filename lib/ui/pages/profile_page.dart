@@ -14,8 +14,8 @@ class _ProfilePageState extends State<ProfilePage> {
         return;
       },
       child: Scaffold(
+        backgroundColor: bgLight,
         body: Container(
-          color: bgLight,
           child: ListView(
             children: <Widget>[
               BlocBuilder<UserBloc, UserState>(builder: (_, userState) {
@@ -129,7 +129,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 topLeft: Radius.circular(50),
                                 topRight: Radius.circular(50),
                               ),
-                              color: Colors.white,
+                              color: bgLight,
                             ),
                             child: Container(
                               margin: EdgeInsets.only(top: defaultMargin),
