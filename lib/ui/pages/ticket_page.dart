@@ -86,7 +86,7 @@ class _TicketPageState extends State<TicketPage> {
                                     fontWeight: FontWeight.w500,
                                     color: !isExpiredTickets
                                         ? Colors.white
-                                        : accentColorPrimary,
+                                        : accentColorTertiary,
                                   ),
                                 ),
                               ),
@@ -115,7 +115,7 @@ class _TicketPageState extends State<TicketPage> {
                                     fontWeight: FontWeight.w500,
                                     color: isExpiredTickets
                                         ? Colors.white
-                                        : accentColorPrimary,
+                                        : accentColorTertiary,
                                   ),
                                 ),
                               ),
