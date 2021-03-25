@@ -119,7 +119,7 @@ class _WalletPageState extends State<WalletPage> {
                                                   height: 18,
                                                   decoration: BoxDecoration(
                                                     shape: BoxShape.circle,
-                                                    color: accentColorYellow,
+                                                    color: hardColorSecondary,
                                                   ),
                                                 ),
                                                 SizedBox(width: 4),
