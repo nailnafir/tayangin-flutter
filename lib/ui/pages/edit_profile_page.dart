@@ -314,7 +314,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           ],
                         ),
                         disabledColor: accentColorLightGray,
-                        color: Colors.red,
+                        color: mainColorSecondary,
                         onPressed: (isUpdating)
                             ? null
                             : () async {
