@@ -77,7 +77,7 @@ class TicketDetailPage extends StatelessWidget {
                         clipper: TicketTopClipper(),
                         child: Container(
                           width: double.infinity,
-                          color: accentColorSecondary,
+                          color: softColorSecondary,
                           padding: EdgeInsets.fromLTRB(18, 18, 18, 0),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -213,7 +213,7 @@ class TicketDetailPage extends StatelessWidget {
                         clipper: TicketBottomClipper(),
                         child: Container(
                           width: double.infinity,
-                          color: accentColorYellow,
+                          color: softColorSecondary,
                           padding: EdgeInsets.all(18),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
