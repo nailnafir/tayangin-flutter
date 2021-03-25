@@ -22,6 +22,7 @@ class _TicketPageState extends State<TicketPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: bgLight,
       body: RefreshIndicator(
         color: mainColorPrimary,
         onRefresh: () async {
@@ -32,7 +33,6 @@ class _TicketPageState extends State<TicketPage> {
           children: <Widget>[
             BlocBuilder<TicketBloc, TicketState>(
               builder: (_, ticketState) => Container(
-                color: bgLight,
                 margin: EdgeInsets.symmetric(horizontal: defaultMargin),
                 child: TicketViewer(
                   isExpiredTickets
