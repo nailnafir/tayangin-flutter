@@ -35,19 +35,13 @@ class DateCard extends StatelessWidget {
           children: <Widget>[
             Text(
               date.dayName.toUpperCase(),
-              style: blackTextFont.copyWith(
-                fontSize: 14,
-                fontWeight: FontWeight.w400,
-              ),
+              style: isSelected ? whiteTextFont : blackTextFont,
             ),
             SizedBox(height: 6),
             Text(
               (date.day.toString() + " " + date.shortMonthName.toString())
                   .toUpperCase(),
-              style: blackTextFont.copyWith(
-                fontSize: 14,
-                fontWeight: FontWeight.w400,
-              ),
+              style: isSelected ? whiteTextFont : blackTextFont,
             ),
           ],
         ),
