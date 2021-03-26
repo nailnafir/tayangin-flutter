@@ -32,6 +32,7 @@ class MoneyCard extends StatelessWidget {
           children: <Widget>[
             Text('IDR',
                 style: grayTextFont.copyWith(
+                  color: isSelected ? hardColorSecondary : accentColorDarkGray,
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
                 )),
@@ -42,10 +43,7 @@ class MoneyCard extends StatelessWidget {
                   decimalDigits: 0,
                   symbol: '',
                 ).format(amount),
-                style: blackTextFont.copyWith(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500,
-                )),
+                style: isSelected ? whiteTextFont : blackTextFont),
           ],
         ),
       ),
