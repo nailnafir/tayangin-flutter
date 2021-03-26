@@ -12,3 +12,4 @@ part 'credit.dart';
 part 'theater.dart';
 part 'ticket.dart';
 part 'tayangin_transaction.dart';
+part 'tutorial_reset_password.dart';
