@@ -87,19 +87,32 @@ class MoviePage extends StatelessWidget {
                                                 78,
                                         child: Text(userState.user.name + "!",
                                             style: whiteTextFont.copyWith(
-                                                fontSize: 18),
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.w500,
+                                            ),
                                             maxLines: 1,
                                             overflow: TextOverflow.clip),
                                       ),
-                                      Text(
-                                          NumberFormat.currency(
-                                                  locale: "id_ID",
-                                                  decimalDigits: 0,
-                                                  symbol: "IDR ")
-                                              .format(userState.user.balance),
-                                          style: yellowNumberFont.copyWith(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.w400)),
+                                      Row(
+                                        children: [
+                                          Icon(
+                                            MdiIcons.wallet,
+                                            color: mainColorSecondary,
+                                            size: 18,
+                                          ),
+                                          SizedBox(width: 4),
+                                          Text(
+                                              NumberFormat.currency(
+                                                      locale: "id_ID",
+                                                      decimalDigits: 0,
+                                                      symbol: "IDR ")
+                                                  .format(
+                                                      userState.user.balance),
+                                              style: whiteNumberFont.copyWith(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w400)),
+                                        ],
+                                      ),
                                     ],
                                   ),
                                   Container(
