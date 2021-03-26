@@ -45,8 +45,11 @@ class SelectableBox extends StatelessWidget {
         child: Center(
           child: Text(
             text ?? "none",
-            style: (textStyle ?? blackTextFont)
-                .copyWith(fontSize: 14, fontWeight: FontWeight.w400),
+            style: (textStyle ?? blackTextFont).copyWith(
+              color: isSelected ? Colors.white : Colors.black,
+              fontSize: 14,
+              fontWeight: FontWeight.w400,
+            ),
           ),
         ),
       ),
