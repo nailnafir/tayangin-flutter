@@ -66,13 +66,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                       margin: EdgeInsets.only(top: 12, bottom: 30),
                       width:
                           MediaQuery.of(context).size.width - 2 * defaultMargin,
-                      child: Text(
-                        "1.  Pastikan kamu sudah, harus, kudu, dan wajib\n    terdaftar di Aplikasi Tayangin.\n2. Masukkan email kamu dibawah.\n3. Tekan tombol reset password.\n4. Periksa email kamu, karena link untuk reset\n    passwordnya dikirim ke email kamu.\n5. Kunjungi link yang sudah dikirim tadi.\n6. Buat password baru di sana.\n7. Selesai deh.",
-                        style: blackTextFont.copyWith(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
+                      child: generateTutorial(context),
                     ),
                     TextField(
                       onChanged: (text) {
@@ -152,6 +146,44 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
           ),
         ),
       ),
+    );
+  }
+
+  Column generateTutorial(BuildContext context) {
+    int number = 1;
+    List<Widget> widgets = [];
+
+    for (var tutor in dummyTutorial) {
+      widgets.add(Container(
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text("${number++}. ",
+                style: blackNumberFont.copyWith(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                ),
+                textAlign: TextAlign.start),
+            Container(
+              width: MediaQuery.of(context).size.width - 3 * defaultMargin,
+              child: Text(
+                tutor.tutorial,
+                maxLines: 2,
+                overflow: TextOverflow.clip,
+                style: blackTextFont.copyWith(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ));
+    }
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: widgets,
     );
   }
 }
