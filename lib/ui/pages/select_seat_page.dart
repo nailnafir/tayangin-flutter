@@ -206,20 +206,22 @@ class _SelectSeatPageState extends State<SelectSeatPage> {
                       fontSize: 14, fontWeight: FontWeight.w400)
                   : grayTextFont.copyWith(
                       fontSize: 14, fontWeight: FontWeight.w400),
-              isEnabled: index != 0 && i != 4,
               isSelected: selectedSeats
                   .contains("${String.fromCharCode(i + 65)}${index + 1}"),
-              onTap: () {
-                String seatNumber =
-                    "${String.fromCharCode(i + 65)}${index + 1}";
-                setState(() {
-                  if (selectedSeats.contains(seatNumber)) {
-                    selectedSeats.remove(seatNumber);
-                  } else {
-                    selectedSeats.add(seatNumber);
-                  }
-                });
-              },
+              isEnabled: index != 0 && i != 4,
+              onTap: !(index != 0 && i != 4)
+                  ? null
+                  : () {
+                      String seatNumber =
+                          "${String.fromCharCode(i + 65)}${index + 1}";
+                      setState(() {
+                        if (selectedSeats.contains(seatNumber)) {
+                          selectedSeats.remove(seatNumber);
+                        } else {
+                          selectedSeats.add(seatNumber);
+                        }
+                      });
+                    },
             ),
           ),
         ),
