@@ -28,7 +28,7 @@ class MoviePage extends StatelessWidget {
             child: Container(
               color: bgLight,
               child: RefreshIndicator(
-                color: mainColorPrimary,
+                color: mainColorSecondary,
                 onRefresh: () async {
                   await Future.delayed(Duration(seconds: 1));
                   context.bloc<UserBloc>().add(LoadUser(firebaseUser.uid));
