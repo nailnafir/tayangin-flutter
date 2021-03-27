@@ -17,11 +17,11 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
         return;
       },
       child: Scaffold(
+        backgroundColor: bgLight,
         body: SafeArea(
           child: ListView(
             children: [
               Container(
-                color: bgLight,
                 padding: EdgeInsets.symmetric(horizontal: defaultMargin),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
