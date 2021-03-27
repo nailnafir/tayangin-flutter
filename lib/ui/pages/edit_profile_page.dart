@@ -25,7 +25,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    Future<bool> onDialogConfirmation() {
+    //NOTE: EDIT DIALOG
+    Future<bool> onDialogEditConfirmation() {
       return showDialog(
               context: context,
               builder: (context) {
@@ -101,6 +102,80 @@ class _EditProfilePageState extends State<EditProfilePage> {
           false;
     }
 
+    //NOTE: RESET DIALOG
+    Future<bool> onDialogResetConfirmation() {
+      return showDialog(
+              barrierDismissible: false,
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                  title: Text(
+                    "Konfirmasi",
+                    style: blackTextFont.copyWith(
+                        fontSize: 20, fontWeight: FontWeight.w500),
+                  ),
+                  content: Text(
+                    "Kamu yakin mau reset password? Setelah ini kamu akan login ulang.",
+                    style: blackTextFont.copyWith(
+                        fontSize: 14, fontWeight: FontWeight.w400),
+                  ),
+                  actions: <Widget>[
+                    TextButton(
+                      child: Text(
+                        "Jangan",
+                        style: whiteTextFont.copyWith(
+                          color: accentColorGreen,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                    TextButton(
+                      child: Container(
+                        padding: EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(4),
+                          color: mainColorSecondary,
+                        ),
+                        child: Text(
+                          "Reset",
+                          style: whiteTextFont.copyWith(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ),
+                      onPressed: (isUpdating)
+                          ? null
+                          : () async {
+                              await AuthServices.resetPassword(
+                                  widget.user.email);
+
+                              context.bloc<UserBloc>().add(SignOut());
+                              AuthServices.signOut();
+
+                              Navigator.of(context).pop();
+
+                              Flushbar(
+                                icon: Icon(MdiIcons.checkCircleOutline,
+                                    color: Colors.white),
+                                duration: Duration(milliseconds: 8000),
+                                flushbarPosition: FlushbarPosition.TOP,
+                                backgroundColor: accentColorGreen,
+                                message:
+                                    "Kami sudah mengirimkan link untuk reset passwordnya ke email kamu",
+                              ).show(context);
+                            },
+                    ),
+                  ],
+                );
+              }) ??
+          false;
+    }
+
     context
         .bloc<ThemeBloc>()
         .add(ChangeTheme(ThemeData(primaryColor: mainColorPrimary)));
@@ -111,7 +186,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
               context.bloc<PageBloc>().add(GoToProfilePage());
               return;
             }
-          : onDialogConfirmation,
+          : onDialogEditConfirmation,
       child: Scaffold(
         body: Container(
           color: bgLight,
@@ -136,7 +211,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                                           .bloc<PageBloc>()
                                           .add(GoToProfilePage());
                                     }
-                                  : onDialogConfirmation,
+                                  : onDialogEditConfirmation,
                               child:
                                   Icon(Icons.arrow_back, color: Colors.black),
                             ),
@@ -315,22 +390,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                         ),
                         disabledColor: accentColorLightGray,
                         color: mainColorSecondary,
-                        onPressed: (isUpdating)
-                            ? null
-                            : () async {
-                                await AuthServices.resetPassword(
-                                    widget.user.email);
-
-                                Flushbar(
-                                  icon: Icon(MdiIcons.checkCircleOutline,
-                                      color: Colors.white),
-                                  duration: Duration(milliseconds: 3000),
-                                  flushbarPosition: FlushbarPosition.TOP,
-                                  backgroundColor: accentColorGreen,
-                                  message:
-                                      "Kami sudah mengirimkan link untuk reset password ke email kamu",
-                                ).show(context);
-                              },
+                        onPressed: onDialogResetConfirmation,
                       ),
                     ),
                     SizedBox(height: 20),
