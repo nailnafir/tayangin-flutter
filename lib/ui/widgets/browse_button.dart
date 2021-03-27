@@ -2,7 +2,9 @@ part of 'widgets.dart';
 
 class BrowseButton extends StatelessWidget {
   final String genre;
-  BrowseButton(this.genre);
+  final Function onTap;
+
+  BrowseButton(this.genre, {this.onTap});
 
   @override
   Widget build(BuildContext context) {
