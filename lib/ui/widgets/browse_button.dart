@@ -8,33 +8,40 @@ class BrowseButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Material(
-          elevation: 3,
-          borderRadius: BorderRadius.circular(8),
-          child: Container(
-            width: 50,
-            height: 50,
-            decoration: BoxDecoration(
-              color: softColorSecondary,
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: Center(
-              child: SizedBox(
-                height: 30,
-                child: SvgPicture.asset(getImageFromGenre(genre)),
+    return GestureDetector(
+      onTap: () {
+        if (onTap != null) {
+          onTap();
+        }
+      },
+      child: Column(
+        children: <Widget>[
+          Material(
+            elevation: 3,
+            borderRadius: BorderRadius.circular(8),
+            child: Container(
+              width: 50,
+              height: 50,
+              decoration: BoxDecoration(
+                color: softColorSecondary,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Center(
+                child: SizedBox(
+                  height: 30,
+                  child: SvgPicture.asset(getImageFromGenre(genre)),
+                ),
               ),
             ),
           ),
-        ),
-        SizedBox(height: 4),
-        Text(
-          genre,
-          style:
-              blackTextFont.copyWith(fontSize: 12, fontWeight: FontWeight.w400),
-        ),
-      ],
+          SizedBox(height: 4),
+          Text(
+            genre,
+            style: blackTextFont.copyWith(
+                fontSize: 12, fontWeight: FontWeight.w400),
+          ),
+        ],
+      ),
     );
   }
 
