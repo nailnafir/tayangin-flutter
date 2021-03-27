@@ -221,9 +221,18 @@ class MoviePage extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: List.generate(
-                                userState.user.selectedGenres.length,
-                                (index) => BrowseButton(
-                                    userState.user.selectedGenres[index])),
+                              userState.user.selectedGenres.length,
+                              (index) => BrowseButton(
+                                userState.user.selectedGenres[index],
+                                onTap: () {
+                                  Fluttertoast.showToast(
+                                    msg: "Tunggu update selanjutnya ya",
+                                    toastLength: Toast.LENGTH_LONG,
+                                    gravity: ToastGravity.BOTTOM,
+                                  );
+                                },
+                              ),
+                            ),
                           ),
                         );
                       } else {
@@ -257,7 +266,11 @@ class MoviePage extends StatelessWidget {
                                   right: (index == movies.length - 1)
                                       ? defaultMargin
                                       : 18),
-                              child: ComingSoonCard(movies[index]),
+                              child: ComingSoonCard(movies[index], onTap: () {
+                                context
+                                    .bloc<PageBloc>()
+                                    .add(GoToMovieDetailPage(movies[index]));
+                              }),
                             ),
                           );
                         } else {
@@ -280,9 +293,19 @@ class MoviePage extends StatelessWidget {
                     Column(
                       children: dummyPromo
                           .map((e) => Padding(
-                              padding: EdgeInsets.fromLTRB(
-                                  defaultMargin, 0, defaultMargin, 18),
-                              child: PromoCard(e)))
+                                padding: EdgeInsets.fromLTRB(
+                                    defaultMargin, 0, defaultMargin, 18),
+                                child: PromoCard(
+                                  e,
+                                  onTap: () {
+                                    Fluttertoast.showToast(
+                                      msg: "Tunggu update selanjutnya ya",
+                                      toastLength: Toast.LENGTH_LONG,
+                                      gravity: ToastGravity.BOTTOM,
+                                    );
+                                  },
+                                ),
+                              ))
                           .toList(),
                     ),
                     SizedBox(height: 100),
