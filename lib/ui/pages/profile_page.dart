@@ -5,9 +5,159 @@ class ProfilePage extends StatefulWidget {
   _ProfilePageState createState() => _ProfilePageState();
 }
 
+enum LanguageOption { bahasa, english }
+enum ThemeOption { light, dark }
+
 class _ProfilePageState extends State<ProfilePage> {
+  LanguageOption _language = LanguageOption.bahasa;
+  ThemeOption _theme = ThemeOption.light;
+
   @override
   Widget build(BuildContext context) {
+    // modal dialog theme
+    _modalBottomMenuLanguage() {
+      showModalBottomSheet(
+          context: context,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(25),
+              topRight: Radius.circular(25),
+            ),
+          ),
+          clipBehavior: Clip.antiAliasWithSaveLayer,
+          builder: (_) {
+            return Container(
+              height: 170,
+              color: bgLight,
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    width: 100,
+                    height: 6,
+                    margin: EdgeInsets.only(top: defaultMargin, bottom: 12),
+                    decoration: BoxDecoration(
+                      color: mainColorSecondary,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                  RadioListTile<LanguageOption>(
+                    title: Text(
+                      "Bahasa Indonesia",
+                      style: blackTextFont,
+                    ),
+                    activeColor: mainColorSecondary,
+                    value: LanguageOption.bahasa,
+                    groupValue: _language,
+                    onChanged: (LanguageOption value) {
+                      setState(() {
+                        _language = value;
+
+                        Fluttertoast.showToast(
+                          msg: "Tunggu update selanjutnya ya",
+                          toastLength: Toast.LENGTH_LONG,
+                          gravity: ToastGravity.BOTTOM,
+                        );
+                      });
+                    },
+                  ),
+                  RadioListTile<LanguageOption>(
+                    title: Text(
+                      "Bahasa Inggris",
+                      style: blackTextFont,
+                    ),
+                    activeColor: mainColorSecondary,
+                    value: LanguageOption.english,
+                    groupValue: _language,
+                    onChanged: (LanguageOption value) {
+                      setState(() {
+                        _language = value;
+
+                        Fluttertoast.showToast(
+                          msg: "Tunggu update selanjutnya ya",
+                          toastLength: Toast.LENGTH_LONG,
+                          gravity: ToastGravity.BOTTOM,
+                        );
+                      });
+                    },
+                  ),
+                ],
+              ),
+            );
+          });
+    }
+
+    // modal dialog theme
+    _modalBottomMenuTheme() {
+      showModalBottomSheet(
+          context: context,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(25),
+              topRight: Radius.circular(25),
+            ),
+          ),
+          clipBehavior: Clip.antiAliasWithSaveLayer,
+          builder: (_) {
+            return Container(
+              height: 170,
+              color: bgLight,
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    width: 100,
+                    height: 6,
+                    margin: EdgeInsets.only(top: defaultMargin, bottom: 12),
+                    decoration: BoxDecoration(
+                      color: mainColorSecondary,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                  RadioListTile<ThemeOption>(
+                    title: Text(
+                      "Terang",
+                      style: blackTextFont,
+                    ),
+                    activeColor: mainColorSecondary,
+                    value: ThemeOption.light,
+                    groupValue: _theme,
+                    onChanged: (ThemeOption value) {
+                      setState(() {
+                        _theme = value;
+
+                        Fluttertoast.showToast(
+                          msg: "Tunggu update selanjutnya ya",
+                          toastLength: Toast.LENGTH_LONG,
+                          gravity: ToastGravity.BOTTOM,
+                        );
+                      });
+                    },
+                  ),
+                  RadioListTile<ThemeOption>(
+                    title: Text(
+                      "Gelap",
+                      style: blackTextFont,
+                    ),
+                    activeColor: mainColorSecondary,
+                    value: ThemeOption.dark,
+                    groupValue: _theme,
+                    onChanged: (ThemeOption value) {
+                      setState(() {
+                        _theme = value;
+
+                        Fluttertoast.showToast(
+                          msg: "Tunggu update selanjutnya ya",
+                          toastLength: Toast.LENGTH_LONG,
+                          gravity: ToastGravity.BOTTOM,
+                        );
+                      });
+                    },
+                  ),
+                ],
+              ),
+            );
+          });
+    }
+
     return WillPopScope(
       onWillPop: () async {
         context.bloc<PageBloc>().add(GoToMainPage(bottomNavBarIndex: 0));
@@ -73,13 +223,18 @@ class _ProfilePageState extends State<ProfilePage> {
                                 children: <Widget>[
                                   //NOTE: lOADER
                                   Center(
-                                    child: Container(
-                                      width: 100,
-                                      height: 100,
-                                      margin: EdgeInsets.only(top: 30),
-                                      child: SpinKitFadingCircle(
-                                        color: mainColorSecondary,
-                                        size: 100,
+                                    child: Shimmer.fromColors(
+                                      period: Duration(seconds: 1),
+                                      baseColor: Colors.grey[300],
+                                      highlightColor: Colors.grey[100],
+                                      child: Container(
+                                        width: 100,
+                                        height: 100,
+                                        margin: EdgeInsets.only(top: 30),
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Colors.grey,
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -147,35 +302,46 @@ class _ProfilePageState extends State<ProfilePage> {
                                                   (userState as UserLoaded)
                                                       .user));
                                         },
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: <Widget>[
-                                            Row(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              children: <Widget>[
-                                                Container(
-                                                  width: 20,
-                                                  height: 20,
-                                                  child: SvgPicture.asset(
-                                                      "assets/icon_profile.svg"),
+                                        child: Container(
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width -
+                                              2 * defaultMargin,
+                                          color: Colors.transparent,
+                                          child: Stack(
+                                            children: [
+                                              Row(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: <Widget>[
+                                                  Container(
+                                                    width: 20,
+                                                    height: 20,
+                                                    child: SvgPicture.asset(
+                                                        "assets/icon_profile.svg"),
+                                                  ),
+                                                  SizedBox(width: 12),
+                                                  Text(
+                                                    "Ubah Profil",
+                                                    style:
+                                                        blackTextFont.copyWith(
+                                                            fontSize: 14,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w400),
+                                                  ),
+                                                ],
+                                              ),
+                                              Align(
+                                                alignment:
+                                                    Alignment.centerRight,
+                                                child: Icon(
+                                                  MdiIcons.chevronRight,
+                                                  color: mainColorSecondary,
                                                 ),
-                                                SizedBox(width: 12),
-                                                Text(
-                                                  "Ubah Profil",
-                                                  style: blackTextFont.copyWith(
-                                                      fontSize: 14,
-                                                      fontWeight:
-                                                          FontWeight.w400),
-                                                ),
-                                              ],
-                                            ),
-                                            Icon(
-                                              MdiIcons.chevronRight,
-                                              color: mainColorSecondary,
-                                            )
-                                          ],
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                       );
                                     },
@@ -192,34 +358,41 @@ class _ProfilePageState extends State<ProfilePage> {
                                       context.bloc<PageBloc>().add(
                                           GoToWalletPage(GoToProfilePage()));
                                     },
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: <Widget>[
-                                        Row(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: <Widget>[
-                                            Container(
-                                              width: 20,
-                                              height: 20,
-                                              child: SvgPicture.asset(
-                                                  "assets/icon_wallet_balance.svg"),
+                                    child: Container(
+                                      width: MediaQuery.of(context).size.width -
+                                          2 * defaultMargin,
+                                      color: Colors.transparent,
+                                      child: Stack(
+                                        children: [
+                                          Row(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: <Widget>[
+                                              Container(
+                                                width: 20,
+                                                height: 20,
+                                                child: SvgPicture.asset(
+                                                    "assets/icon_wallet_balance.svg"),
+                                              ),
+                                              SizedBox(width: 12),
+                                              Text(
+                                                "Dompet Saya",
+                                                style: blackTextFont.copyWith(
+                                                    fontSize: 14,
+                                                    fontWeight:
+                                                        FontWeight.w400),
+                                              ),
+                                            ],
+                                          ),
+                                          Align(
+                                            alignment: Alignment.centerRight,
+                                            child: Icon(
+                                              MdiIcons.chevronRight,
+                                              color: mainColorSecondary,
                                             ),
-                                            SizedBox(width: 12),
-                                            Text(
-                                              "Dompet Saya",
-                                              style: blackTextFont.copyWith(
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.w400),
-                                            ),
-                                          ],
-                                        ),
-                                        Icon(
-                                          MdiIcons.chevronRight,
-                                          color: mainColorSecondary,
-                                        ),
-                                      ],
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                   Container(
@@ -230,35 +403,42 @@ class _ProfilePageState extends State<ProfilePage> {
                                   ),
                                   //NOTE: CHANGE LANGUAGE
                                   GestureDetector(
-                                    onTap: () {},
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: <Widget>[
-                                        Row(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: <Widget>[
-                                            Container(
-                                              width: 20,
-                                              height: 20,
-                                              child: SvgPicture.asset(
-                                                  "assets/icon_translate.svg"),
+                                    onTap: _modalBottomMenuLanguage,
+                                    child: Container(
+                                      width: MediaQuery.of(context).size.width -
+                                          2 * defaultMargin,
+                                      color: Colors.transparent,
+                                      child: Stack(
+                                        children: <Widget>[
+                                          Row(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: <Widget>[
+                                              Container(
+                                                width: 20,
+                                                height: 20,
+                                                child: SvgPicture.asset(
+                                                    "assets/icon_translate.svg"),
+                                              ),
+                                              SizedBox(width: 12),
+                                              Text(
+                                                "Ganti Bahasa",
+                                                style: blackTextFont.copyWith(
+                                                    fontSize: 14,
+                                                    fontWeight:
+                                                        FontWeight.w400),
+                                              ),
+                                            ],
+                                          ),
+                                          Align(
+                                            alignment: Alignment.centerRight,
+                                            child: Icon(
+                                              MdiIcons.chevronRight,
+                                              color: mainColorSecondary,
                                             ),
-                                            SizedBox(width: 12),
-                                            Text(
-                                              "Ganti Bahasa",
-                                              style: blackTextFont.copyWith(
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.w400),
-                                            ),
-                                          ],
-                                        ),
-                                        Icon(
-                                          MdiIcons.chevronRight,
-                                          color: mainColorSecondary,
-                                        ),
-                                      ],
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                   Container(
@@ -269,35 +449,42 @@ class _ProfilePageState extends State<ProfilePage> {
                                   ),
                                   //NOTE: THEMES
                                   GestureDetector(
-                                    onTap: () {},
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: <Widget>[
-                                        Row(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: <Widget>[
-                                            Container(
-                                              width: 20,
-                                              height: 20,
-                                              child: SvgPicture.asset(
-                                                  "assets/icon_theme.svg"),
+                                    onTap: _modalBottomMenuTheme,
+                                    child: Container(
+                                      width: MediaQuery.of(context).size.width -
+                                          2 * defaultMargin,
+                                      color: Colors.transparent,
+                                      child: Stack(
+                                        children: <Widget>[
+                                          Row(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: <Widget>[
+                                              Container(
+                                                width: 20,
+                                                height: 20,
+                                                child: SvgPicture.asset(
+                                                    "assets/icon_theme.svg"),
+                                              ),
+                                              SizedBox(width: 12),
+                                              Text(
+                                                "Tampilan Tema",
+                                                style: blackTextFont.copyWith(
+                                                    fontSize: 14,
+                                                    fontWeight:
+                                                        FontWeight.w400),
+                                              ),
+                                            ],
+                                          ),
+                                          Align(
+                                            alignment: Alignment.centerRight,
+                                            child: Icon(
+                                              MdiIcons.chevronRight,
+                                              color: mainColorSecondary,
                                             ),
-                                            SizedBox(width: 12),
-                                            Text(
-                                              "Tampilan Tema",
-                                              style: blackTextFont.copyWith(
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.w400),
-                                            ),
-                                          ],
-                                        ),
-                                        Icon(
-                                          MdiIcons.chevronRight,
-                                          color: mainColorSecondary,
-                                        ),
-                                      ],
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                   Container(
@@ -315,34 +502,41 @@ class _ProfilePageState extends State<ProfilePage> {
                                         throw 'Gagal menjalankan $contactMeURL';
                                       }
                                     },
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: <Widget>[
-                                        Row(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: <Widget>[
-                                            Container(
-                                              width: 20,
-                                              height: 20,
-                                              child: SvgPicture.asset(
-                                                  "assets/icon_contact_me.svg"),
+                                    child: Container(
+                                      width: MediaQuery.of(context).size.width -
+                                          2 * defaultMargin,
+                                      color: Colors.transparent,
+                                      child: Stack(
+                                        children: <Widget>[
+                                          Row(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: <Widget>[
+                                              Container(
+                                                width: 20,
+                                                height: 20,
+                                                child: SvgPicture.asset(
+                                                    "assets/icon_contact_me.svg"),
+                                              ),
+                                              SizedBox(width: 12),
+                                              Text(
+                                                "Kontak Bantuan",
+                                                style: blackTextFont.copyWith(
+                                                    fontSize: 14,
+                                                    fontWeight:
+                                                        FontWeight.w400),
+                                              ),
+                                            ],
+                                          ),
+                                          Align(
+                                            alignment: Alignment.centerRight,
+                                            child: Icon(
+                                              MdiIcons.chevronRight,
+                                              color: mainColorSecondary,
                                             ),
-                                            SizedBox(width: 12),
-                                            Text(
-                                              "Kontak Bantuan",
-                                              style: blackTextFont.copyWith(
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.w400),
-                                            ),
-                                          ],
-                                        ),
-                                        Icon(
-                                          MdiIcons.chevronRight,
-                                          color: mainColorSecondary,
-                                        ),
-                                      ],
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                   Container(
@@ -352,34 +546,50 @@ class _ProfilePageState extends State<ProfilePage> {
                                             2 * defaultMargin),
                                   ),
                                   //NOTE: RATE APPS
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: <Widget>[
-                                      Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
+                                  GestureDetector(
+                                    onTap: () {
+                                      Fluttertoast.showToast(
+                                        msg: "Tunggu update selanjutnya ya",
+                                        toastLength: Toast.LENGTH_LONG,
+                                        gravity: ToastGravity.BOTTOM,
+                                      );
+                                    },
+                                    child: Container(
+                                      width: MediaQuery.of(context).size.width -
+                                          2 * defaultMargin,
+                                      color: Colors.transparent,
+                                      child: Stack(
                                         children: <Widget>[
-                                          Container(
-                                            width: 20,
-                                            height: 20,
-                                            child: SvgPicture.asset(
-                                                "assets/icon_rate_like.svg"),
+                                          Row(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: <Widget>[
+                                              Container(
+                                                width: 20,
+                                                height: 20,
+                                                child: SvgPicture.asset(
+                                                    "assets/icon_rate_like.svg"),
+                                              ),
+                                              SizedBox(width: 12),
+                                              Text(
+                                                "Nilai Aplikasi Tayangin",
+                                                style: blackTextFont.copyWith(
+                                                    fontSize: 14,
+                                                    fontWeight:
+                                                        FontWeight.w400),
+                                              ),
+                                            ],
                                           ),
-                                          SizedBox(width: 12),
-                                          Text(
-                                            "Nilai Aplikasi Tayangin",
-                                            style: blackTextFont.copyWith(
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.w400),
+                                          Align(
+                                            alignment: Alignment.centerRight,
+                                            child: Icon(
+                                              MdiIcons.chevronRight,
+                                              color: mainColorSecondary,
+                                            ),
                                           ),
                                         ],
                                       ),
-                                      Icon(
-                                        MdiIcons.chevronRight,
-                                        color: mainColorSecondary,
-                                      ),
-                                    ],
+                                    ),
                                   ),
                                   Container(
                                     margin: EdgeInsets.symmetric(vertical: 12),
@@ -394,34 +604,41 @@ class _ProfilePageState extends State<ProfilePage> {
                                           .bloc<PageBloc>()
                                           .add(GoToAboutAppsPage());
                                     },
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: <Widget>[
-                                        Row(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: <Widget>[
-                                            Container(
-                                              width: 20,
-                                              height: 20,
-                                              child: SvgPicture.asset(
-                                                  "assets/icon_about_apps.svg"),
+                                    child: Container(
+                                      width: MediaQuery.of(context).size.width -
+                                          2 * defaultMargin,
+                                      color: Colors.transparent,
+                                      child: Stack(
+                                        children: <Widget>[
+                                          Row(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: <Widget>[
+                                              Container(
+                                                width: 20,
+                                                height: 20,
+                                                child: SvgPicture.asset(
+                                                    "assets/icon_about_apps.svg"),
+                                              ),
+                                              SizedBox(width: 12),
+                                              Text(
+                                                "Tentang Aplikasi Tayangin",
+                                                style: blackTextFont.copyWith(
+                                                    fontSize: 14,
+                                                    fontWeight:
+                                                        FontWeight.w400),
+                                              ),
+                                            ],
+                                          ),
+                                          Align(
+                                            alignment: Alignment.centerRight,
+                                            child: Icon(
+                                              MdiIcons.chevronRight,
+                                              color: mainColorSecondary,
                                             ),
-                                            SizedBox(width: 12),
-                                            Text(
-                                              "Tentang Aplikasi Tayangin",
-                                              style: blackTextFont.copyWith(
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.w400),
-                                            ),
-                                          ],
-                                        ),
-                                        Icon(
-                                          MdiIcons.chevronRight,
-                                          color: mainColorSecondary,
-                                        ),
-                                      ],
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                   Container(

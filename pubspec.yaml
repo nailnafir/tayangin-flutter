@@ -35,6 +35,7 @@ dependencies:
   flutter_spinkit: ^4.1.2+1
   flutter_svg: ^0.19.3
   flutter_svg_provider: ^0.1.5
+  fluttertoast: ^8.0.3
   google_fonts: ^2.0.0
   http: ^0.13.0
   image_picker: ^0.7.2
