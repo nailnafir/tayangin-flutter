@@ -36,7 +36,7 @@ Widget generateDashedDivider(double width) {
             ? Container(
                 height: 2,
                 width: width / n,
-                color: accentColorLightGray,
+                color: accentColorDarkGray,
               )
             : SizedBox(
                 width: width / n,
