@@ -2,7 +2,9 @@ part of 'widgets.dart';
 
 class PromoCard extends StatelessWidget {
   final Promo promo;
-  PromoCard(this.promo);
+  final Function onTap;
+
+  PromoCard(this.promo, {this.onTap});
 
   @override
   Widget build(BuildContext context) {
