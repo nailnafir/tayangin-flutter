@@ -27,7 +27,7 @@ class _WalletPageState extends State<WalletPage> {
                   return Container(
                     color: bgLight,
                     child: RefreshIndicator(
-                      color: mainColorPrimary,
+                      color: mainColorSecondary,
                       onRefresh: () async {
                         await Future.delayed(new Duration(seconds: 1));
                         setState(() {});
