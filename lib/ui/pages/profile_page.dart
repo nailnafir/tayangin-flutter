@@ -271,21 +271,31 @@ class _ProfilePageState extends State<ProfilePage> {
                                   GestureDetector(
                                     onTap: () {},
                                     child: Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: <Widget>[
-                                        Container(
-                                          width: 20,
-                                          height: 20,
-                                          child: SvgPicture.asset(
-                                              "assets/icon_theme.svg"),
+                                        Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: <Widget>[
+                                            Container(
+                                              width: 20,
+                                              height: 20,
+                                              child: SvgPicture.asset(
+                                                  "assets/icon_theme.svg"),
+                                            ),
+                                            SizedBox(width: 12),
+                                            Text(
+                                              "Tampilan Tema",
+                                              style: blackTextFont.copyWith(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w400),
+                                            ),
+                                          ],
                                         ),
-                                        SizedBox(width: 12),
-                                        Text(
-                                          "Tampilan Tema",
-                                          style: blackTextFont.copyWith(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.w400),
+                                        Icon(
+                                          MdiIcons.chevronRight,
+                                          color: mainColorSecondary,
                                         ),
                                       ],
                                     ),
