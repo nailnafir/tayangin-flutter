@@ -24,7 +24,7 @@ class _TicketPageState extends State<TicketPage> {
     return Scaffold(
       backgroundColor: bgLight,
       body: RefreshIndicator(
-        color: mainColorPrimary,
+        color: mainColorSecondary,
         onRefresh: () async {
           await Future.delayed(new Duration(seconds: 1));
           setState(() {});
