@@ -148,22 +148,33 @@ class _ProfilePageState extends State<ProfilePage> {
                                                       .user));
                                         },
                                         child: Row(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
                                           children: <Widget>[
-                                            Container(
-                                              width: 24,
-                                              height: 24,
-                                              child: SvgPicture.asset(
-                                                  "assets/icon_profile.svg"),
+                                            Row(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              children: <Widget>[
+                                                Container(
+                                                  width: 20,
+                                                  height: 20,
+                                                  child: SvgPicture.asset(
+                                                      "assets/icon_profile.svg"),
+                                                ),
+                                                SizedBox(width: 12),
+                                                Text(
+                                                  "Ubah Profil",
+                                                  style: blackTextFont.copyWith(
+                                                      fontSize: 14,
+                                                      fontWeight:
+                                                          FontWeight.w400),
+                                                ),
+                                              ],
                                             ),
-                                            SizedBox(width: 10),
-                                            Text(
-                                              "Ubah Profil",
-                                              style: blackTextFont.copyWith(
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.w400),
-                                            ),
+                                            Icon(
+                                              MdiIcons.chevronRight,
+                                              color: mainColorSecondary,
+                                            )
                                           ],
                                         ),
                                       );
@@ -182,21 +193,31 @@ class _ProfilePageState extends State<ProfilePage> {
                                           GoToWalletPage(GoToProfilePage()));
                                     },
                                     child: Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: <Widget>[
-                                        Container(
-                                          width: 24,
-                                          height: 24,
-                                          child: SvgPicture.asset(
-                                              "assets/icon_wallet_balance.svg"),
+                                        Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: <Widget>[
+                                            Container(
+                                              width: 20,
+                                              height: 20,
+                                              child: SvgPicture.asset(
+                                                  "assets/icon_wallet_balance.svg"),
+                                            ),
+                                            SizedBox(width: 12),
+                                            Text(
+                                              "Dompet Saya",
+                                              style: blackTextFont.copyWith(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w400),
+                                            ),
+                                          ],
                                         ),
-                                        SizedBox(width: 10),
-                                        Text(
-                                          "Dompet Saya",
-                                          style: blackTextFont.copyWith(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w400),
+                                        Icon(
+                                          MdiIcons.chevronRight,
+                                          color: mainColorSecondary,
                                         ),
                                       ],
                                     ),
@@ -208,24 +229,66 @@ class _ProfilePageState extends State<ProfilePage> {
                                             2 * defaultMargin),
                                   ),
                                   //NOTE: CHANGE LANGUAGE
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: <Widget>[
-                                      Container(
-                                        width: 24,
-                                        height: 24,
-                                        child: SvgPicture.asset(
-                                            "assets/icon_translate.svg"),
-                                      ),
-                                      SizedBox(width: 10),
-                                      Text(
-                                        "Ganti Bahasa",
-                                        style: blackTextFont.copyWith(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w400),
-                                      ),
-                                    ],
+                                  GestureDetector(
+                                    onTap: () {},
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: <Widget>[
+                                        Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: <Widget>[
+                                            Container(
+                                              width: 20,
+                                              height: 20,
+                                              child: SvgPicture.asset(
+                                                  "assets/icon_translate.svg"),
+                                            ),
+                                            SizedBox(width: 12),
+                                            Text(
+                                              "Ganti Bahasa",
+                                              style: blackTextFont.copyWith(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w400),
+                                            ),
+                                          ],
+                                        ),
+                                        Icon(
+                                          MdiIcons.chevronRight,
+                                          color: mainColorSecondary,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.symmetric(vertical: 12),
+                                    child: generateDashedDivider(
+                                        MediaQuery.of(context).size.width -
+                                            2 * defaultMargin),
+                                  ),
+                                  //NOTE: THEMES
+                                  GestureDetector(
+                                    onTap: () {},
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: <Widget>[
+                                        Container(
+                                          width: 20,
+                                          height: 20,
+                                          child: SvgPicture.asset(
+                                              "assets/icon_theme.svg"),
+                                        ),
+                                        SizedBox(width: 12),
+                                        Text(
+                                          "Tampilan Tema",
+                                          style: blackTextFont.copyWith(
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w400),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                   Container(
                                     margin: EdgeInsets.symmetric(vertical: 12),
@@ -243,21 +306,31 @@ class _ProfilePageState extends State<ProfilePage> {
                                       }
                                     },
                                     child: Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: <Widget>[
-                                        Container(
-                                          width: 24,
-                                          height: 24,
-                                          child: SvgPicture.asset(
-                                              "assets/icon_contact_me.svg"),
+                                        Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: <Widget>[
+                                            Container(
+                                              width: 20,
+                                              height: 20,
+                                              child: SvgPicture.asset(
+                                                  "assets/icon_contact_me.svg"),
+                                            ),
+                                            SizedBox(width: 12),
+                                            Text(
+                                              "Kontak Bantuan",
+                                              style: blackTextFont.copyWith(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w400),
+                                            ),
+                                          ],
                                         ),
-                                        SizedBox(width: 10),
-                                        Text(
-                                          "Kontak Bantuan",
-                                          style: blackTextFont.copyWith(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w400),
+                                        Icon(
+                                          MdiIcons.chevronRight,
+                                          color: mainColorSecondary,
                                         ),
                                       ],
                                     ),
@@ -270,21 +343,31 @@ class _ProfilePageState extends State<ProfilePage> {
                                   ),
                                   //NOTE: RATE APPS
                                   Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: <Widget>[
-                                      Container(
-                                        width: 24,
-                                        height: 24,
-                                        child: SvgPicture.asset(
-                                            "assets/icon_rate_like.svg"),
+                                      Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: <Widget>[
+                                          Container(
+                                            width: 20,
+                                            height: 20,
+                                            child: SvgPicture.asset(
+                                                "assets/icon_rate_like.svg"),
+                                          ),
+                                          SizedBox(width: 12),
+                                          Text(
+                                            "Nilai Aplikasi Tayangin",
+                                            style: blackTextFont.copyWith(
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.w400),
+                                          ),
+                                        ],
                                       ),
-                                      SizedBox(width: 10),
-                                      Text(
-                                        "Nilai Aplikasi Tayangin",
-                                        style: blackTextFont.copyWith(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w400),
+                                      Icon(
+                                        MdiIcons.chevronRight,
+                                        color: mainColorSecondary,
                                       ),
                                     ],
                                   ),
@@ -302,21 +385,31 @@ class _ProfilePageState extends State<ProfilePage> {
                                           .add(GoToAboutAppsPage());
                                     },
                                     child: Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: <Widget>[
-                                        Container(
-                                          width: 24,
-                                          height: 24,
-                                          child: SvgPicture.asset(
-                                              "assets/icon_about_apps.svg"),
+                                        Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: <Widget>[
+                                            Container(
+                                              width: 20,
+                                              height: 20,
+                                              child: SvgPicture.asset(
+                                                  "assets/icon_about_apps.svg"),
+                                            ),
+                                            SizedBox(width: 12),
+                                            Text(
+                                              "Tentang Aplikasi Tayangin",
+                                              style: blackTextFont.copyWith(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w400),
+                                            ),
+                                          ],
                                         ),
-                                        SizedBox(width: 10),
-                                        Text(
-                                          "Tentang Aplikasi Tayangin",
-                                          style: blackTextFont.copyWith(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w400),
+                                        Icon(
+                                          MdiIcons.chevronRight,
+                                          color: mainColorSecondary,
                                         ),
                                       ],
                                     ),
@@ -328,37 +421,30 @@ class _ProfilePageState extends State<ProfilePage> {
                                             2 * defaultMargin),
                                   ),
                                   //NOTE: SIGN OUT
-                                  GestureDetector(
-                                    onTap: () {
-                                      context.bloc<UserBloc>().add(SignOut());
-                                      AuthServices.signOut();
-                                    },
-                                    child: Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: <Widget>[
-                                        Container(
-                                          width: 24,
-                                          height: 24,
-                                          child: SvgPicture.asset(
-                                              "assets/icon_logout.svg"),
-                                        ),
-                                        SizedBox(width: 10),
-                                        Text(
-                                          "Keluar",
-                                          style: blackTextFont.copyWith(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w400),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
                                   Container(
-                                    margin: EdgeInsets.symmetric(vertical: 12),
-                                    child: generateDashedDivider(
-                                        MediaQuery.of(context).size.width -
-                                            2 * defaultMargin),
-                                  )
+                                    margin: EdgeInsets.only(top: 12),
+                                    width: 250,
+                                    height: 50,
+                                    child: RaisedButton(
+                                        elevation: 2,
+                                        color: mainColorSecondary,
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(8)),
+                                        child: Text(
+                                          "Keluar",
+                                          style: whiteTextFont.copyWith(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                        onPressed: () {
+                                          context
+                                              .bloc<UserBloc>()
+                                              .add(SignOut());
+                                          AuthServices.signOut();
+                                        }),
+                                  ),
                                 ],
                               ),
                             ),
