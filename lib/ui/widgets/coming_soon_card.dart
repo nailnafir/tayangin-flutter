@@ -8,32 +8,39 @@ class ComingSoonCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Shimmer.fromColors(
-          baseColor: Colors.grey[300],
-          highlightColor: Colors.grey[100],
-          period: Duration(seconds: 1),
-          child: Container(
+    return GestureDetector(
+      onTap: () {
+        if (onTap != null) {
+          onTap();
+        }
+      },
+      child: Stack(
+        children: [
+          Shimmer.fromColors(
+            baseColor: Colors.grey[300],
+            highlightColor: Colors.grey[100],
+            period: Duration(seconds: 1),
+            child: Container(
+              width: 140,
+              height: 200,
+              decoration: BoxDecoration(
+                color: Colors.grey,
+                borderRadius: BorderRadius.circular(8),
+              ),
+            ),
+          ),
+          Container(
             width: 140,
             height: 200,
             decoration: BoxDecoration(
-              color: Colors.grey,
               borderRadius: BorderRadius.circular(8),
+              image: DecorationImage(
+                  image: NetworkImage(imageBaseURL + "w780" + movie.posterPath),
+                  fit: BoxFit.cover),
             ),
           ),
-        ),
-        Container(
-          width: 140,
-          height: 200,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
-            image: DecorationImage(
-                image: NetworkImage(imageBaseURL + "w780" + movie.posterPath),
-                fit: BoxFit.cover),
-          ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
