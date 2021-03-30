@@ -53,7 +53,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       ),
                       onPressed: () {
                         // direct ke profile page
-                        context.bloc<PageBloc>().add(GoToProfilePage());
+                        context.read<PageBloc>().add(GoToProfilePage());
 
                         Navigator.of(context).pop();
                       },
@@ -85,13 +85,13 @@ class _EditProfilePageState extends State<EditProfilePage> {
                         }
 
                         // update data user dengan bloc
-                        context.bloc<UserBloc>().add(UpdateData(
+                        context.read<UserBloc>().add(UpdateData(
                               name: nameController.text,
                               profileImage: profilePath,
                             ));
 
                         // direct ke profile page
-                        context.bloc<PageBloc>().add(GoToProfilePage());
+                        context.read<PageBloc>().add(GoToProfilePage());
 
                         Navigator.of(context).pop();
                       },
@@ -154,7 +154,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                               await AuthServices.resetPassword(
                                   widget.user.email);
 
-                              context.bloc<UserBloc>().add(SignOut());
+                              context.read<UserBloc>().add(SignOut());
                               AuthServices.signOut();
 
                               Navigator.of(context).pop();
@@ -177,13 +177,13 @@ class _EditProfilePageState extends State<EditProfilePage> {
     }
 
     context
-        .bloc<ThemeBloc>()
+        .read<ThemeBloc>()
         .add(ChangeTheme(ThemeData(primaryColor: mainColorPrimary)));
 
     return WillPopScope(
       onWillPop: !(isDataEdited)
           ? () async {
-              context.bloc<PageBloc>().add(GoToProfilePage());
+              context.read<PageBloc>().add(GoToProfilePage());
               return;
             }
           : onDialogEditConfirmation,
@@ -208,7 +208,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                               onTap: !(isDataEdited)
                                   ? () {
                                       context
-                                          .bloc<PageBloc>()
+                                          .read<PageBloc>()
                                           .add(GoToProfilePage());
                                     }
                                   : onDialogEditConfirmation,
@@ -433,14 +433,14 @@ class _EditProfilePageState extends State<EditProfilePage> {
                                       }
 
                                       // update data user dengan bloc
-                                      context.bloc<UserBloc>().add(UpdateData(
+                                      context.read<UserBloc>().add(UpdateData(
                                             name: nameController.text,
                                             profileImage: profilePath,
                                           ));
 
                                       // direct ke profile page
                                       context
-                                          .bloc<PageBloc>()
+                                          .read<PageBloc>()
                                           .add(GoToProfilePage());
                                     }
                                   : null,
