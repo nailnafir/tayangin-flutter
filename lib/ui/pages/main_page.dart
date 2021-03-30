@@ -119,7 +119,7 @@ class _MainPageState extends State<MainPage> {
                     ),
                   ),
                   onPressed: () {
-                    context.bloc<PageBloc>().add(GoToTopUpPage(GoToMainPage()));
+                    context.read<PageBloc>().add(GoToTopUpPage(GoToMainPage()));
                   },
                 ),
               ),
