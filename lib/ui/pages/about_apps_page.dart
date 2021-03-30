@@ -5,7 +5,7 @@ class AboutAppsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        context.bloc<PageBloc>().add(GoToProfilePage());
+        context.read<PageBloc>().add(GoToProfilePage());
         return;
       },
       child: Scaffold(
@@ -27,7 +27,7 @@ class AboutAppsPage extends StatelessWidget {
                             alignment: Alignment.centerLeft,
                             child: GestureDetector(
                               onTap: () {
-                                context.bloc<PageBloc>().add(GoToProfilePage());
+                                context.read<PageBloc>().add(GoToProfilePage());
                               },
                               child:
                                   Icon(Icons.arrow_back, color: Colors.black),
