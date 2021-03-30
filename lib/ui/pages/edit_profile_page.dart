@@ -357,10 +357,15 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     Container(
                       width: 250,
                       height: 50,
-                      child: RaisedButton(
-                        elevation: 2,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8)),
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          elevation: 2,
+                          primary: (isUpdating)
+                              ? accentColorLightGray
+                              : mainColorSecondary,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8)),
+                        ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
@@ -388,8 +393,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
                             ),
                           ],
                         ),
-                        disabledColor: accentColorLightGray,
-                        color: mainColorSecondary,
                         onPressed: onDialogResetConfirmation,
                       ),
                     ),
@@ -403,10 +406,15 @@ class _EditProfilePageState extends State<EditProfilePage> {
                         : Container(
                             width: 250,
                             height: 50,
-                            child: RaisedButton(
-                              elevation: 2,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8)),
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                elevation: 2,
+                                primary: (isUpdating)
+                                    ? accentColorLightGray
+                                    : accentColorGreen,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8)),
+                              ),
                               child: Text(
                                 "Ubah Profil Saya",
                                 style: whiteTextFont.copyWith(
@@ -417,8 +425,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
                                       : accentColorDarkGray,
                                 ),
                               ),
-                              disabledColor: accentColorLightGray,
-                              color: accentColorGreen,
                               onPressed: (isDataEdited)
                                   ? () async {
                                       // ubah status update jadi true
