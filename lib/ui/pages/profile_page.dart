@@ -323,12 +323,11 @@ class _ProfilePageState extends State<ProfilePage> {
                                                   SizedBox(width: 12),
                                                   Text(
                                                     "Ubah Profil",
-                                                    style:
-                                                        blackTextFont.copyWith(
-                                                            fontSize: 14,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .w500),
+                                                    style: GoogleFonts.poppins(
+                                                      color: Colors.black,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
                                                   ),
                                                 ],
                                               ),
@@ -377,10 +376,10 @@ class _ProfilePageState extends State<ProfilePage> {
                                               SizedBox(width: 12),
                                               Text(
                                                 "Dompet Saya",
-                                                style: blackTextFont.copyWith(
-                                                    fontSize: 14,
-                                                    fontWeight:
-                                                        FontWeight.w500),
+                                                style: GoogleFonts.poppins(
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
                                               ),
                                             ],
                                           ),
@@ -423,10 +422,10 @@ class _ProfilePageState extends State<ProfilePage> {
                                               SizedBox(width: 12),
                                               Text(
                                                 "Ganti Bahasa",
-                                                style: blackTextFont.copyWith(
-                                                    fontSize: 14,
-                                                    fontWeight:
-                                                        FontWeight.w500),
+                                                style: GoogleFonts.poppins(
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
                                               ),
                                             ],
                                           ),
@@ -469,10 +468,10 @@ class _ProfilePageState extends State<ProfilePage> {
                                               SizedBox(width: 12),
                                               Text(
                                                 "Tampilan Tema",
-                                                style: blackTextFont.copyWith(
-                                                    fontSize: 14,
-                                                    fontWeight:
-                                                        FontWeight.w500),
+                                                style: GoogleFonts.poppins(
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
                                               ),
                                             ],
                                           ),
@@ -521,10 +520,10 @@ class _ProfilePageState extends State<ProfilePage> {
                                               SizedBox(width: 12),
                                               Text(
                                                 "Kontak Bantuan",
-                                                style: blackTextFont.copyWith(
-                                                    fontSize: 14,
-                                                    fontWeight:
-                                                        FontWeight.w500),
+                                                style: GoogleFonts.poppins(
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
                                               ),
                                             ],
                                           ),
@@ -573,10 +572,10 @@ class _ProfilePageState extends State<ProfilePage> {
                                               SizedBox(width: 12),
                                               Text(
                                                 "Nilai Aplikasi Tayangin",
-                                                style: blackTextFont.copyWith(
-                                                    fontSize: 14,
-                                                    fontWeight:
-                                                        FontWeight.w500),
+                                                style: GoogleFonts.poppins(
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
                                               ),
                                             ],
                                           ),
@@ -623,10 +622,10 @@ class _ProfilePageState extends State<ProfilePage> {
                                               SizedBox(width: 12),
                                               Text(
                                                 "Tentang Aplikasi Tayangin",
-                                                style: blackTextFont.copyWith(
-                                                    fontSize: 14,
-                                                    fontWeight:
-                                                        FontWeight.w500),
+                                                style: GoogleFonts.poppins(
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
                                               ),
                                             ],
                                           ),
