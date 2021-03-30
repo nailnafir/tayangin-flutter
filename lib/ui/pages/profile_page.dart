@@ -160,7 +160,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
     return WillPopScope(
       onWillPop: () async {
-        context.bloc<PageBloc>().add(GoToMainPage(bottomNavBarIndex: 0));
+        context.read<PageBloc>().add(GoToMainPage(bottomNavBarIndex: 0));
         return;
       },
       child: Scaffold(
@@ -185,7 +185,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               child: GestureDetector(
                                 onTap: () {
                                   context
-                                      .bloc<PageBloc>()
+                                      .read<PageBloc>()
                                       .add(GoToMainPage(bottomNavBarIndex: 0));
                                 },
                                 child:
@@ -297,7 +297,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                       //NOTE: EDIT PROFILE
                                       return GestureDetector(
                                         onTap: () {
-                                          context.bloc<PageBloc>().add(
+                                          context.read<PageBloc>().add(
                                               GoToEditProfilePage(
                                                   (userState as UserLoaded)
                                                       .user));
@@ -328,7 +328,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                                             fontSize: 14,
                                                             fontWeight:
                                                                 FontWeight
-                                                                    .w400),
+                                                                    .w500),
                                                   ),
                                                 ],
                                               ),
@@ -355,7 +355,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                   //NOTE: MY WALLET
                                   GestureDetector(
                                     onTap: () {
-                                      context.bloc<PageBloc>().add(
+                                      context.read<PageBloc>().add(
                                           GoToWalletPage(GoToProfilePage()));
                                     },
                                     child: Container(
@@ -380,7 +380,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 style: blackTextFont.copyWith(
                                                     fontSize: 14,
                                                     fontWeight:
-                                                        FontWeight.w400),
+                                                        FontWeight.w500),
                                               ),
                                             ],
                                           ),
@@ -426,7 +426,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 style: blackTextFont.copyWith(
                                                     fontSize: 14,
                                                     fontWeight:
-                                                        FontWeight.w400),
+                                                        FontWeight.w500),
                                               ),
                                             ],
                                           ),
@@ -472,7 +472,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 style: blackTextFont.copyWith(
                                                     fontSize: 14,
                                                     fontWeight:
-                                                        FontWeight.w400),
+                                                        FontWeight.w500),
                                               ),
                                             ],
                                           ),
@@ -524,7 +524,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 style: blackTextFont.copyWith(
                                                     fontSize: 14,
                                                     fontWeight:
-                                                        FontWeight.w400),
+                                                        FontWeight.w500),
                                               ),
                                             ],
                                           ),
@@ -576,7 +576,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 style: blackTextFont.copyWith(
                                                     fontSize: 14,
                                                     fontWeight:
-                                                        FontWeight.w400),
+                                                        FontWeight.w500),
                                               ),
                                             ],
                                           ),
@@ -601,7 +601,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                   GestureDetector(
                                     onTap: () {
                                       context
-                                          .bloc<PageBloc>()
+                                          .read<PageBloc>()
                                           .add(GoToAboutAppsPage());
                                     },
                                     child: Container(
@@ -626,7 +626,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 style: blackTextFont.copyWith(
                                                     fontSize: 14,
                                                     fontWeight:
-                                                        FontWeight.w400),
+                                                        FontWeight.w500),
                                               ),
                                             ],
                                           ),
@@ -667,7 +667,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                         ),
                                         onPressed: () {
                                           context
-                                              .bloc<UserBloc>()
+                                              .read<UserBloc>()
                                               .add(SignOut());
                                           AuthServices.signOut();
                                         }),
