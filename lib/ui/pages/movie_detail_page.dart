@@ -221,10 +221,12 @@ class MovieDetailPage extends StatelessWidget {
                       height: 50,
                       width: 250,
                       margin: EdgeInsets.symmetric(horizontal: defaultMargin),
-                      child: RaisedButton(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8)),
-                          color: mainColorPrimary,
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8)),
+                            primary: mainColorPrimary,
+                          ),
                           child: Text(
                             "Lanjutkan",
                             style: whiteTextFont.copyWith(
@@ -232,7 +234,7 @@ class MovieDetailPage extends StatelessWidget {
                           ),
                           onPressed: () {
                             context
-                                .bloc<PageBloc>()
+                                .read<PageBloc>()
                                 .add(GoToSelectSchedulePage(movieDetail));
                           }),
                     ),
