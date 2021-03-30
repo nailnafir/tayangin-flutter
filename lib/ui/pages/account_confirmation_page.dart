@@ -86,10 +86,12 @@ class _AccountConfirmationPageState extends State<AccountConfirmationPage> {
                       : SizedBox(
                           width: 250,
                           height: 50,
-                          child: RaisedButton(
-                            color: Color(0xFF00AB1B),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              primary: Color(0xFF00AB1B),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
                             ),
                             child: Text(
                               "Buat Akun Saya",
