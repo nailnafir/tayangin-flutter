@@ -339,13 +339,15 @@ class _CheckoutPageState extends State<CheckoutPage> {
                               margin: EdgeInsets.symmetric(vertical: 30),
                               width: 250,
                               height: 50,
-                              child: RaisedButton(
-                                  elevation: 2,
-                                  color: user.balance >= total
-                                      ? accentColorGreen
-                                      : mainColorPrimary,
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(8)),
+                              child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    elevation: 2,
+                                    primary: user.balance >= total
+                                        ? accentColorGreen
+                                        : mainColorPrimary,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(8)),
+                                  ),
                                   child: Text(
                                     user.balance >= total
                                         ? "Bayar Sekarang"
