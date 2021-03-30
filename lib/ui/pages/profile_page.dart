@@ -652,12 +652,14 @@ class _ProfilePageState extends State<ProfilePage> {
                                     margin: EdgeInsets.only(top: 12),
                                     width: 250,
                                     height: 50,
-                                    child: RaisedButton(
-                                        elevation: 2,
-                                        color: mainColorSecondary,
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(8)),
+                                    child: ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          elevation: 2,
+                                          primary: mainColorSecondary,
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(8)),
+                                        ),
                                         child: Text(
                                           "Keluar",
                                           style: whiteTextFont.copyWith(
