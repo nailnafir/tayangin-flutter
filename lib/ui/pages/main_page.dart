@@ -148,6 +148,12 @@ class _MainPageState extends State<MainPage> {
               backgroundColor: Colors.transparent,
               selectedItemColor: mainColorPrimary,
               unselectedItemColor: accentColorDarkGray,
+              selectedLabelStyle:
+                  GoogleFonts.poppins(fontWeight: FontWeight.w600),
+              unselectedLabelStyle:
+                  GoogleFonts.poppins(fontWeight: FontWeight.w600),
+              selectedFontSize: 12,
+              unselectedFontSize: 12,
               currentIndex: bottomNavBarIndex,
               onTap: (index) {
                 setState(() {
@@ -157,11 +163,7 @@ class _MainPageState extends State<MainPage> {
               },
               items: [
                 BottomNavigationBarItem(
-                  title: Text(
-                    "Koleksi Film",
-                    style: GoogleFonts.poppins(
-                        fontSize: 12, fontWeight: FontWeight.w600),
-                  ),
+                  label: "Koleksi Film",
                   icon: Container(
                     margin: EdgeInsets.only(bottom: 4),
                     height: 24,
@@ -172,11 +174,7 @@ class _MainPageState extends State<MainPage> {
                   ),
                 ),
                 BottomNavigationBarItem(
-                  title: Text(
-                    "Tiket Saya",
-                    style: GoogleFonts.poppins(
-                        fontSize: 12, fontWeight: FontWeight.w600),
-                  ),
+                  label: "Tiket Saya",
                   icon: Container(
                     margin: EdgeInsets.only(bottom: 4),
                     height: 24,
