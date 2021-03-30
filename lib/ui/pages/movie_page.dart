@@ -31,15 +31,15 @@ class MoviePage extends StatelessWidget {
                 color: mainColorSecondary,
                 onRefresh: () async {
                   await Future.delayed(Duration(seconds: 1));
-                  context.bloc<UserBloc>().add(LoadUser(firebaseUser.uid));
-                  context.bloc<MovieBloc>().add(FetchMovies());
+                  context.read<UserBloc>().add(LoadUser(firebaseUser.uid));
+                  context.read<MovieBloc>().add(FetchMovies());
                 },
                 child: ListView(
                   children: <Widget>[
                     //NOTE: HEADER
                     GestureDetector(
                       onTap: () {
-                        context.bloc<PageBloc>().add(GoToProfilePage());
+                        context.read<PageBloc>().add(GoToProfilePage());
                       },
                       child: Container(
                         decoration: BoxDecoration(
@@ -65,7 +65,7 @@ class MoviePage extends StatelessWidget {
                                 uploadImage(imageFileToUpload)
                                     .then((downloadURL) {
                                   imageFileToUpload = null;
-                                  context.bloc<UserBloc>().add(
+                                  context.read<UserBloc>().add(
                                       UpdateData(profileImage: downloadURL));
                                 });
                               }
@@ -188,7 +188,7 @@ class MoviePage extends StatelessWidget {
                                 movies[index],
                                 onTap: () {
                                   context
-                                      .bloc<PageBloc>()
+                                      .read<PageBloc>()
                                       .add(GoToMovieDetailPage(movies[index]));
                                 },
                               ),
@@ -268,7 +268,7 @@ class MoviePage extends StatelessWidget {
                                       : 18),
                               child: ComingSoonCard(movies[index], onTap: () {
                                 context
-                                    .bloc<PageBloc>()
+                                    .read<PageBloc>()
                                     .add(GoToMovieDetailPage(movies[index]));
                               }),
                             ),
