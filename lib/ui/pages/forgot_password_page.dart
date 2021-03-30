@@ -13,7 +13,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        context.bloc<PageBloc>().add(GoToLoginPage());
+        context.read<PageBloc>().add(GoToLoginPage());
         return;
       },
       child: Scaffold(
@@ -33,7 +33,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                         children: <Widget>[
                           GestureDetector(
                             onTap: () {
-                              context.bloc<PageBloc>().add(GoToLoginPage());
+                              context.read<PageBloc>().add(GoToLoginPage());
                             },
                             child: Container(
                               padding: EdgeInsets.all(1),
