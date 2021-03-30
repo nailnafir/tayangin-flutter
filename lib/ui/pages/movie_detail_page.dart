@@ -11,7 +11,7 @@ class MovieDetailPage extends StatelessWidget {
 
     return WillPopScope(
       onWillPop: () async {
-        context.bloc<PageBloc>().add(GoToMainPage());
+        context.read<PageBloc>().add(GoToMainPage());
         return;
       },
       child: Scaffold(
@@ -86,7 +86,7 @@ class MovieDetailPage extends StatelessWidget {
                                     child: GestureDetector(
                                       onTap: () {
                                         context
-                                            .bloc<PageBloc>()
+                                            .read<PageBloc>()
                                             .add(GoToMainPage());
                                       },
                                       child: Icon(
