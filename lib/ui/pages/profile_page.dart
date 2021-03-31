@@ -32,18 +32,35 @@ class _ProfilePageState extends State<ProfilePage> {
               child: Column(
                 children: <Widget>[
                   Container(
-                    width: 100,
+                    width: 50,
                     height: 6,
-                    margin: EdgeInsets.only(top: defaultMargin, bottom: 12),
+                    margin: EdgeInsets.only(top: 12, bottom: 12),
                     decoration: BoxDecoration(
                       color: mainColorSecondary,
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
                   RadioListTile<LanguageOption>(
-                    title: Text(
-                      "Bahasa Indonesia",
-                      style: blackTextFont,
+                    controlAffinity: ListTileControlAffinity.trailing,
+                    title: Container(
+                      margin: EdgeInsets.only(left: 10),
+                      child: Row(
+                        children: [
+                          SvgPicture.asset(
+                            "assets/icon_flag_indonesia.svg",
+                            width: 20,
+                            height: 20,
+                          ),
+                          SizedBox(width: 10),
+                          Text(
+                            "Bahasa Indonesia",
+                            style: GoogleFonts.poppins(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                     activeColor: mainColorSecondary,
                     value: LanguageOption.bahasa,
@@ -51,19 +68,38 @@ class _ProfilePageState extends State<ProfilePage> {
                     onChanged: (LanguageOption value) {
                       setState(() {
                         _language = value;
-
-                        Fluttertoast.showToast(
-                          msg: "Tunggu update selanjutnya ya",
-                          toastLength: Toast.LENGTH_LONG,
-                          gravity: ToastGravity.BOTTOM,
-                        );
                       });
+
+                      Fluttertoast.showToast(
+                        msg: "Tunggu update selanjutnya ya",
+                        toastLength: Toast.LENGTH_LONG,
+                        gravity: ToastGravity.BOTTOM,
+                      );
+
+                      Navigator.of(context).pop();
                     },
                   ),
                   RadioListTile<LanguageOption>(
-                    title: Text(
-                      "Bahasa Inggris",
-                      style: blackTextFont,
+                    controlAffinity: ListTileControlAffinity.trailing,
+                    title: Container(
+                      margin: EdgeInsets.only(left: 10),
+                      child: Row(
+                        children: [
+                          SvgPicture.asset(
+                            "assets/icon_flag_united_kingdom.svg",
+                            width: 20,
+                            height: 20,
+                          ),
+                          SizedBox(width: 10),
+                          Text(
+                            "Bahasa Inggris",
+                            style: GoogleFonts.poppins(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                     activeColor: mainColorSecondary,
                     value: LanguageOption.english,
@@ -71,13 +107,15 @@ class _ProfilePageState extends State<ProfilePage> {
                     onChanged: (LanguageOption value) {
                       setState(() {
                         _language = value;
-
-                        Fluttertoast.showToast(
-                          msg: "Tunggu update selanjutnya ya",
-                          toastLength: Toast.LENGTH_LONG,
-                          gravity: ToastGravity.BOTTOM,
-                        );
                       });
+
+                      Fluttertoast.showToast(
+                        msg: "Tunggu update selanjutnya ya",
+                        toastLength: Toast.LENGTH_LONG,
+                        gravity: ToastGravity.BOTTOM,
+                      );
+
+                      Navigator.of(context).pop();
                     },
                   ),
                 ],
@@ -104,18 +142,35 @@ class _ProfilePageState extends State<ProfilePage> {
               child: Column(
                 children: <Widget>[
                   Container(
-                    width: 100,
+                    width: 50,
                     height: 6,
-                    margin: EdgeInsets.only(top: defaultMargin, bottom: 12),
+                    margin: EdgeInsets.only(top: 12, bottom: 12),
                     decoration: BoxDecoration(
                       color: mainColorSecondary,
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
                   RadioListTile<ThemeOption>(
-                    title: Text(
-                      "Terang",
-                      style: blackTextFont,
+                    controlAffinity: ListTileControlAffinity.trailing,
+                    title: Container(
+                      margin: EdgeInsets.only(left: 10),
+                      child: Row(
+                        children: [
+                          SvgPicture.asset(
+                            "assets/icon_light_mode.svg",
+                            width: 20,
+                            height: 20,
+                          ),
+                          SizedBox(width: 10),
+                          Text(
+                            "Terang",
+                            style: GoogleFonts.poppins(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                     activeColor: mainColorSecondary,
                     value: ThemeOption.light,
@@ -123,19 +178,38 @@ class _ProfilePageState extends State<ProfilePage> {
                     onChanged: (ThemeOption value) {
                       setState(() {
                         _theme = value;
-
-                        Fluttertoast.showToast(
-                          msg: "Tunggu update selanjutnya ya",
-                          toastLength: Toast.LENGTH_LONG,
-                          gravity: ToastGravity.BOTTOM,
-                        );
                       });
+
+                      Fluttertoast.showToast(
+                        msg: "Tunggu update selanjutnya ya",
+                        toastLength: Toast.LENGTH_LONG,
+                        gravity: ToastGravity.BOTTOM,
+                      );
+
+                      Navigator.of(context).pop();
                     },
                   ),
                   RadioListTile<ThemeOption>(
-                    title: Text(
-                      "Gelap",
-                      style: blackTextFont,
+                    controlAffinity: ListTileControlAffinity.trailing,
+                    title: Container(
+                      margin: EdgeInsets.only(left: 10),
+                      child: Row(
+                        children: [
+                          SvgPicture.asset(
+                            "assets/icon_dark_mode.svg",
+                            width: 20,
+                            height: 20,
+                          ),
+                          SizedBox(width: 10),
+                          Text(
+                            "Gelap",
+                            style: GoogleFonts.poppins(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                     activeColor: mainColorSecondary,
                     value: ThemeOption.dark,
@@ -143,13 +217,15 @@ class _ProfilePageState extends State<ProfilePage> {
                     onChanged: (ThemeOption value) {
                       setState(() {
                         _theme = value;
-
-                        Fluttertoast.showToast(
-                          msg: "Tunggu update selanjutnya ya",
-                          toastLength: Toast.LENGTH_LONG,
-                          gravity: ToastGravity.BOTTOM,
-                        );
                       });
+
+                      Fluttertoast.showToast(
+                        msg: "Tunggu update selanjutnya ya",
+                        toastLength: Toast.LENGTH_LONG,
+                        gravity: ToastGravity.BOTTOM,
+                      );
+
+                      Navigator.of(context).pop();
                     },
                   ),
                 ],
