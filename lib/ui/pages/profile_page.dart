@@ -27,7 +27,7 @@ class _ProfilePageState extends State<ProfilePage> {
           clipBehavior: Clip.antiAliasWithSaveLayer,
           builder: (_) {
             return Container(
-              height: 170,
+              height: 150,
               color: bgLight,
               child: Column(
                 children: <Widget>[
@@ -48,8 +48,8 @@ class _ProfilePageState extends State<ProfilePage> {
                         children: [
                           SvgPicture.asset(
                             "assets/icon_flag_indonesia.svg",
-                            width: 20,
-                            height: 20,
+                            width: 24,
+                            height: 24,
                           ),
                           SizedBox(width: 10),
                           Text(
@@ -87,8 +87,8 @@ class _ProfilePageState extends State<ProfilePage> {
                         children: [
                           SvgPicture.asset(
                             "assets/icon_flag_united_kingdom.svg",
-                            width: 20,
-                            height: 20,
+                            width: 24,
+                            height: 24,
                           ),
                           SizedBox(width: 10),
                           Text(
@@ -137,7 +137,7 @@ class _ProfilePageState extends State<ProfilePage> {
           clipBehavior: Clip.antiAliasWithSaveLayer,
           builder: (_) {
             return Container(
-              height: 170,
+              height: 150,
               color: bgLight,
               child: Column(
                 children: <Widget>[
@@ -391,8 +391,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                                     CrossAxisAlignment.center,
                                                 children: <Widget>[
                                                   Container(
-                                                    width: 20,
-                                                    height: 20,
+                                                    width: 24,
+                                                    height: 24,
                                                     child: SvgPicture.asset(
                                                         "assets/icon_profile.svg"),
                                                   ),
@@ -444,8 +444,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 CrossAxisAlignment.center,
                                             children: <Widget>[
                                               Container(
-                                                width: 20,
-                                                height: 20,
+                                                width: 24,
+                                                height: 24,
                                                 child: SvgPicture.asset(
                                                     "assets/icon_wallet_balance.svg"),
                                               ),
@@ -490,8 +490,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 CrossAxisAlignment.center,
                                             children: <Widget>[
                                               Container(
-                                                width: 20,
-                                                height: 20,
+                                                width: 24,
+                                                height: 24,
                                                 child: SvgPicture.asset(
                                                     "assets/icon_translate.svg"),
                                               ),
@@ -536,8 +536,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 CrossAxisAlignment.center,
                                             children: <Widget>[
                                               Container(
-                                                width: 20,
-                                                height: 20,
+                                                width: 24,
+                                                height: 24,
                                                 child: SvgPicture.asset(
                                                     "assets/icon_theme.svg"),
                                               ),
@@ -588,8 +588,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 CrossAxisAlignment.center,
                                             children: <Widget>[
                                               Container(
-                                                width: 20,
-                                                height: 20,
+                                                width: 24,
+                                                height: 24,
                                                 child: SvgPicture.asset(
                                                     "assets/icon_contact_me.svg"),
                                               ),
@@ -640,8 +640,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 CrossAxisAlignment.center,
                                             children: <Widget>[
                                               Container(
-                                                width: 20,
-                                                height: 20,
+                                                width: 24,
+                                                height: 24,
                                                 child: SvgPicture.asset(
                                                     "assets/icon_rate_like.svg"),
                                               ),
@@ -690,8 +690,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 CrossAxisAlignment.center,
                                             children: <Widget>[
                                               Container(
-                                                width: 20,
-                                                height: 20,
+                                                width: 24,
+                                                height: 24,
                                                 child: SvgPicture.asset(
                                                     "assets/icon_about_apps.svg"),
                                               ),
