@@ -44,7 +44,7 @@ class SplashPage extends StatelessWidget {
                   color: mainColorSecondary,
                   onPressed: () {
                     context
-                        .bloc<PageBloc>()
+                        .read<PageBloc>()
                         .add(GoToRegistrationPage(RegistrationData()));
                   },
                   shape: RoundedRectangleBorder(
@@ -61,7 +61,7 @@ class SplashPage extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      context.bloc<PageBloc>().add(GoToLoginPage());
+                      context.read<PageBloc>().add(GoToLoginPage());
                     },
                     child: Text(
                       "Masuk disini",
