@@ -399,10 +399,11 @@ class _ProfilePageState extends State<ProfilePage> {
                                                   SizedBox(width: 12),
                                                   Text(
                                                     "Ubah Profil",
-                                                    style: GoogleFonts.poppins(
-                                                      color: Colors.black,
+                                                    style:
+                                                        blackTextFont.copyWith(
+                                                      fontSize: 16,
                                                       fontWeight:
-                                                          FontWeight.w500,
+                                                          FontWeight.w400,
                                                     ),
                                                   ),
                                                 ],
@@ -452,9 +453,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                               SizedBox(width: 12),
                                               Text(
                                                 "Dompet Saya",
-                                                style: GoogleFonts.poppins(
-                                                  color: Colors.black,
-                                                  fontWeight: FontWeight.w500,
+                                                style: blackTextFont.copyWith(
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.w400,
                                                 ),
                                               ),
                                             ],
@@ -498,9 +499,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                               SizedBox(width: 12),
                                               Text(
                                                 "Ganti Bahasa",
-                                                style: GoogleFonts.poppins(
-                                                  color: Colors.black,
-                                                  fontWeight: FontWeight.w500,
+                                                style: blackTextFont.copyWith(
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.w400,
                                                 ),
                                               ),
                                             ],
@@ -544,9 +545,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                               SizedBox(width: 12),
                                               Text(
                                                 "Tampilan Tema",
-                                                style: GoogleFonts.poppins(
-                                                  color: Colors.black,
-                                                  fontWeight: FontWeight.w500,
+                                                style: blackTextFont.copyWith(
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.w400,
                                                 ),
                                               ),
                                             ],
@@ -596,9 +597,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                               SizedBox(width: 12),
                                               Text(
                                                 "Kontak Bantuan",
-                                                style: GoogleFonts.poppins(
-                                                  color: Colors.black,
-                                                  fontWeight: FontWeight.w500,
+                                                style: blackTextFont.copyWith(
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.w400,
                                                 ),
                                               ),
                                             ],
@@ -648,9 +649,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                               SizedBox(width: 12),
                                               Text(
                                                 "Nilai Aplikasi Tayangin",
-                                                style: GoogleFonts.poppins(
-                                                  color: Colors.black,
-                                                  fontWeight: FontWeight.w500,
+                                                style: blackTextFont.copyWith(
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.w400,
                                                 ),
                                               ),
                                             ],
@@ -698,9 +699,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                               SizedBox(width: 12),
                                               Text(
                                                 "Tentang Aplikasi Tayangin",
-                                                style: GoogleFonts.poppins(
-                                                  color: Colors.black,
-                                                  fontWeight: FontWeight.w500,
+                                                style: blackTextFont.copyWith(
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.w400,
                                                 ),
                                               ),
                                             ],
