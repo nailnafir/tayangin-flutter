@@ -54,9 +54,9 @@ class _ProfilePageState extends State<ProfilePage> {
                           SizedBox(width: 10),
                           Text(
                             "Bahasa Indonesia",
-                            style: GoogleFonts.poppins(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
+                            style: blackTextFont.copyWith(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400,
                             ),
                           ),
                         ],
@@ -93,9 +93,9 @@ class _ProfilePageState extends State<ProfilePage> {
                           SizedBox(width: 10),
                           Text(
                             "Bahasa Inggris",
-                            style: GoogleFonts.poppins(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
+                            style: blackTextFont.copyWith(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400,
                             ),
                           ),
                         ],
@@ -158,15 +158,15 @@ class _ProfilePageState extends State<ProfilePage> {
                         children: [
                           SvgPicture.asset(
                             "assets/icon_light_mode.svg",
-                            width: 20,
-                            height: 20,
+                            width: 24,
+                            height: 24,
                           ),
                           SizedBox(width: 10),
                           Text(
                             "Terang",
-                            style: GoogleFonts.poppins(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
+                            style: blackTextFont.copyWith(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400,
                             ),
                           ),
                         ],
@@ -197,15 +197,15 @@ class _ProfilePageState extends State<ProfilePage> {
                         children: [
                           SvgPicture.asset(
                             "assets/icon_dark_mode.svg",
-                            width: 20,
-                            height: 20,
+                            width: 24,
+                            height: 24,
                           ),
                           SizedBox(width: 10),
                           Text(
                             "Gelap",
-                            style: GoogleFonts.poppins(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
+                            style: blackTextFont.copyWith(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400,
                             ),
                           ),
                         ],
