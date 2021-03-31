@@ -14,7 +14,7 @@ class _WalletPageState extends State<WalletPage> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        context.bloc<PageBloc>().add(widget.pageEvent);
+        context.read<PageBloc>().add(widget.pageEvent);
         return;
       },
       child: Scaffold(
@@ -50,7 +50,7 @@ class _WalletPageState extends State<WalletPage> {
                                         child: GestureDetector(
                                             onTap: () {
                                               context
-                                                  .bloc<PageBloc>()
+                                                  .read<PageBloc>()
                                                   .add(widget.pageEvent);
                                             },
                                             child: Icon(Icons.arrow_back,
@@ -321,7 +321,7 @@ class _WalletPageState extends State<WalletPage> {
                         ),
                       ),
                       onPressed: () {
-                        context.bloc<PageBloc>().add(
+                        context.read<PageBloc>().add(
                             GoToTopUpPage(GoToWalletPage(GoToProfilePage())));
                       },
                     ),
