@@ -308,11 +308,13 @@ class _WalletPageState extends State<WalletPage> {
                     width: 250,
                     height: 50,
                     margin: EdgeInsets.symmetric(vertical: 10),
-                    child: RaisedButton(
-                      elevation: 2,
-                      color: mainColorPrimary,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8)),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        elevation: 2,
+                        primary: mainColorPrimary,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8)),
+                      ),
                       child: Text(
                         "Isi Saldo",
                         style: whiteTextFont.copyWith(
