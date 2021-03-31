@@ -1,7 +1,7 @@
 part of 'pages.dart';
 
 // wrapper akan mendapatkan firebaseUser dari status saat ini
-//jika ada perubahan status, method build akan dipanggil kembali
+// jika ada perubahan status, method build akan dipanggil kembali
 class Wrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -14,19 +14,19 @@ class Wrapper extends StatelessWidget {
         prevPageEvent = GoToSplashPage();
 
         // belum pernah login
-        context.bloc<PageBloc>().add(prevPageEvent);
+        context.read<PageBloc>().add(prevPageEvent);
       }
     } else {
       // mencegah pindah ke page yang sama
       if (!(prevPageEvent is GoToMainPage)) {
         // load user dan ticket
-        context.bloc<UserBloc>().add(LoadUser(firebaseUser.uid));
-        context.bloc<TicketBloc>().add(GetTickets(firebaseUser.uid));
+        context.read<UserBloc>().add(LoadUser(firebaseUser.uid));
+        context.read<TicketBloc>().add(GetTickets(firebaseUser.uid));
 
         prevPageEvent = GoToMainPage();
 
         // sudah login
-        context.bloc<PageBloc>().add(prevPageEvent);
+        context.read<PageBloc>().add(prevPageEvent);
       }
     }
 
