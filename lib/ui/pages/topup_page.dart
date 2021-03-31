@@ -15,7 +15,7 @@ class _TopUpPageState extends State<TopUpPage> {
 
   @override
   Widget build(BuildContext context) {
-    context.bloc<ThemeBloc>().add(ChangeTheme(ThemeData().copyWith(
+    context.read<ThemeBloc>().add(ChangeTheme(ThemeData().copyWith(
           primaryColor: mainColorPrimary,
         )));
 
@@ -24,7 +24,7 @@ class _TopUpPageState extends State<TopUpPage> {
 
     return WillPopScope(
       onWillPop: () async {
-        context.bloc<PageBloc>().add(widget.pageEvent);
+        context.read<PageBloc>().add(widget.pageEvent);
         return;
       },
       child: Scaffold(
@@ -51,7 +51,7 @@ class _TopUpPageState extends State<TopUpPage> {
                               child: GestureDetector(
                                 onTap: () {
                                   context
-                                      .bloc<PageBloc>()
+                                      .read<PageBloc>()
                                       .add(widget.pageEvent);
                                 },
                                 child:
@@ -190,7 +190,7 @@ class _TopUpPageState extends State<TopUpPage> {
                               ),
                               onPressed: selectedAmount > 0
                                   ? () {
-                                      context.bloc<PageBloc>().add(
+                                      context.read<PageBloc>().add(
                                             GoToSuccessPage(
                                               null,
                                               TayanginTransaction(
