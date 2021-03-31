@@ -68,11 +68,11 @@ class SuccessPage extends StatelessWidget {
                             ),
                             onPressed: () {
                               if (ticket == null) {
-                                context.bloc<PageBloc>().add(GoToWalletPage(
+                                context.read<PageBloc>().add(GoToWalletPage(
                                     GoToMainPage(bottomNavBarIndex: 0)));
                               } else {
                                 context
-                                    .bloc<PageBloc>()
+                                    .read<PageBloc>()
                                     .add(GoToMainPage(bottomNavBarIndex: 1));
                               }
                             },
@@ -86,7 +86,7 @@ class SuccessPage extends StatelessWidget {
                                     fontWeight: FontWeight.w400)),
                             GestureDetector(
                               onTap: () {
-                                context.bloc<PageBloc>().add(GoToMainPage());
+                                context.read<PageBloc>().add(GoToMainPage());
                               },
                               child: Text("Yuk lah!",
                                   style: secondaryColorTextFont.copyWith(
@@ -109,15 +109,15 @@ class SuccessPage extends StatelessWidget {
 
   // perlu build context untuk memanggil event dari dua bloc
   Future<void> processingTicketOrder(BuildContext context) async {
-    context.bloc<UserBloc>().add(Purchase(ticket.totalPrice));
-    context.bloc<TicketBloc>().add(BuyTicket(ticket, transaction.userID));
+    context.read<UserBloc>().add(Purchase(ticket.totalPrice));
+    context.read<TicketBloc>().add(BuyTicket(ticket, transaction.userID));
 
     await TayanginTransactionServices.saveTransaction(transaction);
   }
 
   // perlu build context untuk memanggil event bloc
   Future<void> processingTopUp(BuildContext context) async {
-    context.bloc<UserBloc>().add(TopUp(transaction.amount));
+    context.read<UserBloc>().add(TopUp(transaction.amount));
 
     await TayanginTransactionServices.saveTransaction(transaction);
   }
