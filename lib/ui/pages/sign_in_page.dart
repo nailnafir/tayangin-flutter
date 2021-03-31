@@ -28,12 +28,12 @@ class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
     context
-        .bloc<ThemeBloc>()
+        .read<ThemeBloc>()
         .add(ChangeTheme(ThemeData().copyWith(primaryColor: mainColorPrimary)));
 
     return WillPopScope(
       onWillPop: () {
-        context.bloc<PageBloc>().add(GoToSplashPage());
+        context.read<PageBloc>().add(GoToSplashPage());
         return;
       },
       child: Scaffold(
@@ -104,7 +104,7 @@ class _SignInPageState extends State<SignInPage> {
                         GestureDetector(
                           onTap: () {
                             context
-                                .bloc<PageBloc>()
+                                .read<PageBloc>()
                                 .add(GoToForgotPasswordPage());
                           },
                           child: Text("Reset disini",
@@ -179,7 +179,7 @@ class _SignInPageState extends State<SignInPage> {
                         GestureDetector(
                           onTap: () {
                             context
-                                .bloc<PageBloc>()
+                                .read<PageBloc>()
                                 .add(GoToRegistrationPage(RegistrationData()));
                           },
                           child: Text(
