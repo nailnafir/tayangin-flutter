@@ -10,8 +10,8 @@ class Wrapper extends StatelessWidget {
     if (firebaseUser == null) {
       // mencegah pindah ke page yang sama
 
-      if (!(prevPageEvent is GoToSplashPage)) {
-        prevPageEvent = GoToSplashPage();
+      if (!(prevPageEvent is GoToGetStartedPage)) {
+        prevPageEvent = GoToGetStartedPage();
 
         // belum pernah login
         context.read<PageBloc>().add(prevPageEvent);
@@ -31,8 +31,8 @@ class Wrapper extends StatelessWidget {
     }
 
     return BlocBuilder<PageBloc, PageState>(
-        builder: (_, pageState) => (pageState is OnSplashPage)
-            ? SplashPage()
+        builder: (_, pageState) => (pageState is OnGetStartedPage)
+            ? GetStartedPage()
             : (pageState is OnLoginPage)
                 ? SignInPage()
                 : (pageState is OnRegistrationPage)

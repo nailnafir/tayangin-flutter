@@ -26,7 +26,7 @@ import 'package:tayangin_flutter/extensions/extensions.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:path/path.dart';
 
-part 'splash_page.dart';
+part 'get_started_page.dart';
 part 'main_page.dart';
 part 'sign_in_page.dart';
 part 'sign_up_page.dart';
