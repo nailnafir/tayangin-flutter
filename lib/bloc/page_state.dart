@@ -17,7 +17,7 @@ class OnLoginPage extends PageState {
   List<Object> get props => [];
 }
 
-class OnSplashPage extends PageState {
+class OnGetStartedPage extends PageState {
   @override
   List<Object> get props => [];
 }
