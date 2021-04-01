@@ -36,7 +36,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
     return WillPopScope(
       onWillPop: () async {
-        context.read<PageBloc>().add(GoToSplashPage());
+        context.read<PageBloc>().add(GoToGetStartedPage());
         return;
       },
       child: Scaffold(
@@ -56,7 +56,9 @@ class _SignUpPageState extends State<SignUpPage> {
                           alignment: Alignment.centerLeft,
                           child: GestureDetector(
                             onTap: () {
-                              context.read<PageBloc>().add(GoToSplashPage());
+                              context
+                                  .read<PageBloc>()
+                                  .add(GoToGetStartedPage());
                             },
                             child: Icon(Icons.arrow_back, color: Colors.black),
                           ),
