@@ -34,13 +34,19 @@ class SplashPage extends StatelessWidget {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(top: 50),
-              child: Text(
-                "Tayangin",
-                style: whiteTextFont.copyWith(
-                  fontSize: 32,
-                  fontWeight: FontWeight.w600,
-                ),
+              margin: EdgeInsets.only(top: 30),
+              child: AnimatedTextKit(
+                animatedTexts: [
+                  TyperAnimatedText(
+                    "Tayangin",
+                    speed: Duration(milliseconds: 150),
+                    textStyle: whiteTextFont.copyWith(
+                      fontSize: 32,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ],
+                totalRepeatCount: 1,
               ),
             ),
           ],
