@@ -5,87 +5,68 @@ part of 'pages.dart';
 class Wrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    auth.User firebaseUser = Provider.of<auth.User>(context);
-
-    if (firebaseUser == null) {
-      // mencegah pindah ke page yang sama
-
-      if (!(prevPageEvent is GoToGetStartedPage)) {
-        prevPageEvent = GoToGetStartedPage();
-
-        // belum pernah login
-        context.read<PageBloc>().add(prevPageEvent);
-      }
-    } else {
-      // mencegah pindah ke page yang sama
-      if (!(prevPageEvent is GoToMainPage)) {
-        // load user dan ticket
-        context.read<UserBloc>().add(LoadUser(firebaseUser.uid));
-        context.read<TicketBloc>().add(GetTickets(firebaseUser.uid));
-
-        prevPageEvent = GoToMainPage();
-
-        // sudah login
-        context.read<PageBloc>().add(prevPageEvent);
-      }
-    }
+    context.read<PageBloc>().add(GoToSplashPage());
 
     return BlocBuilder<PageBloc, PageState>(
-        builder: (_, pageState) => (pageState is OnGetStartedPage)
-            ? GetStartedPage()
-            : (pageState is OnLoginPage)
-                ? SignInPage()
-                : (pageState is OnRegistrationPage)
-                    ? SignUpPage(pageState.registrationData)
-                    : (pageState is OnPreferencePage)
-                        ? PreferencePage(pageState.registrationData)
-                        : (pageState is OnAccountConfirmationPage)
-                            ? AccountConfirmationPage(
-                                pageState.registrationData)
-                            : (pageState is OnForgotPasswordPage)
-                                ? ForgotPasswordPage()
-                                : (pageState is OnMovieDetailPage)
-                                    ? MovieDetailPage(pageState.movie)
-                                    : (pageState is OnSelectSchedulePage)
-                                        ? SelectSchedulePage(
-                                            pageState.movieDetail)
-                                        : (pageState is OnSelectSeatPage)
-                                            ? SelectSeatPage(pageState.ticket)
-                                            : (pageState is OnCheckoutPage)
-                                                ? CheckoutPage(pageState.ticket)
-                                                : (pageState is OnSuccessPage)
-                                                    ? SuccessPage(
-                                                        pageState.ticket,
-                                                        pageState.transaction)
+        builder: (_, pageState) => (pageState is OnSplashPage)
+            ? SplashPage()
+            : (pageState is OnGetStartedPage)
+                ? GetStartedPage()
+                : (pageState is OnLoginPage)
+                    ? SignInPage()
+                    : (pageState is OnRegistrationPage)
+                        ? SignUpPage(pageState.registrationData)
+                        : (pageState is OnPreferencePage)
+                            ? PreferencePage(pageState.registrationData)
+                            : (pageState is OnAccountConfirmationPage)
+                                ? AccountConfirmationPage(
+                                    pageState.registrationData)
+                                : (pageState is OnForgotPasswordPage)
+                                    ? ForgotPasswordPage()
+                                    : (pageState is OnMovieDetailPage)
+                                        ? MovieDetailPage(pageState.movie)
+                                        : (pageState is OnSelectSchedulePage)
+                                            ? SelectSchedulePage(
+                                                pageState.movieDetail)
+                                            : (pageState is OnSelectSeatPage)
+                                                ? SelectSeatPage(
+                                                    pageState.ticket)
+                                                : (pageState is OnCheckoutPage)
+                                                    ? CheckoutPage(
+                                                        pageState.ticket)
                                                     : (pageState
-                                                            is OnTicketDetailPage)
-                                                        ? TicketDetailPage(
-                                                            pageState.ticket)
+                                                            is OnSuccessPage)
+                                                        ? SuccessPage(
+                                                            pageState.ticket,
+                                                            pageState
+                                                                .transaction)
                                                         : (pageState
-                                                                is OnProfilePage)
-                                                            ? ProfilePage()
+                                                                is OnTicketDetailPage)
+                                                            ? TicketDetailPage(
+                                                                pageState
+                                                                    .ticket)
                                                             : (pageState
-                                                                    is OnTopUpPage)
-                                                                ? TopUpPage(
-                                                                    pageState
-                                                                        .pageEvent)
+                                                                    is OnProfilePage)
+                                                                ? ProfilePage()
                                                                 : (pageState
-                                                                        is OnWalletPage)
-                                                                    ? WalletPage(
+                                                                        is OnTopUpPage)
+                                                                    ? TopUpPage(
                                                                         pageState
                                                                             .pageEvent)
                                                                     : (pageState
-                                                                            is OnEditProfilePage)
-                                                                        ? EditProfilePage(pageState
-                                                                            .user)
+                                                                            is OnWalletPage)
+                                                                        ? WalletPage(pageState
+                                                                            .pageEvent)
                                                                         : (pageState
-                                                                                is OnAboutAppsPage)
-                                                                            ? AboutAppsPage()
-                                                                            : (pageState is OnMainPage)
-                                                                                ? MainPage(
-                                                                                    bottomNavBarIndex: pageState.bottomNavBarIndex,
-                                                                                    isExpired: pageState.isExpired,
-                                                                                  )
-                                                                                : Container());
+                                                                                is OnEditProfilePage)
+                                                                            ? EditProfilePage(pageState.user)
+                                                                            : (pageState is OnAboutAppsPage)
+                                                                                ? AboutAppsPage()
+                                                                                : (pageState is OnMainPage)
+                                                                                    ? MainPage(
+                                                                                        bottomNavBarIndex: pageState.bottomNavBarIndex,
+                                                                                        isExpired: pageState.isExpired,
+                                                                                      )
+                                                                                    : Container());
   }
 }
