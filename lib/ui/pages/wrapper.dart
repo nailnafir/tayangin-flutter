@@ -5,7 +5,12 @@ part of 'pages.dart';
 class Wrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    context.read<PageBloc>().add(GoToSplashPage());
+    // mencegah pindah ke page yang sama
+    if (!(prevPageEvent is GoToSplashPage)) {
+      prevPageEvent = GoToSplashPage();
+
+      context.read<PageBloc>().add(prevPageEvent);
+    }
 
     return BlocBuilder<PageBloc, PageState>(
         builder: (_, pageState) => (pageState is OnSplashPage)
