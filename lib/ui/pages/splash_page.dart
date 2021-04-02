@@ -7,26 +7,13 @@ class SplashPage extends StatelessWidget {
 
     Future.delayed(Duration(seconds: 3), () {
       if (firebaseUser == null) {
-        // mencegah pindah ke page yang sama
-
-        if (!(prevPageEvent is GoToGetStartedPage)) {
-          prevPageEvent = GoToGetStartedPage();
-
-          // belum pernah login
-          context.read<PageBloc>().add(prevPageEvent);
-        }
+        context.read<PageBloc>().add(GoToGetStartedPage());
       } else {
-        // mencegah pindah ke page yang sama
-        if (!(prevPageEvent is GoToMainPage)) {
-          // load user dan ticket
-          context.read<UserBloc>().add(LoadUser(firebaseUser.uid));
-          context.read<TicketBloc>().add(GetTickets(firebaseUser.uid));
+        // load user dan ticket
+        context.read<UserBloc>().add(LoadUser(firebaseUser.uid));
+        context.read<TicketBloc>().add(GetTickets(firebaseUser.uid));
 
-          prevPageEvent = GoToMainPage();
-
-          // sudah login
-          context.read<PageBloc>().add(prevPageEvent);
-        }
+        context.read<PageBloc>().add(GoToMainPage());
       }
     });
 
