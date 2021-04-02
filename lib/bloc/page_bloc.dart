@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:tayangin_flutter/bloc/blocs.dart';
 import 'package:tayangin_flutter/models/models.dart';
 
 part 'page_event.dart';
@@ -16,7 +15,9 @@ class PageBloc extends Bloc<PageEvent, PageState> {
   Stream<PageState> mapEventToState(
     PageEvent event,
   ) async* {
-    if (event is GoToGetStartedPage) {
+    if (event is GoToSplashPage) {
+      yield OnSplashPage();
+    } else if (event is GoToGetStartedPage) {
       yield OnGetStartedPage();
     } else if (event is GoToLoginPage) {
       yield OnLoginPage();

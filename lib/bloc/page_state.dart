@@ -12,12 +12,17 @@ class OnInitialPage extends PageState {
   List<Object> get props => [];
 }
 
-class OnLoginPage extends PageState {
+class OnSplashPage extends PageState {
   @override
   List<Object> get props => [];
 }
 
 class OnGetStartedPage extends PageState {
+  @override
+  List<Object> get props => [];
+}
+
+class OnLoginPage extends PageState {
   @override
   List<Object> get props => [];
 }
