@@ -4,7 +4,7 @@ class GetStartedPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: mainColorPrimary,
+      backgroundColor: bgLight,
       body: Container(
           padding: EdgeInsets.symmetric(horizontal: defaultMargin),
           child: Column(
@@ -24,13 +24,13 @@ class GetStartedPage extends StatelessWidget {
                 margin: EdgeInsets.only(top: 80, bottom: 18),
                 child: Text(
                   "Hiburan Seru",
-                  style: whiteTextFont.copyWith(
+                  style: blackTextFont.copyWith(
                       fontSize: 20, fontWeight: FontWeight.w500),
                 ),
               ),
               Text(
                 "Temukan hiburanmu dengan \nmenonton banyak film tanpa ribet",
-                style: whiteTextFont.copyWith(
+                style: grayTextFont.copyWith(
                     fontSize: 16, fontWeight: FontWeight.w300),
                 textAlign: TextAlign.center,
               ),
@@ -59,7 +59,7 @@ class GetStartedPage extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     "Sudah punya akun? ",
-                    style: whiteTextFont.copyWith(fontWeight: FontWeight.w400),
+                    style: grayTextFont.copyWith(fontWeight: FontWeight.w400),
                   ),
                   GestureDetector(
                     onTap: () {
