@@ -8,9 +8,9 @@
     </item>
 
     <!-- You can insert your own image assets here -->
-    <item>
+    <!-- <item>
         <bitmap
             android:gravity="center"
-            android:src="@drawable/logo_splash" />
-    </item>
+            android:src="@mipmap/launch_image" />
+    </item> -->
 </layer-list>
