@@ -2,15 +2,64 @@ part of 'pages.dart';
 
 // wrapper akan mendapatkan firebaseUser dari status saat ini
 // jika ada perubahan status, method build akan dipanggil kembali
-class Wrapper extends StatelessWidget {
+class Wrapper extends StatefulWidget {
+  final bool isSplashed;
+
+  Wrapper({this.isSplashed});
+
+  @override
+  _WrapperState createState() => _WrapperState();
+}
+
+class _WrapperState extends State<Wrapper> {
+  bool isSplashed;
+
+  @override
+  void initState() {
+    super.initState();
+
+    isSplashed = false;
+  }
+
   @override
   Widget build(BuildContext context) {
-    // mencegah pindah ke page yang sama
-    if (!(prevPageEvent is GoToSplashPage)) {
-      prevPageEvent = GoToSplashPage();
+    auth.User firebaseUser = Provider.of<auth.User>(context);
 
-      context.read<PageBloc>().add(prevPageEvent);
+    if (!isSplashed) {
+      if (!(prevPageEvent is GoToSplashPage)) {
+        prevPageEvent = GoToSplashPage();
+        context.read<PageBloc>().add(prevPageEvent);
+      }
     }
+
+    // mencegah pindah ke page yang sama
+
+    Future.delayed(Duration(seconds: !isSplashed ? 3 : 0), () {
+      if (firebaseUser == null) {
+        if (!(prevPageEvent is GoToGetStartedPage)) {
+          prevPageEvent = GoToGetStartedPage();
+
+          setState(() {
+            isSplashed = true;
+          });
+
+          context.read<PageBloc>().add(prevPageEvent);
+        }
+      } else {
+        if (!(prevPageEvent is GoToMainPage)) {
+          prevPageEvent = GoToMainPage();
+
+          setState(() {
+            isSplashed = true;
+          });
+
+          // load user dan ticket
+          context.read<UserBloc>().add(LoadUser(firebaseUser.uid));
+          context.read<TicketBloc>().add(GetTickets(firebaseUser.uid));
+          context.read<PageBloc>().add(prevPageEvent);
+        }
+      }
+    });
 
     return BlocBuilder<PageBloc, PageState>(
         builder: (_, pageState) => (pageState is OnSplashPage)
