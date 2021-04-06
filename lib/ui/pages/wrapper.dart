@@ -25,6 +25,7 @@ class _WrapperState extends State<Wrapper> {
   Widget build(BuildContext context) {
     auth.User firebaseUser = Provider.of<auth.User>(context);
 
+    // mencegah pindah ke page yang sama untuk splash page
     if (!isSplashed) {
       if (!(prevPageEvent is GoToSplashPage)) {
         prevPageEvent = GoToSplashPage();
@@ -32,8 +33,7 @@ class _WrapperState extends State<Wrapper> {
       }
     }
 
-    // mencegah pindah ke page yang sama
-
+    // mencegah pindah ke page yang sama untuk get started page dan main page
     Future.delayed(Duration(seconds: !isSplashed ? 3 : 0), () {
       if (firebaseUser == null) {
         if (!(prevPageEvent is GoToGetStartedPage)) {
@@ -53,7 +53,6 @@ class _WrapperState extends State<Wrapper> {
             isSplashed = true;
           });
 
-          // load user dan ticket
           context.read<UserBloc>().add(LoadUser(firebaseUser.uid));
           context.read<TicketBloc>().add(GetTickets(firebaseUser.uid));
           context.read<PageBloc>().add(prevPageEvent);
