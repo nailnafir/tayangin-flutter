@@ -21,20 +21,22 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamProvider.value(
-        value: AuthServices.userStream,
-        child: MultiBlocProvider(
-            providers: [
-              BlocProvider(create: (_) => PageBloc()),
-              BlocProvider(create: (_) => UserBloc()),
-              BlocProvider(create: (_) => ThemeBloc()),
-              BlocProvider(create: (_) => MovieBloc()..add(FetchMovies())),
-              BlocProvider(create: (_) => TicketBloc()),
-            ],
-            child: BlocBuilder<ThemeBloc, ThemeState>(
-              builder: (_, themeState) => MaterialApp(
-                  theme: themeState.themeData,
-                  debugShowCheckedModeBanner: false,
-                  home: Wrapper()),
-            )));
+      value: AuthServices.userStream,
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (_) => PageBloc()),
+          BlocProvider(create: (_) => UserBloc()),
+          BlocProvider(create: (_) => ThemeBloc()),
+          BlocProvider(create: (_) => MovieBloc()..add(FetchMovies())),
+          BlocProvider(create: (_) => TicketBloc()),
+        ],
+        child: BlocBuilder<ThemeBloc, ThemeState>(
+          builder: (_, themeState) => MaterialApp(
+              theme: themeState.themeData,
+              debugShowCheckedModeBanner: false,
+              home: Wrapper()),
+        ),
+      ),
+    );
   }
 }
