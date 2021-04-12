@@ -725,7 +725,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                   ),
                                   //NOTE: SIGN OUT
                                   Container(
-                                    margin: EdgeInsets.only(top: 12),
+                                    margin: EdgeInsets.symmetric(vertical: 12),
                                     width: 250,
                                     height: 50,
                                     child: ElevatedButton(
