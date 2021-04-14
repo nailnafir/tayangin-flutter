@@ -241,7 +241,7 @@ class _ProfilePageState extends State<ProfilePage> {
       },
       child: Scaffold(
         backgroundColor: bgLight,
-        body: Container(
+        body: SafeArea(
           child: ListView(
             children: <Widget>[
               BlocBuilder<UserBloc, UserState>(builder: (_, userState) {
