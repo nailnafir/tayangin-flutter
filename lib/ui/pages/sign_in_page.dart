@@ -142,6 +142,15 @@ class _SignInPageState extends State<SignInPage> {
                                                 emailController.text,
                                                 passwordController.text);
 
+                                        Fluttertoast.showToast(
+                                          msg: "Berhasil Masuk",
+                                          toastLength: Toast.LENGTH_SHORT,
+                                          gravity: ToastGravity.BOTTOM,
+                                        );
+
+                                        print(result.message ??
+                                            "LOGIN STATUS: OK");
+
                                         // ubah state lagi jadi false jika hasilnya keluar
                                         if (result.user == null) {
                                           setState(() {
