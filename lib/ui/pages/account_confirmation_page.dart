@@ -114,6 +114,14 @@ class _AccountConfirmationPageState extends State<AccountConfirmationPage> {
                                       widget.registrationData.selectedGenres,
                                       widget.registrationData.selectedLanguage);
 
+                              Fluttertoast.showToast(
+                                msg: "Berhasil Daftar",
+                                toastLength: Toast.LENGTH_SHORT,
+                                gravity: ToastGravity.BOTTOM,
+                              );
+
+                              print(result.message ?? "SIGN UP STATUS: OK");
+
                               if (result.user == null) {
                                 setState(() {
                                   isSigningUp = false;
