@@ -149,7 +149,7 @@ class _SignInPageState extends State<SignInPage> {
                                         );
 
                                         print(result.message ??
-                                            "LOGIN STATUS: OK");
+                                            "SIGN IN STATUS: OK");
 
                                         // ubah state lagi jadi false jika hasilnya keluar
                                         if (result.user == null) {
