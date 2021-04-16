@@ -744,6 +744,14 @@ class _ProfilePageState extends State<ProfilePage> {
                                           ),
                                         ),
                                         onPressed: () {
+                                          print("SIGN OUT STATUS: OK");
+
+                                          Fluttertoast.showToast(
+                                            msg: "Berhasil Keluar",
+                                            toastLength: Toast.LENGTH_SHORT,
+                                            gravity: ToastGravity.BOTTOM,
+                                          );
+
                                           context
                                               .read<UserBloc>()
                                               .add(SignOut());
