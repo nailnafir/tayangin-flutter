@@ -43,43 +43,41 @@ class _PreferencePageState extends State<PreferencePage> {
         return;
       },
       child: Scaffold(
-        body: Container(
-          color: bgLight,
-          padding: EdgeInsets.symmetric(horizontal: defaultMargin),
-          child: ListView(
-            children: <Widget>[
-              Column(
+        backgroundColor: bgLight,
+        appBar: AppBar(
+          backgroundColor: bgLight,
+          brightness: Brightness.light,
+          leading: GestureDetector(
+            onTap: () {
+              widget.registrationData.password = "";
+
+              context
+                  .read<PageBloc>()
+                  .add(GoToRegistrationPage(widget.registrationData));
+              return;
+            },
+            child: Icon(
+              Icons.arrow_back,
+              color: Colors.black,
+            ),
+          ),
+          title: Text(
+            "Kesukaan Kamu",
+            style: blackTextFont.copyWith(
+              fontSize: 20,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          centerTitle: true,
+        ),
+        body: ListView(
+          children: <Widget>[
+            Container(
+              margin:
+                  EdgeInsets.symmetric(horizontal: defaultMargin, vertical: 30),
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Container(
-                    margin: EdgeInsets.only(top: 16, bottom: 30),
-                    height: 24,
-                    child: Stack(
-                      children: <Widget>[
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: GestureDetector(
-                            onTap: () {
-                              widget.registrationData.password = "";
-
-                              context.read<PageBloc>().add(GoToRegistrationPage(
-                                  widget.registrationData));
-                              return;
-                            },
-                            child: Icon(Icons.arrow_back, color: Colors.black),
-                          ),
-                        ),
-                        Center(
-                          child: Text(
-                            "Kesukaan Kamu",
-                            style: blackTextFont.copyWith(
-                                fontSize: 20, fontWeight: FontWeight.w500),
-                            textAlign: TextAlign.center,
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
                   Text(
                     "Pilih Kategori\nYang Kamu Suka",
                     style: blackTextFont.copyWith(
@@ -143,11 +141,10 @@ class _PreferencePageState extends State<PreferencePage> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 50),
                 ],
-              )
-            ],
-          ),
+              ),
+            )
+          ],
         ),
       ),
     );
