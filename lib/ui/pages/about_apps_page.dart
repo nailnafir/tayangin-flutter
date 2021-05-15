@@ -11,20 +11,20 @@ class AboutAppsPage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: bgLight,
         appBar: AppBar(
-          backgroundColor: mainColorPrimary,
-          brightness: Brightness.dark,
+          backgroundColor: bgLight,
+          brightness: Brightness.light,
           leading: GestureDetector(
             onTap: () {
               context.read<PageBloc>().add(GoToProfilePage());
             },
             child: Icon(
               Icons.arrow_back,
-              color: Colors.white,
+              color: Colors.black,
             ),
           ),
           title: Text(
             "Tentang Aplikasi",
-            style: whiteTextFont.copyWith(
+            style: blackTextFont.copyWith(
               fontSize: 20,
               fontWeight: FontWeight.w500,
             ),
