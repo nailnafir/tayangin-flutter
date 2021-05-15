@@ -11,6 +11,8 @@ class AboutAppsPage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: bgLight,
         appBar: AppBar(
+          backgroundColor: mainColorPrimary,
+          brightness: Brightness.dark,
           leading: GestureDetector(
             onTap: () {
               context.read<PageBloc>().add(GoToProfilePage());
