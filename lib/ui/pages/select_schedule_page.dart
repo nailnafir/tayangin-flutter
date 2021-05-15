@@ -32,137 +32,124 @@ class _SelectSchedulePageState extends State<SelectSchedulePage> {
         return;
       },
       child: Scaffold(
-        body: Stack(
-          children: <Widget>[
-            Container(color: bgLight),
-            SafeArea(
-              child: Container(color: bgLight),
+        backgroundColor: bgLight,
+        appBar: AppBar(
+          backgroundColor: bgLight,
+          brightness: Brightness.light,
+          leading: GestureDetector(
+            onTap: () {
+              context
+                  .read<PageBloc>()
+                  .add(GoToMovieDetailPage(widget.movieDetail));
+            },
+            child: Icon(
+              Icons.arrow_back,
+              color: Colors.black,
             ),
-            ListView(
-              children: <Widget>[
-                //NOTE: BACK ICON
-                Container(
-                  margin: EdgeInsets.only(top: 16),
-                  child: Stack(
-                    children: <Widget>[
-                      Container(
-                        margin: EdgeInsets.only(left: defaultMargin),
-                        padding: EdgeInsets.all(1),
-                        alignment: Alignment.centerLeft,
-                        child: GestureDetector(
-                          onTap: () {
+          ),
+          title: Text(
+            "Kedatanganmu",
+            style: blackTextFont.copyWith(
+              fontSize: 20,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          centerTitle: true,
+        ),
+        body: SafeArea(
+          child: ListView(
+            children: <Widget>[
+              //NOTE: CHOOSE DATE
+              Container(
+                margin:
+                    EdgeInsets.fromLTRB(defaultMargin, 24, defaultMargin, 12),
+                child: Text(
+                  "Pilih Tanggal",
+                  style: blackTextFont.copyWith(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(bottom: defaultMargin),
+                height: 100,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: dates.length,
+                  itemBuilder: (_, index) => Container(
+                    margin: EdgeInsets.only(
+                      left: (index == 0) ? defaultMargin : 0,
+                      right: (index < dates.length - 1) ? 18 : defaultMargin,
+                    ),
+                    child: DateCard(
+                      dates[index],
+                      isSelected: selectedDate == dates[index],
+                      onTap: () {
+                        setState(() {
+                          selectedDate = dates[index];
+                          isValid = false;
+                          selectedTheater = null;
+                          selectedTime = null;
+                        });
+                      },
+                    ),
+                  ),
+                ),
+              ),
+              //NOTE: CHOOSE TIME & LOCATION
+              generateTimeTable(),
+              SizedBox(height: 10),
+              //NOTE: BUTTON NEXT
+              Align(
+                alignment: Alignment.topCenter,
+                child: Container(
+                  height: 50,
+                  width: 250,
+                  margin: EdgeInsets.symmetric(horizontal: defaultMargin),
+                  child: BlocBuilder<UserBloc, UserState>(
+                    builder: (_, userState) => FloatingActionButton(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8)),
+                        backgroundColor:
+                            (isValid) ? mainColorPrimary : accentColorLightGray,
+                        elevation: 2,
+                        child: Text(
+                          "Lanjutkan",
+                          style: isValid
+                              ? whiteTextFont.copyWith(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  letterSpacing: 0)
+                              : grayTextFont.copyWith(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  letterSpacing: 0),
+                        ),
+                        onPressed: () {
+                          if (isValid) {
                             context
                                 .read<PageBloc>()
-                                .add(GoToMovieDetailPage(widget.movieDetail));
-                            return;
-                          },
-                          child: Icon(Icons.arrow_back, color: Colors.black),
-                        ),
-                      ),
-                      Center(
-                        child: Text(
-                          "Kedatanganmu",
-                          style: blackTextFont.copyWith(
-                              fontSize: 20, fontWeight: FontWeight.w500),
-                          textAlign: TextAlign.center,
-                        ),
-                      )
-                    ],
+                                .add(GoToSelectSeatPage(Ticket(
+                                  widget.movieDetail,
+                                  selectedTheater,
+                                  DateTime(
+                                      selectedDate.year,
+                                      selectedDate.month,
+                                      selectedDate.day,
+                                      selectedTime),
+                                  randomAlphaNumeric(12).toUpperCase(),
+                                  null,
+                                  (userState as UserLoaded).user.name,
+                                  null,
+                                )));
+                          }
+                        }),
                   ),
                 ),
-                //NOTE: CHOOSE DATE
-                Container(
-                  margin:
-                      EdgeInsets.fromLTRB(defaultMargin, 24, defaultMargin, 12),
-                  child: Text(
-                    "Pilih Tanggal",
-                    style: blackTextFont.copyWith(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(bottom: defaultMargin),
-                  height: 100,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: dates.length,
-                    itemBuilder: (_, index) => Container(
-                      margin: EdgeInsets.only(
-                        left: (index == 0) ? defaultMargin : 0,
-                        right: (index < dates.length - 1) ? 18 : defaultMargin,
-                      ),
-                      child: DateCard(
-                        dates[index],
-                        isSelected: selectedDate == dates[index],
-                        onTap: () {
-                          setState(() {
-                            selectedDate = dates[index];
-                            isValid = false;
-                            selectedTheater = null;
-                            selectedTime = null;
-                          });
-                        },
-                      ),
-                    ),
-                  ),
-                ),
-                //NOTE: CHOOSE TIME & LOCATION
-                generateTimeTable(),
-                SizedBox(height: 10),
-                //NOTE: BUTTON NEXT
-                Align(
-                  alignment: Alignment.topCenter,
-                  child: Container(
-                    height: 50,
-                    width: 250,
-                    margin: EdgeInsets.symmetric(horizontal: defaultMargin),
-                    child: BlocBuilder<UserBloc, UserState>(
-                      builder: (_, userState) => FloatingActionButton(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8)),
-                          backgroundColor: (isValid)
-                              ? mainColorPrimary
-                              : accentColorLightGray,
-                          elevation: 2,
-                          child: Text(
-                            "Lanjutkan",
-                            style: isValid
-                                ? whiteTextFont.copyWith(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                    letterSpacing: 0)
-                                : grayTextFont.copyWith(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                    letterSpacing: 0),
-                          ),
-                          onPressed: () {
-                            if (isValid) {
-                              context
-                                  .read<PageBloc>()
-                                  .add(GoToSelectSeatPage(Ticket(
-                                    widget.movieDetail,
-                                    selectedTheater,
-                                    DateTime(
-                                        selectedDate.year,
-                                        selectedDate.month,
-                                        selectedDate.day,
-                                        selectedTime),
-                                    randomAlphaNumeric(12).toUpperCase(),
-                                    null,
-                                    (userState as UserLoaded).user.name,
-                                    null,
-                                  )));
-                            }
-                          }),
-                    ),
-                  ),
-                )
-              ],
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );
