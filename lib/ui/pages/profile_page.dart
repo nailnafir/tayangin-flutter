@@ -241,6 +241,27 @@ class _ProfilePageState extends State<ProfilePage> {
       },
       child: Scaffold(
         backgroundColor: bgLight,
+        appBar: AppBar(
+          backgroundColor: bgLight,
+          brightness: Brightness.light,
+          leading: GestureDetector(
+            onTap: () {
+              context.read<PageBloc>().add(GoToMainPage(bottomNavBarIndex: 0));
+            },
+            child: Icon(
+              Icons.arrow_back,
+              color: Colors.black,
+            ),
+          ),
+          title: Text(
+            "Profil Saya",
+            style: blackTextFont.copyWith(
+              fontSize: 20,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          centerTitle: true,
+        ),
         body: SafeArea(
           child: ListView(
             children: <Widget>[
@@ -250,36 +271,6 @@ class _ProfilePageState extends State<ProfilePage> {
 
                   return Column(
                     children: [
-                      Container(
-                        margin: EdgeInsets.only(top: 16),
-                        child: Stack(
-                          children: <Widget>[
-                            Container(
-                              margin: EdgeInsets.only(left: defaultMargin),
-                              padding: EdgeInsets.all(1),
-                              alignment: Alignment.centerLeft,
-                              child: GestureDetector(
-                                onTap: () {
-                                  context
-                                      .read<PageBloc>()
-                                      .add(GoToMainPage(bottomNavBarIndex: 0));
-                                },
-                                child:
-                                    Icon(Icons.arrow_back, color: Colors.black),
-                              ),
-                            ),
-                            Center(
-                              child: Text(
-                                "Profil Saya",
-                                style: blackTextFont.copyWith(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
                       Stack(
                         children: <Widget>[
                           Container(
