@@ -78,7 +78,7 @@ class MovieDetailPage extends StatelessWidget {
                                   // NOTE: BACK ICON
                                   Container(
                                     margin: EdgeInsets.only(
-                                        left: defaultMargin, top: 16),
+                                        left: defaultMargin - 8, top: 16),
                                     padding: EdgeInsets.all(1),
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(5),
