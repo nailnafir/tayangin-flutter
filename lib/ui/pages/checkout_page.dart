@@ -21,20 +21,20 @@ class _CheckoutPageState extends State<CheckoutPage> {
       child: Scaffold(
         backgroundColor: bgLight,
         appBar: AppBar(
-          backgroundColor: mainColorPrimary,
-          brightness: Brightness.dark,
+          backgroundColor: bgLight,
+          brightness: Brightness.light,
           leading: GestureDetector(
             onTap: () {
               context.read<PageBloc>().add(GoToSelectSeatPage(widget.ticket));
             },
             child: Icon(
               Icons.arrow_back,
-              color: Colors.white,
+              color: Colors.black,
             ),
           ),
           title: Text(
             "Detail Pembelian",
-            style: whiteTextFont.copyWith(
+            style: blackTextFont.copyWith(
               fontSize: 20,
               fontWeight: FontWeight.w500,
             ),
