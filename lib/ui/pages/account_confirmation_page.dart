@@ -22,42 +22,40 @@ class _AccountConfirmationPageState extends State<AccountConfirmationPage> {
         return;
       },
       child: Scaffold(
-        body: Container(
-          color: Colors.white,
-          padding: EdgeInsets.symmetric(horizontal: defaultMargin),
-          child: ListView(
-            children: <Widget>[
-              Column(
+        backgroundColor: bgLight,
+        appBar: AppBar(
+          backgroundColor: mainColorPrimary,
+          brightness: Brightness.dark,
+          leading: GestureDetector(
+            onTap: () {
+              context
+                  .read<PageBloc>()
+                  .add(GoToPreferencePage(widget.registrationData));
+            },
+            child: Icon(
+              Icons.arrow_back,
+              color: Colors.white,
+            ),
+          ),
+          title: Text(
+            "Konfirmasi Akun",
+            style: whiteTextFont.copyWith(
+              fontSize: 20,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          centerTitle: true,
+        ),
+        body: ListView(
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: defaultMargin),
+              child: Column(
                 children: <Widget>[
-                  Container(
-                    margin: EdgeInsets.only(top: 16, bottom: 80),
-                    height: 24,
-                    child: Stack(
-                      children: <Widget>[
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: GestureDetector(
-                              onTap: () {
-                                context.read<PageBloc>().add(GoToPreferencePage(
-                                    widget.registrationData));
-                              },
-                              child: Icon(Icons.arrow_back)),
-                        ),
-                        Center(
-                          child: Text(
-                            "Konfirmasi Akun Kamu",
-                            style: blackTextFont.copyWith(
-                                fontSize: 20, fontWeight: FontWeight.w500),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
                   Container(
                     width: 150,
                     height: 150,
-                    margin: EdgeInsets.only(bottom: 30),
+                    margin: EdgeInsets.symmetric(vertical: 30),
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       image: DecorationImage(
@@ -140,9 +138,9 @@ class _AccountConfirmationPageState extends State<AccountConfirmationPage> {
                           ),
                         ),
                 ],
-              )
-            ],
-          ),
+              ),
+            )
+          ],
         ),
       ),
     );
