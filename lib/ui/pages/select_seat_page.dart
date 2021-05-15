@@ -21,42 +21,35 @@ class _SelectSeatPageState extends State<SelectSeatPage> {
         return;
       },
       child: Scaffold(
-        body: Stack(children: <Widget>[
-          Container(color: bgLight),
-          SafeArea(child: Container(color: bgLight)),
-          ListView(
+        backgroundColor: bgLight,
+        appBar: AppBar(
+          backgroundColor: bgLight,
+          brightness: Brightness.light,
+          leading: GestureDetector(
+            onTap: () {
+              context
+                  .read<PageBloc>()
+                  .add(GoToSelectSchedulePage(widget.ticket.movieDetail));
+            },
+            child: Icon(
+              Icons.arrow_back,
+              color: Colors.black,
+            ),
+          ),
+          title: Text(
+            "Tempat Duduk",
+            style: blackTextFont.copyWith(
+              fontSize: 20,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          centerTitle: true,
+        ),
+        body: SafeArea(
+          child: ListView(
             children: <Widget>[
               Column(
                 children: <Widget>[
-                  //NOTE: HEADER
-                  Container(
-                    margin: EdgeInsets.only(top: 16),
-                    child: Stack(
-                      children: <Widget>[
-                        Container(
-                          margin: EdgeInsets.only(left: defaultMargin),
-                          padding: EdgeInsets.all(1),
-                          alignment: Alignment.centerLeft,
-                          child: GestureDetector(
-                            onTap: () {
-                              context.read<PageBloc>().add(
-                                  GoToSelectSchedulePage(
-                                      widget.ticket.movieDetail));
-                            },
-                            child: Icon(Icons.arrow_back, color: Colors.black),
-                          ),
-                        ),
-                        Center(
-                          child: Text(
-                            "Tempat Duduk",
-                            style: blackTextFont.copyWith(
-                                fontSize: 20, fontWeight: FontWeight.w500),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
                   //NOTE: CINEMA SCREEN
                   Container(
                     margin: EdgeInsets.only(top: 30),
@@ -177,8 +170,8 @@ class _SelectSeatPageState extends State<SelectSeatPage> {
                 ],
               )
             ],
-          )
-        ]),
+          ),
+        ),
       ),
     );
   }
