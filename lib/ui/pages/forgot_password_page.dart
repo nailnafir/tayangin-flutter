@@ -18,42 +18,36 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
       },
       child: Scaffold(
         backgroundColor: bgLight,
+        appBar: AppBar(
+          backgroundColor: bgLight,
+          brightness: Brightness.light,
+          leading: GestureDetector(
+            onTap: () {
+              context.read<PageBloc>().add(GoToLoginPage());
+            },
+            child: Icon(
+              Icons.arrow_back,
+              color: Colors.black,
+            ),
+          ),
+          title: Text(
+            "Lupa Password",
+            style: blackTextFont.copyWith(
+              fontSize: 20,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          centerTitle: true,
+        ),
         body: SafeArea(
           child: ListView(
             children: [
               Container(
+                margin: EdgeInsets.only(top: 30),
                 padding: EdgeInsets.symmetric(horizontal: defaultMargin),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    //NOTE: HEADER
-                    Container(
-                      margin: EdgeInsets.only(top: 16, bottom: 30),
-                      child: Stack(
-                        children: <Widget>[
-                          GestureDetector(
-                            onTap: () {
-                              context.read<PageBloc>().add(GoToLoginPage());
-                            },
-                            child: Container(
-                              padding: EdgeInsets.all(1),
-                              alignment: Alignment.centerLeft,
-                              child:
-                                  Icon(Icons.arrow_back, color: Colors.black),
-                            ),
-                          ),
-                          Center(
-                            child: Text(
-                              "Lupa Password",
-                              style: blackTextFont.copyWith(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
                     //NOTE: INPUT TEXT
                     Text(
                       "Ikuti petunjuk ini:",
