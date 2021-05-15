@@ -99,14 +99,14 @@ class _SelectSchedulePageState extends State<SelectSchedulePage> {
               ),
               //NOTE: CHOOSE TIME & LOCATION
               generateTimeTable(),
-              SizedBox(height: 10),
               //NOTE: BUTTON NEXT
               Align(
                 alignment: Alignment.topCenter,
                 child: Container(
                   height: 50,
                   width: 250,
-                  margin: EdgeInsets.symmetric(horizontal: defaultMargin),
+                  margin:
+                      EdgeInsets.fromLTRB(defaultMargin, 10, defaultMargin, 30),
                   child: BlocBuilder<UserBloc, UserState>(
                     builder: (_, userState) => FloatingActionButton(
                         shape: RoundedRectangleBorder(
