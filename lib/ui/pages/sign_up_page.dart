@@ -40,40 +40,35 @@ class _SignUpPageState extends State<SignUpPage> {
         return;
       },
       child: Scaffold(
+        backgroundColor: bgLight,
+        appBar: AppBar(
+          backgroundColor: bgLight,
+          brightness: Brightness.light,
+          leading: GestureDetector(
+            onTap: () {
+              context.read<PageBloc>().add(GoToGetStartedPage());
+            },
+            child: Icon(
+              Icons.arrow_back,
+              color: Colors.black,
+            ),
+          ),
+          title: Text(
+            "Buat Akun Baru",
+            style: blackTextFont.copyWith(
+              fontSize: 20,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          centerTitle: true,
+        ),
         body: Container(
-          color: bgLight,
+          margin: EdgeInsets.only(top: 30),
           padding: EdgeInsets.symmetric(horizontal: defaultMargin),
           child: ListView(
             children: <Widget>[
               Column(
                 children: <Widget>[
-                  Container(
-                    margin: EdgeInsets.only(top: 16, bottom: 30),
-                    height: 24,
-                    child: Stack(
-                      children: <Widget>[
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: GestureDetector(
-                            onTap: () {
-                              context
-                                  .read<PageBloc>()
-                                  .add(GoToGetStartedPage());
-                            },
-                            child: Icon(Icons.arrow_back, color: Colors.black),
-                          ),
-                        ),
-                        Center(
-                          child: Text(
-                            "Buat Akun Baru",
-                            style: blackTextFont.copyWith(
-                                fontSize: 20, fontWeight: FontWeight.w500),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
                   Container(
                     width: 100,
                     height: 114,
