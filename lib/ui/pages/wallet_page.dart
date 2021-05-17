@@ -132,7 +132,7 @@ class _WalletPageState extends State<WalletPage> {
                                                     (userState as UserLoaded)
                                                         .user
                                                         .balance),
-                                            style: yellowNumberFont.copyWith(
+                                            style: whiteNumberFont.copyWith(
                                               fontSize: 28,
                                               fontWeight: FontWeight.w600,
                                             ),
