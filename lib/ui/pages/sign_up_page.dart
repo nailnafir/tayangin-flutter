@@ -62,12 +62,12 @@ class _SignUpPageState extends State<SignUpPage> {
           ),
           centerTitle: true,
         ),
-        body: Container(
-          margin: EdgeInsets.only(top: 30),
-          padding: EdgeInsets.symmetric(horizontal: defaultMargin),
-          child: ListView(
-            children: <Widget>[
-              Column(
+        body: ListView(
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 30),
+              padding: EdgeInsets.symmetric(horizontal: defaultMargin),
+              child: Column(
                 children: <Widget>[
                   Container(
                     width: 100,
@@ -263,9 +263,9 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                   ),
                 ],
-              )
-            ],
-          ),
+              ),
+            )
+          ],
         ),
       ),
     );
