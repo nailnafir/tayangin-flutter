@@ -75,7 +75,7 @@ class AboutAppsPage extends StatelessWidget {
                     ),
                     SizedBox(height: 12),
                     Text(
-                      "Versi 1.0.0\n${String.fromCharCode(169)}2020 - ${DateTime.now().year}. Tayangin.",
+                      "Versi 1.0.5\n${String.fromCharCode(169)}2020 - ${DateTime.now().year}. Tayangin.",
                       style: grayTextFont.copyWith(
                         fontSize: 12,
                         fontWeight: FontWeight.w400,
