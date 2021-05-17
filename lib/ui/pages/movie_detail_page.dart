@@ -78,11 +78,11 @@ class MovieDetailPage extends StatelessWidget {
                                   // NOTE: BACK ICON
                                   Container(
                                     margin: EdgeInsets.only(
-                                        left: defaultMargin - 8, top: 16),
-                                    padding: EdgeInsets.all(1),
+                                        left: defaultMargin - 10, top: 14),
+                                    padding: EdgeInsets.all(3),
                                     decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(5),
-                                        color: Colors.black.withOpacity(0.05)),
+                                        borderRadius: BorderRadius.circular(6),
+                                        color: Colors.black.withOpacity(0.1)),
                                     child: GestureDetector(
                                       onTap: () {
                                         context
