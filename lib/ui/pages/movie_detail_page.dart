@@ -53,9 +53,9 @@ class MovieDetailPage extends StatelessWidget {
                                         decoration: BoxDecoration(
                                           image: DecorationImage(
                                               image: NetworkImage(imageBaseURL +
-                                                      "w1280" +
-                                                      movie.backdropPath ??
-                                                  movie.posterPath),
+                                                  "w1280" +
+                                                  (movie.backdropPath ??
+                                                      movie.posterPath)),
                                               fit: BoxFit.cover),
                                         ),
                                       ),
