@@ -23,19 +23,34 @@ class CreditCard extends StatelessWidget {
                 ),
               ),
             ),
-            Container(
-              height: 80,
-              width: 70,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                image: (credit.profilePath == null)
-                    ? null
-                    : DecorationImage(
-                        image: NetworkImage(
-                            imageBaseURL + "w185" + credit.profilePath),
-                        fit: BoxFit.cover),
-              ),
-            ),
+            credit.profilePath == null
+                ? Container(
+                    height: 80,
+                    width: 70,
+                    padding: EdgeInsets.all(defaultMargin / 2),
+                    decoration: BoxDecoration(
+                      color: mainColorPrimary,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage("assets/user_pic_default.png"),
+                            fit: BoxFit.cover),
+                      ),
+                    ),
+                  )
+                : Container(
+                    height: 80,
+                    width: 70,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      image: DecorationImage(
+                          image: NetworkImage(
+                              imageBaseURL + "w185" + credit.profilePath),
+                          fit: BoxFit.cover),
+                    ),
+                  ),
           ],
         ),
         Container(
