@@ -18,7 +18,7 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.5+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.10.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -34,7 +34,7 @@ dependencies:
   flushbar: ^1.10.4
   flutter_bloc: ^7.0.0
   flutter_spinkit: ^4.1.2+1
-  flutter_svg: ^0.19.3
+  flutter_svg: ^0.22.0
   flutter_svg_provider: ^0.1.5
   fluttertoast: ^8.0.3
   google_fonts: ^2.0.0
