@@ -21,24 +21,62 @@ class ComingSoonCard extends StatelessWidget {
             highlightColor: Colors.grey[100],
             period: Duration(seconds: 1),
             child: Container(
-              width: 140,
-              height: 200,
+              margin: EdgeInsets.all(4),
+              width: MediaQuery.of(context).size.width,
+              height: 60,
               decoration: BoxDecoration(
                 color: Colors.grey,
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(defaultMargin / 2),
               ),
             ),
           ),
-          Container(
-            width: 140,
-            height: 200,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              image: DecorationImage(
-                  image: NetworkImage(imageBaseURL +
-                      "w780" +
-                      (movie.posterPath ?? movie.backdropPath)),
-                  fit: BoxFit.cover),
+          Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(defaultMargin / 2),
+            ),
+            elevation: 2,
+            color: Colors.white,
+            child: Container(
+              padding: EdgeInsets.all(defaultMargin / 2),
+              child: Row(
+                children: [
+                  Container(
+                    width: 60,
+                    height: 60,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(defaultMargin / 2),
+                      image: DecorationImage(
+                        image: NetworkImage(imageBaseURL +
+                            "w780" +
+                            (movie.posterPath ?? movie.backdropPath)),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: defaultMargin / 2),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width - 160,
+                        child: Text(
+                          movie.title,
+                          maxLines: 2,
+                          style:
+                              blackTextFont.copyWith(fontSize: 18, height: 1.2),
+                          overflow: TextOverflow.clip,
+                        ),
+                      ),
+                      SizedBox(height: defaultMargin / 8),
+                      RatingStars(
+                        voteAverage: movie.voteAverage,
+                        color: Colors.black,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ],

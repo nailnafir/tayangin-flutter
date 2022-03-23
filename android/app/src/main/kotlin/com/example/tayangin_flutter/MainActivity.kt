@@ -1,4 +1,4 @@
-package com.example.tayangin_flutter
+package com.nailnafir.tayangin
 
 import io.flutter.embedding.android.FlutterActivity
 

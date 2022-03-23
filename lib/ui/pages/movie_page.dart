@@ -1,6 +1,13 @@
 part of 'pages.dart';
 
-class MoviePage extends StatelessWidget {
+class MoviePage extends StatefulWidget {
+  @override
+  State<MoviePage> createState() => _MoviePageState();
+}
+
+class _MoviePageState extends State<MoviePage> {
+  int _currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     // deklarasi firebase user
@@ -170,29 +177,40 @@ class MoviePage extends StatelessWidget {
                               fontSize: 18, fontWeight: FontWeight.w500)),
                     ),
                     SizedBox(
-                      height: 140,
+                      height: 365,
                       child: BlocBuilder<MovieBloc, MovieState>(
                           builder: (_, movieState) {
                         if (movieState is MovieLoaded) {
                           List<Movie> movies = movieState.movies.sublist(0, 10);
-                          return ListView.builder(
-                            scrollDirection: Axis.horizontal,
+                          return CarouselSlider.builder(
+                            carouselController: CarouselController(),
                             itemCount: movies.length,
-                            itemBuilder: (_, index) => Container(
-                              margin: EdgeInsets.only(
-                                  left: (index == 0) ? defaultMargin : 0,
-                                  right: (index == movies.length - 1)
-                                      ? defaultMargin
-                                      : 18),
-                              child: MovieCard(
-                                movies[index],
-                                onTap: () {
-                                  context
-                                      .read<PageBloc>()
-                                      .add(GoToMovieDetailPage(movies[index]));
-                                },
-                              ),
+                            options: CarouselOptions(
+                              autoPlay: true,
+                              enlargeCenterPage: true,
+                              disableCenter: true,
+                              viewportFraction: 0.6,
+                              aspectRatio: 0.87,
+                              initialPage: 2,
+                              onPageChanged: (index, reason) {
+                                setState(() {
+                                  _currentIndex = index;
+                                });
+                              },
                             ),
+                            itemBuilder: (BuildContext context, int itemIndex,
+                                int pageViewIndex) {
+                              return MovieCard(
+                                movies[itemIndex],
+                                currentIndex: _currentIndex,
+                                pageViewIndex: pageViewIndex,
+                                itemIndex: itemIndex,
+                                onTap: () {
+                                  context.read<PageBloc>().add(
+                                      GoToMovieDetailPage(movies[itemIndex]));
+                                },
+                              );
+                            },
                           );
                         } else {
                           return SpinKitThreeBounce(
@@ -206,7 +224,7 @@ class MoviePage extends StatelessWidget {
                     //NOTE: KATEGORI FILM
                     Container(
                       margin: EdgeInsets.fromLTRB(
-                          defaultMargin, 30, defaultMargin, 12),
+                          defaultMargin, 20, defaultMargin, 12),
                       child: Text(
                         "Kategori Film",
                         style: blackTextFont.copyWith(
@@ -251,37 +269,33 @@ class MoviePage extends StatelessWidget {
                           style: blackTextFont.copyWith(
                               fontSize: 18, fontWeight: FontWeight.w500)),
                     ),
-                    SizedBox(
-                      height: 200,
-                      child: BlocBuilder<MovieBloc, MovieState>(
-                          builder: (_, movieState) {
-                        if (movieState is MovieLoaded) {
-                          List<Movie> movies =
-                              movieState.movies.sublist(10, 20);
-                          return ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            itemCount: movies.length,
-                            itemBuilder: (_, index) => Container(
+                    BlocBuilder<MovieBloc, MovieState>(
+                        builder: (_, movieState) {
+                      if (movieState is MovieLoaded) {
+                        List<Movie> movies = movieState.movies.sublist(10, 20);
+                        return Column(
+                          children: List.generate(movies.length, (index) {
+                            return Container(
                               margin: EdgeInsets.only(
-                                  left: (index == 0) ? defaultMargin : 0,
-                                  right: (index == movies.length - 1)
-                                      ? defaultMargin
-                                      : 18),
+                                  left: defaultMargin,
+                                  right: defaultMargin,
+                                  top: (index == 0) ? 0 : defaultMargin / 4,
+                                  bottom: (index == movies.length - 1) ? 0 : 0),
                               child: ComingSoonCard(movies[index], onTap: () {
                                 context
                                     .read<PageBloc>()
                                     .add(GoToMovieDetailPage(movies[index]));
                               }),
-                            ),
-                          );
-                        } else {
-                          return SpinKitThreeBounce(
-                            color: mainColorPrimary,
-                            size: 50,
-                          );
-                        }
-                      }),
-                    ),
+                            );
+                          }),
+                        );
+                      } else {
+                        return SpinKitThreeBounce(
+                          color: mainColorPrimary,
+                          size: 50,
+                        );
+                      }
+                    }),
 
                     // NOTE: PROMO
                     Container(
@@ -309,7 +323,9 @@ class MoviePage extends StatelessWidget {
                               ))
                           .toList(),
                     ),
-                    SizedBox(height: 100),
+                    SizedBox(
+                      height: 100,
+                    ),
                   ],
                 ),
               ),
